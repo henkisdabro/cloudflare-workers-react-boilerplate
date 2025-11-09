@@ -1,165 +1,345 @@
-# Project Template: Vite, React, TypeScript & Cloudflare Workers
+# Cloudflare Workers + React Boilerplate Template
 
-This boilerplate provides a production-ready starting point for building high-performance, full-stack web applications and deploying them globally on the Cloudflare network.
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.1-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
+[![Claude Code](https://img.shields.io/badge/Optimized_for-Claude_Code-5436DA?style=flat)](https://claude.com/claude-code)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> **Production-ready boilerplate for building full-stack web applications with React and Cloudflare Workers, optimized for AI-assisted development with Claude Code.**
+
+Build globally-distributed, edge-native web applications with integrated AI capabilities, serverless databases, and automated CI/CD — all in one template.
 
 ---
 
-## 🚀 How to Use This Template
+## 🎯 What Is This?
 
-Follow these steps to spin up a new project.
+This is a **comprehensive website development template** designed for building modern web applications that deploy to **Cloudflare's global edge network**. It combines:
 
-### ✅ Step 1: Create Your New Repository
+- **Frontend**: React 19 + TypeScript + Vite (ultra-fast development)
+- **Backend**: Cloudflare Workers (serverless edge functions)
+- **AI Integration**: Built-in support for Claude API, Workers AI, and AI Gateway
+- **Database**: Native Cloudflare D1 (SQL) and KV (key-value) storage
+- **CI/CD**: Automated GitHub Actions deployment pipeline
+- **Developer Experience**: Claude Code slash commands for rapid development
 
-1. On the GitHub page for this boilerplate, click the green "**Use this template**" button.
-2. Choose a name for your new repository and click "**Create repository from template**".
-3. Clone your newly created repository to your local machine:
+### Perfect For:
 
-    ```bash
-    git clone https://github.com/your-username/your-new-repo-name.git
-    ```
+✅ Full-stack web applications
+✅ AI-powered SaaS products
+✅ Real-time APIs and microservices
+✅ Global-scale websites with edge performance
+✅ Developers using Claude Code or AI pair programming
 
-4. Navigate into the project directory and install the dependencies:
+### Not Suitable For:
 
-    ```bash
-    cd your-new-repo-name && npm install
-    ```
+❌ Static sites only (use Cloudflare Pages instead)
+❌ Traditional server-based Node.js apps
+❌ Projects requiring server-side rendering (SSR)
 
-### ✅ Step 2: Configure Cloudflare Deployment Secrets
+---
 
-The deployment is fully automated via GitHub Actions, but it needs your Cloudflare credentials to work. You only need to do this once for each new project.
+## 🏗️ Architecture & Tech Stack
 
-**Note:** You do **not** need to manually create a Cloudflare Workers project. The first deployment will automatically create the Worker based on the `name` field in `wrangler.jsonc`.
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    CLOUDFLARE GLOBAL EDGE                    │
+│                                                              │
+│  ┌────────────────────┐         ┌──────────────────────┐   │
+│  │   Static Assets    │         │  Cloudflare Worker   │   │
+│  │   (React SPA)      │         │  (API Endpoints)     │   │
+│  │                    │         │                      │   │
+│  │  • React 19        │         │  • TypeScript        │   │
+│  │  • Vite Build      │         │  • Edge Functions    │   │
+│  │  • SPA Routing     │         │  • 0ms cold start    │   │
+│  └────────────────────┘         └──────────────────────┘   │
+│           │                              │                  │
+│           └──────────────┬───────────────┘                  │
+│                          │                                  │
+│  ┌───────────────────────▼──────────────────────────────┐  │
+│  │          CLOUDFLARE BINDINGS & SERVICES              │  │
+│  │                                                       │  │
+│  │  • D1 (SQLite Database)    • KV (Key-Value Store)   │  │
+│  │  • R2 (Object Storage)     • Queues (Message Bus)   │  │
+│  │  • Workers AI (Edge AI)    • AI Gateway (Caching)   │  │
+│  │  • Analytics Engine        • Durable Objects        │  │
+│  └───────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────┘
+```
 
-1. **Get your Cloudflare Account ID:**
-    * Log in to the [Cloudflare dashboard](https://dash.cloudflare.com).
-    * On the homepage (Workers & Pages overview), your **Account ID** is listed in the right-hand sidebar under "Account details".
-    * Alternatively, find it at: [https://dash.cloudflare.com/?to=/:account/workers](https://dash.cloudflare.com) (look in the right sidebar).
-    * Copy the Account ID.
+### Core Technologies
 
-2. **Create a Cloudflare API Token:**
-    * From your Cloudflare dashboard, go to **My Profile** > **API Tokens** or visit [https://dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens).
-    * Click "**Create Token**" and use the "**Edit Cloudflare Workers**" template.
-    * Under "**Account Resources**", ensure your account is selected.
-    * Under "**Zone Resources**", you can select "All zones" for simplicity.
-    * Continue to the summary and create the token. **Copy the generated token immediately**, as you will not see it again.
+| Layer | Technology | Version | Purpose |
+|-------|-----------|---------|---------|
+| **Frontend** | React | 19.1 | UI framework |
+| **Build Tool** | Vite | 7.1 | Lightning-fast dev server & bundler |
+| **Language** | TypeScript | 5.8 | Type-safe development |
+| **Runtime** | Cloudflare Workers | Latest | Serverless edge compute |
+| **Package Manager** | npm | Any | Dependency management |
+| **CI/CD** | GitHub Actions | N/A | Automated deployment |
 
-3. **Add Secrets to Your GitHub Repository:**
-    * In your new repository on GitHub, go to **Settings > Secrets and variables > Actions**.
-    * Click "**New repository secret**".
-    * Create a secret named `CLOUDFLARE_ACCOUNT_ID` and paste your Account ID.
-    * Create another secret named `CLOUDFLARE_API_TOKEN` and paste your API Token.
+### Cloudflare Products Integrated
 
-### ✅ Step 3: Develop Locally and Deploy Globally
+- **Workers** - Serverless edge compute (your API backend)
+- **D1** - Serverless SQLite database at the edge
+- **KV** - Ultra-fast key-value storage
+- **R2** - S3-compatible object storage *(setup helper included)*
+- **Workers AI** - Edge-native AI inference *(examples included)*
+- **AI Gateway** - Caching & analytics for AI APIs *(examples included)*
+- **Queues** - Message queue system *(setup helper included)*
+- **Analytics Engine** - Custom analytics *(setup helper included)*
 
-* **To run the local development server:**
+---
 
-    ```bash
-    npm run dev
-    ```
+## 🚀 Deployment Pipeline
 
-* **To deploy your application:** Simply commit your code and push it to the `main` branch. GitHub Actions will automatically build and deploy it for you.
+### Fully Automated CI/CD
 
-    ```bash
-    git add .
-    git commit -m "My awesome new feature"
-    git push origin main
-    ```
+Every push to `main` triggers automatic deployment:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     DEPLOYMENT PIPELINE                         │
+└─────────────────────────────────────────────────────────────────┘
+
+  Developer                GitHub                 Cloudflare
+      │                      │                         │
+      │  git push main       │                         │
+      ├─────────────────────>│                         │
+      │                      │                         │
+      │                      │  Trigger Action         │
+      │                      ├────────┐                │
+      │                      │        │                │
+      │                      │   ┌────▼─────┐          │
+      │                      │   │  Build   │          │
+      │                      │   │          │          │
+      │                      │   │ 1. npm install      │
+      │                      │   │ 2. tsc -b (compile) │
+      │                      │   │ 3. vite build       │
+      │                      │   └────┬─────┘          │
+      │                      │        │                │
+      │                      │   ┌────▼─────┐          │
+      │                      │   │  Deploy  │          │
+      │                      │   │          │          │
+      │                      │   │ wrangler deploy     │
+      │                      │   └────┬─────┘          │
+      │                      │        │                │
+      │                      │        │  Deploy via API │
+      │                      │        └────────────────>│
+      │                      │                         │
+      │                      │                    ┌────▼─────┐
+      │                      │                    │  Global  │
+      │                      │                    │   Edge   │
+      │                      │                    │  Deploy  │
+      │                      │                    └──────────┘
+      │                      │                         │
+      │  ✅ Deployment URL   │                         │
+      │<─────────────────────┼─────────────────────────┤
+      │                      │                         │
+```
+
+### Pipeline Configuration
+
+**Defined in**: `.github/workflows/deploy.yml`
+
+**Secrets Required** (one-time setup):
+- `CLOUDFLARE_API_TOKEN` - Workers deployment permission
+- `CLOUDFLARE_ACCOUNT_ID` - Your Cloudflare account ID
+
+**Build Steps**:
+1. Install dependencies (`npm install`)
+2. Compile TypeScript (`tsc -b`)
+3. Build production bundle (`vite build`)
+4. Deploy to Cloudflare Workers (`wrangler deploy`)
+
+**Result**: Your app is live globally on Cloudflare's edge network (300+ cities)
+
+---
+
+## ⚡ Quick Start
+
+### Prerequisites
+
+- **Node.js** 18+ and npm
+- **Cloudflare Account** ([sign up free](https://dash.cloudflare.com/sign-up))
+- **GitHub Account** (for automated deployment)
+- **Claude Code** *(optional, but recommended)* - [Get it here](https://claude.com/claude-code)
+
+### 1️⃣ Create Your Project
+
+Click **"Use this template"** on GitHub, then:
+
+```bash
+# Clone your new repository
+git clone https://github.com/your-username/your-new-repo.git
+cd your-new-repo
+
+# Install dependencies
+npm install
+```
+
+### 2️⃣ Configure Deployment (One-Time Setup)
+
+You need two values from your Cloudflare dashboard:
+
+**Get your Cloudflare Account ID:**
+1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com)
+2. Go to Workers & Pages
+3. Copy your **Account ID** from the right sidebar
+
+**Create an API Token:**
+1. Go to [API Tokens](https://dash.cloudflare.com/profile/api-tokens)
+2. Click **"Create Token"**
+3. Use the **"Edit Cloudflare Workers"** template
+4. Copy the generated token immediately
+
+**Add secrets to GitHub:**
+1. In your GitHub repo: **Settings** → **Secrets and variables** → **Actions**
+2. Click **"New repository secret"**
+3. Add `CLOUDFLARE_ACCOUNT_ID` with your account ID
+4. Add `CLOUDFLARE_API_TOKEN` with your API token
+
+### 3️⃣ Start Developing
+
+```bash
+# Start local development server
+npm run dev
+```
+
+Visit **http://localhost:5173** - your app is running!
+
+### 4️⃣ Deploy to Production
+
+```bash
+# Commit your changes
+git add .
+git commit -m "Initial setup"
+
+# Push to main branch (auto-deploys via GitHub Actions)
+git push origin main
+```
+
+✅ **Your app is now live globally!** Check the Actions tab for your deployment URL.
 
 ---
 
 ## 🤖 Claude Code Integration
 
-This template includes built-in Claude Code slash commands to streamline your development workflow.
+This template is **optimized for AI-assisted development** with Claude Code, featuring interactive slash commands that accelerate your workflow.
 
 ### Quick Start with Claude Code
 
-If you're using [Claude Code](https://claude.com/claude-code), run this command after cloning:
+After cloning this template, open it in Claude Code and run:
 
 ```
 /new-project
 ```
 
-This interactive assistant will:
-- Help you configure your project name
+This interactive wizard will:
+- Configure your project name
 - Guide you through Cloudflare setup
 - Configure GitHub Actions secrets
 - Test your local environment
-- Create your first feature PRP
+- Help you create your first feature
 
-### Available Commands
+### Available Slash Commands
 
-**Project Setup & Planning:**
-- **`/new-project`** - Interactive setup wizard for new projects
-- **`/generate-prp <feature>`** - Create a Product Requirement Plan with comprehensive research
-- **`/execute-prp <file>`** - Implement a feature from a PRP
-
-**AI & Database Features:**
-- **`/add-ai-feature`** - Add AI capabilities to your app (Claude API, Workers AI, or AI Gateway)
-- **`/setup-database`** - Set up D1 SQL database or KV storage with guided configuration
-- **`/add-binding`** - Add any Cloudflare binding (R2, Queues, Durable Objects, etc.) (coming soon)
+| Command | Description |
+|---------|-------------|
+| `/new-project` | Complete project setup wizard |
+| `/generate-prp <feature>` | Create a comprehensive Product Requirement Plan |
+| `/execute-prp <file>` | Implement a feature from a PRP |
+| `/add-ai-feature` | Add AI capabilities (Claude API, Workers AI, AI Gateway) |
+| `/setup-database` | Set up D1 (SQL) or KV (key-value) storage |
+| `/add-binding` | Add Cloudflare bindings (R2, Queues, etc.) |
 
 ### Example Workflow
 
 ```bash
-# 1. Set up your new project
+# 1. Set up your project
 /new-project
 
-# 2. Generate a plan for your first feature
-/generate-prp "Add contact form with Cloudflare D1 storage"
+# 2. Add AI chat feature
+/add-ai-feature
+# Choose: Claude API → Streaming Chat
+# Result: Complete chat UI + API endpoint generated
 
-# 3. Implement the feature
-/execute-prp PRPs/contact-form.md
+# 3. Add database for chat history
+/setup-database
+# Choose: D1 (SQL)
+# Result: Database created, migrations generated, types updated
+
+# 4. Generate implementation plan
+/generate-prp "Save chat history to D1 database"
+
+# 5. Execute the plan
+/execute-prp PRPs/chat-history.md
 ```
 
-See [`.claude/README.md`](.claude/README.md) for detailed documentation.
+See **[.claude/README.md](.claude/README.md)** for complete documentation.
 
 ---
 
-## 🤖 AI-Powered Applications
+## 🤖 AI Integration Features
 
-This template now includes comprehensive support for building AI-powered applications using industry-leading AI platforms. Whether you need conversational interfaces, content generation, or intelligent data processing, you have multiple integration options.
+Build AI-powered applications with **zero infrastructure setup**. This template includes ready-to-use patterns for integrating AI into your web app.
 
-### AI Integration Options
+### AI Options
 
-- **Claude API** - Direct integration with Anthropic's Claude for advanced reasoning and long-context conversations
-- **Workers AI** - Cloudflare's edge AI inference for low-latency, cost-effective AI operations
-- **AI Gateway** - Cloudflare's intelligent caching and rate-limiting layer for production AI deployments
+| Option | Best For | Setup Time | Cost |
+|--------|----------|------------|------|
+| **Claude API** | Advanced reasoning, long conversations | 2 min | Pay per token |
+| **Workers AI** | Edge inference, cost-effective | 1 min | Included in Workers |
+| **AI Gateway** | Production apps with caching | 5 min | Reduces AI costs 30-80% |
 
-### Quick Start: Add AI to Your App
+### Quick Start: Add AI
 
 ```bash
-# Interactive AI feature setup
+# Interactive AI setup wizard
 /add-ai-feature
 ```
 
-This command will guide you through:
-- Choosing the right AI platform (Claude API, Workers AI, or AI Gateway)
-- Setting up API keys and bindings
-- Implementing common patterns (chat, streaming, content generation)
-- Configuring security and rate limiting
+Choose your AI provider and feature type:
+- ✅ Simple chat interface
+- ✅ Streaming responses (real-time)
+- ✅ Text completion/generation
+- ✅ Embeddings for semantic search
+- ✅ Image generation (Workers AI)
 
-### Working Examples
+### Working Examples Included
 
-Explore complete AI integration examples in **[examples/ai/](examples/ai/)**:
-- **Simple Claude Chat** - Basic chat interface
-- **Streaming Chat** - Real-time streaming responses
-- **Workers AI Chat** - Edge AI integration
-- **AI Gateway** - Production-ready caching and optimization
+Explore **[examples/ai/](examples/ai/)** for complete implementations:
+
+1. **Simple Claude Chat** - Basic chat with Claude API
+2. **Streaming Chat** - Real-time streaming with Server-Sent Events
+3. **Workers AI Chat** - Edge AI with Llama/Mistral models
+4. **AI Gateway Integration** - Production caching & cost optimization
+
+Each example includes:
+- ✅ Complete React component (UI)
+- ✅ Worker endpoint (API)
+- ✅ TypeScript types
+- ✅ Security best practices
+- ✅ Setup documentation
 
 ### Learn More
 
-For detailed guides, best practices, and integration patterns, see **[AI_INTEGRATION.md](AI_INTEGRATION.md)**.
+📖 **[AI_INTEGRATION.md](AI_INTEGRATION.md)** - Comprehensive AI integration guide
 
 ---
 
 ## 💾 Database & Storage
 
-Built-in support for Cloudflare's serverless storage solutions means zero-latency data access at the edge with no infrastructure to manage.
+Serverless, edge-native data storage with **zero configuration** and **global replication**.
 
 ### Storage Options
 
-- **D1 (SQL Database)** - Serverless SQLite for relational data, complex queries, and transactions
-- **KV (Key-Value)** - Ultra-fast key-value storage for caching, sessions, and configuration
+| Storage | Type | Best For | Latency |
+|---------|------|----------|---------|
+| **D1** | SQL (SQLite) | Relational data, complex queries | <5ms |
+| **KV** | Key-Value | Sessions, cache, config | <1ms |
+| **R2** | Object Storage | Files, images, videos | N/A |
 
 ### Quick Start: Add Database
 
@@ -168,58 +348,248 @@ Built-in support for Cloudflare's serverless storage solutions means zero-latenc
 /setup-database
 ```
 
-This command will help you:
-- Choose between D1 (SQL) or KV (key-value) based on your needs
+This wizard will:
+- Help you choose D1 (SQL) or KV (key-value)
 - Create the database/namespace
-- Configure bindings in wrangler.jsonc
+- Update `wrangler.jsonc` configuration
 - Generate TypeScript types
-- Set up migrations (for D1)
+- Create migration files (D1)
+- Provide example CRUD code
 
-### Working Examples
+### Working Examples Included
 
-Explore database patterns in **[examples/database/](examples/database/)**:
-- **D1 Contact Form** - Complete form with database storage and migrations
-- **KV Sessions** - Session management with Cloudflare KV
+Explore **[examples/database/](examples/database/)** for patterns:
+
+1. **D1 Contact Form** - Complete CRUD with SQLite
+   - Schema design
+   - Migration files
+   - SQL injection prevention
+   - React form + Worker API
+
+2. **KV Sessions** - Session management
+   - Secure cookie handling
+   - Session middleware
+   - React auth provider
+   - Login/logout flow
 
 ### Learn More
 
-For detailed documentation on Cloudflare Workers bindings and storage, see **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)**.
+📖 **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** - Complete Cloudflare Workers guide
 
 ---
 
-## 📚 Examples & Patterns
+## 📚 Examples & Reference Implementations
 
-The **`examples/`** directory contains production-ready reference implementations you can copy and adapt to your project. Each example is self-contained with its own documentation and demonstrates a specific pattern or integration.
+The **`examples/`** directory contains **production-ready code** you can copy directly into your project.
 
 ### Available Examples
 
-**AI Integration** - `examples/ai/`
-- Simple Claude Chat - Basic chat interface with Claude API
-- Streaming Chat - Real-time streaming responses with SSE
-- Workers AI Chat - Edge AI with Cloudflare Workers AI
-- AI Gateway - Production caching and optimization
+**AI Integration** → `examples/ai/`
+- Simple Claude Chat
+- Streaming Chat (SSE)
+- Workers AI Chat
+- AI Gateway Integration
 
-**Database & Storage** - `examples/database/`
-- D1 Contact Form - Complete CRUD example with migrations
-- KV Sessions - Session management patterns
+**Database** → `examples/database/`
+- D1 Contact Form (SQL CRUD)
+- KV Sessions (Auth)
 
 ### How to Use Examples
 
-Each example includes:
-- **README.md** - Setup instructions and explanation
-- **Source Code** - Frontend (React) and Worker (API) code
-- **Configuration** - Example wrangler.jsonc bindings
-- **Migrations** - Database schemas (for D1 examples)
+Each example is **self-contained** and includes:
 
-To integrate an example:
+```
+example-name/
+├── README.md              # Setup guide
+├── worker-endpoint.ts     # API code
+├── Component.tsx          # React UI
+├── types.ts              # TypeScript types
+├── schema.sql            # Database schema (if applicable)
+└── PRP.md                # Implementation plan
+```
 
-1. Browse the examples directory
-2. Read the example's README for prerequisites
-3. Copy relevant code to your project
-4. Update your wrangler.jsonc with required bindings
+**Integration steps:**
+
+1. Browse `examples/` directory
+2. Read the example's README
+3. Copy code to your project (`src/` for React, `worker/` for API)
+4. Update `wrangler.jsonc` with required bindings
 5. Run `npm run cf-typegen` to generate types
 6. Test with `npm run dev`
 
-See **[examples/README.md](examples/README.md)** for detailed integration guides.
+📖 **[examples/README.md](examples/README.md)** - Complete integration guide
 
 ---
+
+## 🛠️ Development Commands
+
+```bash
+# Development
+npm run dev          # Start local dev server (http://localhost:5173)
+npm run build        # Build for production
+npm run preview      # Preview production build locally
+npm run lint         # Run ESLint
+
+# Deployment
+npm run deploy       # Build and deploy to Cloudflare Workers
+git push origin main # Auto-deploy via GitHub Actions
+
+# Cloudflare
+npm run cf-typegen   # Generate TypeScript types for bindings
+
+# Wrangler CLI (Cloudflare Workers)
+npx wrangler d1 create <db-name>           # Create D1 database
+npx wrangler d1 migrations apply <db-name> # Run migrations
+npx wrangler kv namespace create <name>    # Create KV namespace
+npx wrangler secret put <SECRET_NAME>      # Add secret
+npx wrangler tail                          # Stream logs
+```
+
+---
+
+## 🗂️ Project Structure
+
+```
+cloudflare-workers-react-boilerplate/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml           # GitHub Actions CI/CD pipeline
+├── .claude/
+│   ├── commands/                # Claude Code slash commands
+│   │   ├── new-project.md
+│   │   ├── add-ai-feature.md
+│   │   ├── setup-database.md
+│   │   └── ...
+│   └── templates/               # Code generation templates
+├── examples/
+│   ├── ai/                      # AI integration examples
+│   │   ├── simple-claude-chat/
+│   │   ├── streaming-chat/
+│   │   ├── workers-ai-chat/
+│   │   └── with-ai-gateway/
+│   └── database/                # Database examples
+│       ├── d1-contact-form/
+│       └── kv-sessions/
+├── src/
+│   ├── App.tsx                  # Main React component
+│   ├── main.tsx                 # React entry point
+│   └── ...                      # Your frontend code
+├── worker/
+│   └── index.ts                 # Cloudflare Worker (API endpoints)
+├── public/                      # Static assets
+├── wrangler.jsonc               # Cloudflare Workers configuration
+├── vite.config.ts               # Vite configuration
+├── tsconfig.json                # TypeScript config (root)
+├── tsconfig.app.json            # TypeScript config (React app)
+├── tsconfig.worker.json         # TypeScript config (Worker)
+├── package.json                 # Dependencies and scripts
+├── AI_INTEGRATION.md            # AI integration guide
+├── CLOUDFLARE_WORKERS.md        # Cloudflare Workers guide
+├── CLAUDE.md                    # Claude Code instructions
+└── README.md                    # This file
+```
+
+---
+
+## 🔐 Security Best Practices
+
+This template follows security best practices:
+
+✅ **No secrets in code** - All API keys stored in environment variables
+✅ **SQL injection prevention** - Parameterized queries in all examples
+✅ **Input validation** - All API endpoints validate inputs
+✅ **CORS configured** - Proper cross-origin resource sharing
+✅ **Secrets management** - Cloudflare secrets for sensitive data
+✅ **Type safety** - TypeScript throughout for compile-time safety
+
+### Managing Secrets
+
+**Never commit secrets to Git!**
+
+**Local development** (`.dev.vars` file - gitignored):
+```bash
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+DATABASE_URL=your-local-db
+```
+
+**Production** (Cloudflare secrets):
+```bash
+npx wrangler secret put ANTHROPIC_API_KEY
+npx wrangler secret put DATABASE_URL
+```
+
+---
+
+## 📖 Documentation
+
+| Document | Description |
+|----------|-------------|
+| **[README.md](README.md)** | This file - Overview and quick start |
+| **[CLAUDE.md](CLAUDE.md)** | Developer guidelines and AI coding instructions |
+| **[AI_INTEGRATION.md](AI_INTEGRATION.md)** | Complete AI integration guide |
+| **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** | Cloudflare Workers operations guide |
+| **[.claude/README.md](.claude/README.md)** | Claude Code slash commands documentation |
+| **[examples/README.md](examples/README.md)** | How to use and integrate examples |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! This is a community-driven template.
+
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+You are free to:
+- ✅ Use commercially
+- ✅ Modify
+- ✅ Distribute
+- ✅ Use privately
+
+---
+
+## 🙏 Acknowledgments
+
+Built with amazing open-source technologies:
+
+- **[React](https://react.dev)** - UI framework
+- **[Vite](https://vitejs.dev)** - Build tool
+- **[TypeScript](https://www.typescriptlang.org/)** - Language
+- **[Cloudflare Workers](https://workers.cloudflare.com/)** - Edge compute platform
+- **[Claude Code](https://claude.com/claude-code)** - AI pair programming
+
+---
+
+## 🚦 Status
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/your-repo/deploy.yml?branch=main)
+![Last Commit](https://img.shields.io/github/last-commit/your-username/your-repo)
+![Issues](https://img.shields.io/github/issues/your-username/your-repo)
+
+---
+
+## 💬 Support
+
+- 📖 **Documentation**: Check the `/docs` folder and linked guides
+- 💡 **Examples**: Explore the `examples/` directory
+- 🐛 **Issues**: [Open an issue](https://github.com/your-username/your-repo/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/your-username/your-repo/discussions)
+
+---
+
+<div align="center">
+
+**⚡ Built with Cloudflare Workers • 🤖 Optimized for Claude Code • 🚀 Production Ready**
+
+[Use This Template](https://github.com/your-username/your-repo/generate) • [View Examples](examples/) • [Read Docs](CLAUDE.md)
+
+</div>

@@ -30,6 +30,7 @@ interface SessionContextValue {
   error: string | null;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const SessionContext = createContext<SessionContextValue | undefined>(
   undefined
 );

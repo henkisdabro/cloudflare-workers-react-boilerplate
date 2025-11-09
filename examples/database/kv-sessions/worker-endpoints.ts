@@ -19,7 +19,6 @@
  */
 
 import type {
-  LoginRequest,
   SessionResponse,
   LogoutResponse,
   ErrorResponse,

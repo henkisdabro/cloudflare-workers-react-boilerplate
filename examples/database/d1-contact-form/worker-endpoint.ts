@@ -18,7 +18,6 @@
 
 import type {
   ContactRow,
-  CreateContactRequest,
   ContactResponse,
   ContactListResponse,
   ErrorResponse

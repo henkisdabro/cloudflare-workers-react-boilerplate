@@ -222,6 +222,27 @@ git push origin main
 
 ✅ **Your app is now live globally!** Check the Actions tab for your deployment URL.
 
+### 5️⃣ Connect Custom Domain (Optional)
+
+Your Worker is accessible at `https://your-worker.workers.dev`, but you can connect a custom domain:
+
+**If DNS is on Cloudflare:**
+```bash
+npx wrangler domains add yourdomain.com
+# or for a subdomain:
+npx wrangler domains add www.yourdomain.com
+```
+
+**If DNS is elsewhere** (GoDaddy, Namecheap, AWS Route 53, etc.):
+- Use `/new-project` command for provider-specific instructions
+- Or manually add a CNAME record pointing to your `.workers.dev` URL
+
+**Deferred Setup:**
+- Run `/new-project` and choose "set up later"
+- A `.domain-setup-reminder.md` file will be created with detailed instructions
+
+📖 See `.claude/commands/new-project.md` for complete domain setup guide.
+
 ---
 
 ## 🤖 Claude Code Integration
@@ -237,9 +258,13 @@ After cloning this template, open it in Claude Code and run:
 ```
 
 This interactive wizard will:
-- Configure your project name
+- Configure your project name and metadata
 - Guide you through Cloudflare setup
 - Configure GitHub Actions secrets
+- Set up custom domain (optional):
+  - Connect domains hosted on Cloudflare DNS
+  - Provide DNS setup instructions for external providers (GoDaddy, Namecheap, AWS Route 53, etc.)
+  - Create reminder file for deferred domain setup
 - Test your local environment
 - Help you create your first feature
 
@@ -257,8 +282,10 @@ This interactive wizard will:
 ### Example Workflow
 
 ```bash
-# 1. Set up your project
+# 1. Set up your project (includes domain configuration)
 /new-project
+# Wizard asks: project name, Cloudflare credentials, domain setup
+# Result: Fully configured project + optional custom domain
 
 # 2. Add AI chat feature
 /add-ai-feature
@@ -460,7 +487,10 @@ cloudflare-workers-react-boilerplate/
 │   │   ├── add-ai-feature.md
 │   │   ├── setup-database.md
 │   │   └── ...
-│   └── templates/               # Code generation templates
+│   ├── templates/               # Code generation templates
+│   │   ├── domain-setup-reminder.md
+│   │   └── ...
+│   └── settings.json            # Claude Code tool permissions
 ├── examples/
 │   ├── ai/                      # AI integration examples
 │   │   ├── simple-claude-chat/

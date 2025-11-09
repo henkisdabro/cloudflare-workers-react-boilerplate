@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Production-ready boilerplate for building full-stack web applications with React 19 and Cloudflare Workers, optimised for AI-assisted development with Claude Code.">
+    <meta name="keywords" content="React, Cloudflare Workers, TypeScript, Vite, Claude Code, AI development, edge computing, serverless, D1 database">
+    <meta name="author" content="Cloudflare Workers React Boilerplate">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://henkisdabro.github.io/cloudflare-workers-react-boilerplate/">
+    <meta property="og:title" content="Cloudflare Workers + React Boilerplate - AI-Optimised Template">
+    <meta property="og:description" content="Production-ready boilerplate for building full-stack web applications with React 19 and Cloudflare Workers, optimised for AI-assisted development with Claude Code.">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://henkisdabro.github.io/cloudflare-workers-react-boilerplate/">
+    <meta property="twitter:title" content="Cloudflare Workers + React Boilerplate - AI-Optimised Template">
+    <meta property="twitter:description" content="Production-ready boilerplate for building full-stack web applications with React 19 and Cloudflare Workers, optimised for AI-assisted development with Claude Code.">
+
+    <title>Cloudflare Workers + React Boilerplate - AI-Optimised Template</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="canonical" href="https://henkisdabro.github.io/cloudflare-workers-react-boilerplate/">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badges">
+                    <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white" alt="React version 19 badge" loading="lazy" decoding="async">
+                    <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript version 5.9 badge" loading="lazy" decoding="async">
+                    <img src="https://img.shields.io/badge/Vite-7.2-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite version 7.2 badge" loading="lazy" decoding="async">
+                    <img src="https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat&logo=cloudflare&logoColor=white" alt="Cloudflare Workers badge" loading="lazy" decoding="async">
+                    <img src="https://img.shields.io/badge/Optimised_for-Claude_Code-5436DA?style=flat" alt="Optimised for Claude Code badge" loading="lazy" decoding="async">
+                </div>
+
+                <h1 class="hero-title">Cloudflare Workers + React Boilerplate</h1>
+                <p class="hero-subtitle">Production-ready template for building full-stack web applications at the edge, optimised for AI-assisted development with <strong>Claude Code</strong></p>
+
+                <p class="hero-description">Build globally-distributed, edge-native web applications with integrated AI capabilities, serverless databases, and automated CI/CD - all in one template.</p>
+
+                <div class="cta-buttons">
+                    <a href="https://github.com/new?template_name=cloudflare-workers-react-boilerplate&template_owner=henkisdabro" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Use this template to create a new repository">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        Use this Template
+                    </a>
+                    <a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Star this project on GitHub">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
+                            <path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path>
+                        </svg>
+                        Star on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+
+        <!-- What Is This Section -->
+        <section class="section section-light" id="what-is-this">
+            <div class="container">
+                <h2 class="section-title">What Is This?</h2>
+                <p class="section-intro">A <strong>comprehensive website development template</strong> designed for building modern web applications that deploy to <strong>Cloudflare's global edge network</strong>.</p>
+
+                <div class="value-props">
+                    <div class="value-prop">
+                        <div class="value-prop-icon">🚀</div>
+                        <h3>Deploy Globally in Minutes</h3>
+                        <p>Push to GitHub and deploy automatically to 300+ cities worldwide. Zero server configuration required.</p>
+                    </div>
+                    <div class="value-prop">
+                        <div class="value-prop-icon">🤖</div>
+                        <h3>AI-Powered Development</h3>
+                        <p>Built-in slash commands for Claude Code accelerate feature development with intelligent assistance.</p>
+                    </div>
+                    <div class="value-prop">
+                        <div class="value-prop-icon">⚡</div>
+                        <h3>Zero-Latency Edge Computing</h3>
+                        <p>Run your backend at the edge with &lt;5ms database queries and instant API responses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfect For Section -->
+        <section class="section section-dark" id="perfect-for">
+            <div class="container">
+                <h2 class="section-title">Who Is This For?</h2>
+
+                <div class="comparison-grid">
+                    <div class="comparison-column perfect">
+                        <h3 class="comparison-title">✅ Perfect For</h3>
+                        <ul class="comparison-list">
+                            <li>Full-stack web applications</li>
+                            <li>AI-powered SaaS products</li>
+                            <li>Real-time APIs and microservices</li>
+                            <li>Global-scale websites with edge performance</li>
+                            <li>Developers using Claude Code or AI pair programming</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-column not-suitable">
+                        <h3 class="comparison-title">❌ Not Suitable For</h3>
+                        <ul class="comparison-list">
+                            <li>Static sites only (use Cloudflare Pages instead)</li>
+                            <li>Traditional server-based Node.js apps</li>
+                            <li>Projects requiring server-side rendering (SSR)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="section section-light" id="features">
+            <div class="container">
+                <h2 class="section-title">Key Features</h2>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚛️</div>
+                        <h3>React 19 + TypeScript + Vite</h3>
+                        <p>Modern frontend stack with ultra-fast development and type-safe code.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">☁️</div>
+                        <h3>Cloudflare Workers</h3>
+                        <p>Serverless edge compute with zero cold starts and instant global deployment.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>AI Integration Ready</h3>
+                        <p>Built-in support for Claude API, Workers AI, and AI Gateway with working examples.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3>Serverless Database</h3>
+                        <p>Native Cloudflare D1 (SQL) and KV (key-value) storage with zero configuration.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Claude Code Slash Commands</h3>
+                        <p>Interactive wizards for rapid feature development: /add-ai-feature, /setup-database, and more.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Automated CI/CD</h3>
+                        <p>GitHub Actions pipeline deploys automatically on every push to main branch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack Section -->
+        <section class="section section-gradient" id="tech-stack">
+            <div class="container">
+                <h2 class="section-title">Technology Stack</h2>
+
+                <div class="tech-stack-grid">
+                    <div class="tech-category">
+                        <h3 class="tech-category-title">Frontend</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-name">React</span>
+                                <span class="tech-version">19.2</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">TypeScript</span>
+                                <span class="tech-version">5.9</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Vite</span>
+                                <span class="tech-version">7.2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3 class="tech-category-title">Backend</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-name">Cloudflare Workers</span>
+                                <span class="tech-version">Latest</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">D1 Database</span>
+                                <span class="tech-version">SQLite</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">KV Storage</span>
+                                <span class="tech-version">Latest</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-category">
+                        <h3 class="tech-category-title">AI & Deployment</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-name">Claude API</span>
+                                <span class="tech-version">Ready</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Workers AI</span>
+                                <span class="tech-version">Ready</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">GitHub Actions</span>
+                                <span class="tech-version">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section class="section section-light" id="quick-start">
+            <div class="container">
+                <h2 class="section-title">Get Started in 4 Steps</h2>
+
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Use Template</h3>
+                        <p class="step-description">Click "Use this Template" to create your own repository on GitHub.</p>
+                        <div class="step-code">
+                            <code>Click button above ↑</code>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Clone & Install</h3>
+                        <p class="step-description">Clone your new repo and install dependencies.</p>
+                        <div class="step-code">
+                            <code>git clone your-repo.git<br>cd your-repo<br>npm install</code>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Configure Cloudflare</h3>
+                        <p class="step-description">Add Cloudflare API token and Account ID to GitHub secrets.</p>
+                        <div class="step-code">
+                            <code>Settings → Secrets → Actions</code>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Deploy</h3>
+                        <p class="step-description">Push to main branch - automatic deployment via GitHub Actions.</p>
+                        <div class="step-code">
+                            <code>git push origin main</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-start-cta">
+                    <p class="quick-start-text">Using Claude Code? Run <code>/new-project</code> for an interactive setup wizard!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section class="section section-dark" id="examples">
+            <div class="container">
+                <h2 class="section-title">Working Examples Included</h2>
+                <p class="section-intro">Copy-paste production-ready code directly into your project. All examples include frontend components, API endpoints, and full documentation.</p>
+
+                <div class="examples-grid">
+                    <div class="example-category">
+                        <h3 class="example-category-title">🤖 AI Integration</h3>
+                        <ul class="example-list">
+                            <li>Simple Claude Chat - Basic chat interface with Claude API</li>
+                            <li>Streaming Chat - Real-time responses with Server-Sent Events</li>
+                            <li>Workers AI Chat - Edge AI with Llama/Mistral models</li>
+                            <li>AI Gateway Integration - Production caching & cost optimisation</li>
+                        </ul>
+                    </div>
+
+                    <div class="example-category">
+                        <h3 class="example-category-title">💾 Database & Storage</h3>
+                        <ul class="example-list">
+                            <li>D1 Contact Form - Complete CRUD with SQL database</li>
+                            <li>KV Sessions - Secure session management with key-value storage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="examples-cta">
+                    <a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/tree/main/examples" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                        Browse All Examples →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Claude Code Integration Section -->
+        <section class="section section-claude" id="claude-code">
+            <div class="container">
+                <h2 class="section-title">Optimised for Claude Code</h2>
+                <p class="section-intro">This template includes interactive slash commands that accelerate your development workflow with AI assistance.</p>
+
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-name">/new-project</div>
+                        <p class="command-description">Complete project setup wizard with guided configuration</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-name">/add-ai-feature</div>
+                        <p class="command-description">Add AI capabilities (Claude API, Workers AI, AI Gateway)</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-name">/setup-database</div>
+                        <p class="command-description">Set up D1 (SQL) or KV (key-value) storage with migrations</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-name">/generate-prp</div>
+                        <p class="command-description">Create comprehensive Product Requirement Plan for features</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-name">/execute-prp</div>
+                        <p class="command-description">Implement features from generated PRPs automatically</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-name">/add-binding</div>
+                        <p class="command-description">Add Cloudflare bindings (R2, Queues, Analytics, etc.)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="section section-cta" id="final-cta">
+            <div class="container">
+                <h2 class="cta-title">Ready to Build at the Edge?</h2>
+                <p class="cta-description">Start building production-ready web applications with React, Cloudflare Workers, and AI integration in minutes.</p>
+
+                <div class="cta-buttons-large">
+                    <a href="https://github.com/new?template_name=cloudflare-workers-react-boilerplate&template_owner=henkisdabro" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer" aria-label="Use this template to create a new repository">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        Use this Template
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Documentation</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate#readme" target="_blank" rel="noopener noreferrer">README</a></li>
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/CLAUDE.md" target="_blank" rel="noopener noreferrer">CLAUDE.md</a></li>
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/AI_INTEGRATION.md" target="_blank" rel="noopener noreferrer">AI Integration Guide</a></li>
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/CLOUDFLARE_WORKERS.md" target="_blank" rel="noopener noreferrer">Cloudflare Workers Guide</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Examples</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/tree/main/examples/ai" target="_blank" rel="noopener noreferrer">AI Integration Examples</a></li>
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/tree/main/examples/database" target="_blank" rel="noopener noreferrer">Database Examples</a></li>
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/tree/main/.claude" target="_blank" rel="noopener noreferrer">Claude Code Commands</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+                        <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/issues" target="_blank" rel="noopener noreferrer">Report Issues</a></li>
+                        <li><a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare Workers Docs</a></li>
+                        <li><a href="https://claude.com/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-license">
+                    Licensed under the <a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
+                </p>
+                <p class="footer-credit">
+                    Built with ❤️ for developers • Powered by Cloudflare Workers & Claude Code
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

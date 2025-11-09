@@ -1,8 +1,8 @@
 # Cloudflare Workers + React Boilerplate Template
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-7.1-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![Claude Code](https://img.shields.io/badge/Optimized_for-Claude_Code-5436DA?style=flat)](https://claude.com/claude-code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -72,9 +72,9 @@ This is a **comprehensive website development template** designed for building m
 
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
-| **Frontend** | React | 19.1 | UI framework |
-| **Build Tool** | Vite | 7.1 | Lightning-fast dev server & bundler |
-| **Language** | TypeScript | 5.8 | Type-safe development |
+| **Frontend** | React | 19.2 | UI framework |
+| **Build Tool** | Vite | 7.2 | Lightning-fast dev server & bundler |
+| **Language** | TypeScript | 5.9 | Type-safe development |
 | **Runtime** | Cloudflare Workers | Latest | Serverless edge compute |
 | **Package Manager** | npm | Any | Dependency management |
 | **CI/CD** | GitHub Actions | N/A | Automated deployment |

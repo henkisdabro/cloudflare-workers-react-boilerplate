@@ -21,6 +21,11 @@
 
     <title>Cloudflare Workers + React Boilerplate - AI-Optimised Template</title>
 
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="canonical" href="https://henkisdabro.github.io/cloudflare-workers-react-boilerplate/">
 </head>
@@ -116,6 +121,180 @@
                             <li>Traditional server-based Node.js apps</li>
                             <li>Projects requiring server-side rendering (SSR)</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Use Cases Section -->
+        <section class="section section-light" id="use-cases">
+            <div class="container">
+                <h2 class="section-title">Real-World Use Cases</h2>
+                <p class="section-intro">Here's how developers are using this template to build production applications</p>
+
+                <div class="use-cases-grid">
+                    <div class="use-case-card">
+                        <div class="use-case-icon">🌐</div>
+                        <h3>Personal Portfolio Website</h3>
+                        <p class="use-case-description">Build a blazing-fast portfolio with a contact form, blog, and project showcase. Deploy globally in minutes with automatic CI/CD.</p>
+                        <div class="use-case-features">
+                            <span class="use-case-tag">D1 Database</span>
+                            <span class="use-case-tag">Contact Forms</span>
+                            <span class="use-case-tag">Edge Performance</span>
+                        </div>
+                    </div>
+
+                    <div class="use-case-card">
+                        <div class="use-case-icon">🤖</div>
+                        <h3>AI-Powered SaaS App</h3>
+                        <p class="use-case-description">Create an AI assistant, content generator, or analysis tool with Claude API integration and serverless database storage.</p>
+                        <div class="use-case-features">
+                            <span class="use-case-tag">Claude API</span>
+                            <span class="use-case-tag">Streaming</span>
+                            <span class="use-case-tag">AI Gateway</span>
+                        </div>
+                    </div>
+
+                    <div class="use-case-card">
+                        <div class="use-case-icon">📊</div>
+                        <h3>Analytics Dashboard</h3>
+                        <p class="use-case-description">Build real-time dashboards with live data processing at the edge. Perfect for monitoring, metrics, and business intelligence.</p>
+                        <div class="use-case-features">
+                            <span class="use-case-tag">Real-time APIs</span>
+                            <span class="use-case-tag">KV Storage</span>
+                            <span class="use-case-tag">Fast Queries</span>
+                        </div>
+                    </div>
+
+                    <div class="use-case-card">
+                        <div class="use-case-icon">🛒</div>
+                        <h3>E-commerce Platform</h3>
+                        <p class="use-case-description">Launch an online store with product catalogues, shopping carts, and order management - all running at the edge for lightning-fast performance.</p>
+                        <div class="use-case-features">
+                            <span class="use-case-tag">D1 Database</span>
+                            <span class="use-case-tag">Sessions</span>
+                            <span class="use-case-tag">Global Scale</span>
+                        </div>
+                    </div>
+
+                    <div class="use-case-card">
+                        <div class="use-case-icon">📱</div>
+                        <h3>API Backend Service</h3>
+                        <p class="use-case-description">Build RESTful APIs for mobile apps or third-party integrations with zero-latency database queries and instant deployment.</p>
+                        <div class="use-case-features">
+                            <span class="use-case-tag">REST API</span>
+                            <span class="use-case-tag">Authentication</span>
+                            <span class="use-case-tag">Edge Compute</span>
+                        </div>
+                    </div>
+
+                    <div class="use-case-card">
+                        <div class="use-case-icon">💬</div>
+                        <h3>Chat Application</h3>
+                        <p class="use-case-description">Create real-time chat with AI features, message history, and user authentication - all powered by edge computing.</p>
+                        <div class="use-case-features">
+                            <span class="use-case-tag">WebSockets</span>
+                            <span class="use-case-tag">AI Integration</span>
+                            <span class="use-case-tag">Low Latency</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Comparison Section -->
+        <section class="section section-workflow" id="workflow-comparison">
+            <div class="container">
+                <h2 class="section-title">Traditional Workflow vs This Template</h2>
+                <p class="section-intro">See how much faster you can go from idea to production</p>
+
+                <div class="workflow-comparison">
+                    <div class="workflow-column traditional">
+                        <h3 class="workflow-title">❌ Traditional Workflow</h3>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">1</div>
+                                <div class="workflow-step-content">
+                                    <h4>Set Up Infrastructure</h4>
+                                    <p>Configure servers, databases, load balancers, SSL certificates, DNS settings...</p>
+                                    <span class="workflow-time">⏱️ 2-3 days</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">2</div>
+                                <div class="workflow-step-content">
+                                    <h4>Configure Build Pipeline</h4>
+                                    <p>Set up CI/CD, deployment scripts, environment variables, staging environments...</p>
+                                    <span class="workflow-time">⏱️ 1-2 days</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">3</div>
+                                <div class="workflow-step-content">
+                                    <h4>Integrate Services</h4>
+                                    <p>Connect database, set up authentication, configure email, add monitoring...</p>
+                                    <span class="workflow-time">⏱️ 2-3 days</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">4</div>
+                                <div class="workflow-step-content">
+                                    <h4>Start Building Features</h4>
+                                    <p>Finally ready to write application code!</p>
+                                    <span class="workflow-time">⏱️ After 5-8 days</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workflow-total">Total Setup Time: <strong>5-8 days</strong></div>
+                    </div>
+
+                    <div class="workflow-column modern">
+                        <h3 class="workflow-title">✅ With This Template</h3>
+                        <div class="workflow-steps">
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">1</div>
+                                <div class="workflow-step-content">
+                                    <h4>Click "Use Template"</h4>
+                                    <p>Create your repository from this template on GitHub</p>
+                                    <span class="workflow-time">⏱️ 30 seconds</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">2</div>
+                                <div class="workflow-step-content">
+                                    <h4>Add Cloudflare Credentials</h4>
+                                    <p>Add API token and Account ID to GitHub secrets</p>
+                                    <span class="workflow-time">⏱️ 2 minutes</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">3</div>
+                                <div class="workflow-step-content">
+                                    <h4>Push to Deploy</h4>
+                                    <p>Automatic deployment to 300+ cities worldwide!</p>
+                                    <span class="workflow-time">⏱️ 2 minutes</span>
+                                </div>
+                            </div>
+                            <div class="workflow-step">
+                                <div class="workflow-step-number">4</div>
+                                <div class="workflow-step-content">
+                                    <h4>Start Building Features</h4>
+                                    <p>Use slash commands to add databases, AI, and more</p>
+                                    <span class="workflow-time">⏱️ Immediately!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workflow-total workflow-total-success">Total Setup Time: <strong>5 minutes</strong></div>
+                    </div>
+                </div>
+
+                <div class="workflow-savings">
+                    <div class="workflow-savings-content">
+                        <div class="workflow-savings-icon">🚀</div>
+                        <div>
+                            <h3>Save 5-8 days of setup work</h3>
+                            <p>Focus on building features, not configuring infrastructure</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -318,6 +497,74 @@
                 <h2 class="section-title">Optimised for Claude Code</h2>
                 <p class="section-intro">This template includes interactive slash commands that accelerate your development workflow with AI assistance.</p>
 
+                <!-- Featured PRP Command -->
+                <div class="prp-spotlight">
+                    <div class="prp-spotlight-badge">⭐ Featured Command</div>
+                    <div class="prp-spotlight-content">
+                        <div class="prp-spotlight-header">
+                            <div class="prp-spotlight-icon">🎯</div>
+                            <div>
+                                <h3 class="prp-spotlight-title"><code>/generate-prp</code> - Product Requirement Plans</h3>
+                                <p class="prp-spotlight-subtitle">The secret to high-quality project outcomes</p>
+                            </div>
+                        </div>
+                        <div class="prp-spotlight-description">
+                            <p>Before writing any code, use <code>/generate-prp</code> to create a comprehensive Product Requirement Plan. This command dramatically improves output quality by:</p>
+                            <div class="prp-benefits">
+                                <div class="prp-benefit">
+                                    <span class="prp-benefit-icon">✨</span>
+                                    <div>
+                                        <strong>Clarifying Requirements</strong>
+                                        <p>Define exact specifications, user stories, and acceptance criteria before coding</p>
+                                    </div>
+                                </div>
+                                <div class="prp-benefit">
+                                    <span class="prp-benefit-icon">🏗️</span>
+                                    <div>
+                                        <strong>Planning Architecture</strong>
+                                        <p>Map out components, database schemas, and API endpoints systematically</p>
+                                    </div>
+                                </div>
+                                <div class="prp-benefit">
+                                    <span class="prp-benefit-icon">🚀</span>
+                                    <div>
+                                        <strong>Executing Perfectly</strong>
+                                        <p>Use <code>/execute-prp</code> to implement the plan with precision and consistency</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prp-workflow">
+                                <div class="prp-workflow-step">
+                                    <span class="prp-workflow-number">1</span>
+                                    <span>Describe your feature</span>
+                                </div>
+                                <span class="prp-workflow-arrow">→</span>
+                                <div class="prp-workflow-step">
+                                    <span class="prp-workflow-number">2</span>
+                                    <span>Run /generate-prp</span>
+                                </div>
+                                <span class="prp-workflow-arrow">→</span>
+                                <div class="prp-workflow-step">
+                                    <span class="prp-workflow-number">3</span>
+                                    <span>Review & refine plan</span>
+                                </div>
+                                <span class="prp-workflow-arrow">→</span>
+                                <div class="prp-workflow-step">
+                                    <span class="prp-workflow-number">4</span>
+                                    <span>Run /execute-prp</span>
+                                </div>
+                                <span class="prp-workflow-arrow">→</span>
+                                <div class="prp-workflow-step prp-workflow-success">
+                                    <span>✅</span>
+                                    <span>Perfect result!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="commands-section-title">All Available Commands</h3>
+
                 <div class="commands-grid">
                     <div class="command-card">
                         <div class="command-name">/new-project</div>
@@ -334,14 +581,16 @@
                         <p class="command-description">Set up D1 (SQL) or KV (key-value) storage with migrations</p>
                     </div>
 
-                    <div class="command-card">
+                    <div class="command-card command-card-highlight">
                         <div class="command-name">/generate-prp</div>
                         <p class="command-description">Create comprehensive Product Requirement Plan for features</p>
+                        <span class="command-badge">⭐ Recommended</span>
                     </div>
 
-                    <div class="command-card">
+                    <div class="command-card command-card-highlight">
                         <div class="command-name">/execute-prp</div>
                         <p class="command-description">Implement features from generated PRPs automatically</p>
+                        <span class="command-badge">⭐ Recommended</span>
                     </div>
 
                     <div class="command-card">

@@ -41,7 +41,11 @@
             .command-card,
             .example-category,
             .tech-category,
-            .comparison-column
+            .comparison-column,
+            .use-case-card,
+            .workflow-column,
+            .workflow-savings,
+            .prp-spotlight
         `);
 
         animatedElements.forEach(el => {

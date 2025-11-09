@@ -28,12 +28,16 @@ Follow these steps to spin up a new project.
 
 The deployment is fully automated via GitHub Actions, but it needs your Cloudflare credentials to work. You only need to do this once for each new project.
 
+**Note:** You do **not** need to manually create a Cloudflare Workers project. The first deployment will automatically create the Worker based on the `name` field in `wrangler.jsonc`.
+
 1. **Get your Cloudflare Account ID:**
-    * Log in to the Cloudflare dashboard.
-    * On the homepage, your **Account ID** is listed in the right-hand sidebar. Copy it.
+    * Log in to the [Cloudflare dashboard](https://dash.cloudflare.com).
+    * On the homepage (Workers & Pages overview), your **Account ID** is listed in the right-hand sidebar under "Account details".
+    * Alternatively, find it at: [https://dash.cloudflare.com/?to=/:account/workers](https://dash.cloudflare.com) (look in the right sidebar).
+    * Copy the Account ID.
 
 2. **Create a Cloudflare API Token:**
-    * From your Cloudflare dashboard, go to **My Profile** > **API Tokens**.
+    * From your Cloudflare dashboard, go to **My Profile** > **API Tokens** or visit [https://dash.cloudflare.com/profile/api-tokens](https://dash.cloudflare.com/profile/api-tokens).
     * Click "**Create Token**" and use the "**Edit Cloudflare Workers**" template.
     * Under "**Account Resources**", ensure your account is selected.
     * Under "**Zone Resources**", you can select "All zones" for simplicity.
@@ -60,5 +64,47 @@ The deployment is fully automated via GitHub Actions, but it needs your Cloudfla
     git commit -m "My awesome new feature"
     git push origin main
     ```
+
+---
+
+## 🤖 Claude Code Integration
+
+This template includes built-in Claude Code slash commands to streamline your development workflow.
+
+### Quick Start with Claude Code
+
+If you're using [Claude Code](https://claude.com/claude-code), run this command after cloning:
+
+```
+/new-project
+```
+
+This interactive assistant will:
+- Help you configure your project name
+- Guide you through Cloudflare setup
+- Configure GitHub Actions secrets
+- Test your local environment
+- Create your first feature PRP
+
+### Available Commands
+
+- **`/new-project`** - Interactive setup wizard for new projects
+- **`/generate-prp <feature>`** - Create a Product Requirement Plan with comprehensive research
+- **`/execute-prp <file>`** - Implement a feature from a PRP
+
+### Example Workflow
+
+```bash
+# 1. Set up your new project
+/new-project
+
+# 2. Generate a plan for your first feature
+/generate-prp "Add contact form with Cloudflare D1 storage"
+
+# 3. Implement the feature
+/execute-prp PRPs/contact-form.md
+```
+
+See [`.claude/README.md`](.claude/README.md) for detailed documentation.
 
 ---

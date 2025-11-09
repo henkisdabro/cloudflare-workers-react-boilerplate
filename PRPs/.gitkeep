@@ -1,0 +1,6 @@
+# Product Requirement Plans
+
+This directory contains Product Requirement Plans (PRPs) for features to be implemented in this project.
+
+Use `/generate-prp <feature-description>` to create a new PRP.
+Use `/execute-prp PRPs/<filename>.md` to implement a PRP.

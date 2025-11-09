@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(chmod:*)",
+      "Bash(claude mcp:*)",
+      "Bash(find:*)",
+      "Bash(gh issue view:*)",
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "Bash(git clone:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(git status:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(pytest:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(python:*)",
+      "Bash(python3 -m pytest:*)",
+      "Bash(ruff check:*)",
+      "Bash(ruff:*)",
+      "Bash(source:*)",
+      "Bash(touch:*)",
+      "Bash(tree:*)",
+      "Edit",
+      "MultiEdit",
+      "WebFetch(domain:*)",
+      "Write",
+      "mcp__time",
+      "mcp__fetch"
+    ]
+  }
+}

@@ -186,6 +186,54 @@ For detailed integration guides, best practices, and complete examples, see:
 - `npx wrangler d1 execute <database-name> --local --command="SELECT * FROM table"` - Query local D1 database
 - `npx wrangler kv key list --binding=KV --local` - List local KV keys
 
+### Custom Domain Setup
+
+- `npx wrangler domains add <domain>` - Add custom domain (Cloudflare DNS only)
+- `npx wrangler domains list` - List configured custom domains
+- `npx wrangler domains remove <domain>` - Remove custom domain
+
+**For domains with external DNS providers:**
+Use the `/new-project` command which provides provider-specific instructions for:
+- GoDaddy
+- Namecheap
+- Google Domains / Google Cloud DNS
+- AWS Route 53
+- Squarespace Domains
+- Other providers (generic CNAME setup)
+
+The command can also generate a `.domain-setup-reminder.md` file with complete setup instructions if you want to defer domain configuration.
+
+## Claude Code Configuration
+
+### Tool Permissions (`.claude/settings.json`)
+
+This project includes a `.claude/settings.json` file with pre-approved tool permissions for common development operations. This reduces friction during development by allowing Claude Code to execute frequently-used commands without requesting permission each time.
+
+**Approved tools include:**
+- Git operations (add, commit, push, pull, status, diff, log)
+- File operations (Edit, MultiEdit, Write, Read)
+- Shell utilities (cat, ls, mkdir, mv, touch, tree, grep)
+- Python/testing tools (pytest, ruff)
+- Web operations (WebFetch for documentation lookups)
+- MCP tools (time, fetch)
+
+**Location:** `.claude/settings.json`
+
+**Customisation:** Modify the `permissions.allow` array to add or remove tool permissions based on your project's needs.
+
+### Slash Commands
+
+The `.claude/commands/` directory contains interactive slash commands for common workflows:
+
+- `/new-project` - Complete project setup including domain configuration
+- `/add-ai-feature` - Add AI capabilities (Claude API, Workers AI, AI Gateway)
+- `/setup-database` - Configure D1 or KV storage
+- `/add-binding` - Add other Cloudflare bindings (R2, Queues, etc.)
+- `/generate-prp` - Create Product Requirement Plans
+- `/execute-prp` - Implement features from PRPs
+
+See `.claude/README.md` for complete documentation on slash commands.
+
 ## Project Architecture
 
 ### Dual-Build TypeScript Setup

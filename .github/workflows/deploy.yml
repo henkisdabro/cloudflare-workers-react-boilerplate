@@ -1,0 +1,24 @@
+# .github/workflows/deploy.yml
+name: Deploy to Cloudflare Workers
+
+# This workflow runs on pushes to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Workers
+        # Use the official Cloudflare Wrangler action
+        uses: cloudflare/wrangler-action@v3
+        with:
+          # These secrets must be configured in the repository settings of the new project
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

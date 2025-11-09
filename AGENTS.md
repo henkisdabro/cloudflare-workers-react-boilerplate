@@ -20,6 +20,93 @@ Simplicity should be a key goal in design. Choose straightforward solutions over
 
 Avoid building functionality on speculation. Implement features only when they are needed, not when you anticipate they might be useful in the future.
 
+## ⚠️ IMPORTANT: Language and Spelling Conventions
+
+**ALL text content in this project MUST use British English spelling and grammar.**
+
+This applies to:
+- ✅ All code comments and documentation
+- ✅ Variable names, function names, and type names
+- ✅ User-facing text (UI labels, messages, error messages)
+- ✅ README files, documentation, and guides
+- ✅ Commit messages and PR descriptions
+- ✅ API response messages
+- ✅ Log messages and console output
+
+### Common British vs American English Patterns
+
+**Use British English (✅) NOT American English (❌):**
+
+| British English ✅ | American English ❌ |
+|-------------------|---------------------|
+| colour | color |
+| favourite | favorite |
+| analyse | analyze |
+| optimise | optimize |
+| recognise | recognize |
+| behaviour | behavior |
+| centre | center |
+| licence (noun) | license (noun) |
+| defence | defense |
+| organisation | organization |
+| summarise | summarize |
+| realise | realize |
+| catalogue | catalog |
+| travelled | traveled |
+| cancelled | canceled |
+
+**Examples in code:**
+
+```typescript
+// ✅ CORRECT - British English
+const userColour = '#FF0000';
+const analysisResults = analyseData(input);
+function optimisePerformance() { ... }
+const errorMessage = 'Failed to recognise user credentials';
+
+// ❌ INCORRECT - American English
+const userColor = '#FF0000';
+const analysisResults = analyzeData(input);
+function optimizePerformance() { ... }
+const errorMessage = 'Failed to recognize user credentials';
+```
+
+**Examples in documentation:**
+
+```markdown
+✅ "This feature optimises the application's performance..."
+✅ "The system analyses user behaviour..."
+✅ "Configure your favourite colour scheme..."
+
+❌ "This feature optimizes the application's performance..."
+❌ "The system analyzes user behavior..."
+❌ "Configure your favorite color scheme..."
+```
+
+### Punctuation Conventions
+
+**Use hyphens, NOT em-dashes:**
+
+```markdown
+✅ "This feature - which optimises performance - is optional"
+✅ "The system works in three stages - analysis, processing, and output"
+
+❌ "This feature — which optimizes performance — is optional"
+❌ "The system works in three stages — analysis, processing, and output"
+```
+
+Use single hyphens `-` with spaces around them for parenthetical statements, not em-dashes `—` or `--`.
+
+### When Adding New Features
+
+When generating ANY text content (code, documentation, UI text):
+1. **Check spelling**: Use British English variants (-ise, -our, -re, -ce)
+2. **Review variables**: Ensure function/variable names use British spelling
+3. **Verify messages**: All user-facing text must be British English
+4. **Check punctuation**: Use hyphens with spaces, not em-dashes
+5. **Update docs**: All documentation follows British conventions
+
+**Exception:** External library names and third-party API terms should remain as-is (e.g., `color` in CSS properties, `Authorization` in HTTP headers).
 
 ## Common Commands
 

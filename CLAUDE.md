@@ -169,6 +169,19 @@ For detailed integration guides, best practices, and complete examples, see:
 - `npm run preview` - Build and preview production build locally
 - `npm run deploy` - Build and deploy to Cloudflare Workers
 
+### Testing
+
+- `npm run test` - Run tests once
+- `npm run test:watch` - Run tests in watch mode (re-runs on file changes)
+- `npm run test:coverage` - Run tests with coverage report
+
+This project uses [Vitest](https://vitest.dev) with React Testing Library:
+
+- **Configuration**: `vitest.config.ts`
+- **Test Setup**: `src/test/setup.ts`
+- **Test Files**: Place test files as `*.test.tsx` or `*.spec.tsx` in `src/`
+- **Example Test**: `src/App.test.tsx`
+
 ### Cloudflare Bindings & Types
 
 - `npm run cf-typegen` - Generate TypeScript types for Cloudflare bindings (run after adding any binding)
@@ -253,12 +266,33 @@ The Cloudflare Worker (`worker/index.ts`) uses a routing pattern:
 - All other routes fall through (return 404) and are handled by the static asset serving
 - Static assets use SPA mode (`not_found_handling: "single-page-application"` in `wrangler.jsonc`), which serves `index.html` for non-existent routes
 
+### Worker API Features
+
+The Worker includes built-in security features:
+
+**Security Headers** (applied to all API responses):
+- Content-Security-Policy (CSP)
+- X-Frame-Options: DENY (clickjacking protection)
+- X-Content-Type-Options: nosniff (MIME sniffing prevention)
+- X-XSS-Protection: 1; mode=block (legacy XSS filter)
+- Referrer-Policy: strict-origin-when-cross-origin
+- Permissions-Policy (restricts browser features)
+
+**Health Check Endpoint**:
+- `GET /api/health` - Returns JSON with status, timestamp, and version
+- Use for uptime monitoring, load balancer health checks, and deployment verification
+
 ### Key Files
 
 - `src/main.tsx` - React application entry point
-- `worker/index.ts` - Cloudflare Worker fetch handler for API routes
+- `src/App.test.tsx` - Example component test
+- `src/test/setup.ts` - Vitest test setup
+- `worker/index.ts` - Cloudflare Worker fetch handler for API routes (includes security headers and health check)
 - `wrangler.jsonc` - Cloudflare Worker configuration (name, compatibility date, assets, bindings)
 - `vite.config.ts` - Vite configuration with Cloudflare plugin (`@cloudflare/vite-plugin`)
+- `vitest.config.ts` - Vitest testing configuration
+- `.nvmrc` - Node.js version pinning (22)
+- `.dev.vars.example` - Template for local development secrets
 - `.github/workflows/deploy.yml` - CI/CD pipeline using `cloudflare/wrangler-action@v3`
 
 ## Data Storage & Bindings

@@ -243,6 +243,81 @@
     }
 
     /**
+     * Sticky navigation on scroll
+     */
+    function initStickyNav() {
+        const nav = document.getElementById('sticky-nav');
+        const hero = document.getElementById('hero');
+
+        if (!nav || !hero) return;
+
+        const heroHeight = hero.offsetHeight;
+
+        function updateNavVisibility() {
+            if (window.scrollY > heroHeight * 0.5) {
+                nav.classList.add('visible');
+            } else {
+                nav.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', updateNavVisibility, { passive: true });
+        updateNavVisibility();
+    }
+
+    /**
+     * Mobile navigation toggle
+     */
+    function initMobileNav() {
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (!toggle || !navLinks) return;
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', toggle.classList.contains('active'));
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    /**
+     * Back to top button
+     */
+    function initBackToTop() {
+        const button = document.getElementById('back-to-top');
+
+        if (!button) return;
+
+        function updateButtonVisibility() {
+            if (window.scrollY > 500) {
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', updateButtonVisibility, { passive: true });
+        updateButtonVisibility();
+
+        button.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    /**
      * Initialize all functionality when DOM is ready
      */
     function init() {
@@ -252,6 +327,9 @@
         initKeyboardNavigation();
         initLazyLoading();
         initCodeCopyButtons();
+        initStickyNav();
+        initMobileNav();
+        initBackToTop();
 
         // Log successful initialization
         console.log('Cloudflare Workers + React Boilerplate - Page initialized');

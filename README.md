@@ -2,7 +2,8 @@
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Vite](https://img.shields.io/badge/Vite-7.3-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Vitest](https://img.shields.io/badge/Vitest-4.0-6E9F18?style=flat&logo=vitest&logoColor=white)](https://vitest.dev)
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![Claude Code](https://img.shields.io/badge/Optimized_for-Claude_Code-5436DA?style=flat)](https://claude.com/claude-code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -34,9 +35,9 @@ This is a **comprehensive website development template** designed for building m
 
 ### Not Suitable For:
 
-❌ Static sites only (use Cloudflare Pages instead)
+❌ Simple static sites without API logic (this template includes Worker infrastructure you won't need)
 ❌ Traditional server-based Node.js apps
-❌ Projects requiring server-side rendering (SSR)
+❌ Projects requiring server-side rendering (SSR) - use [TanStack Start](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/) or [React Router v7](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/) templates instead
 
 ---
 
@@ -73,9 +74,11 @@ This is a **comprehensive website development template** designed for building m
 | Layer | Technology | Version | Purpose |
 |-------|-----------|---------|---------|
 | **Frontend** | React | 19.2 | UI framework |
-| **Build Tool** | Vite | 7.2 | Lightning-fast dev server & bundler |
+| **Build Tool** | Vite | 7.3 | Lightning-fast dev server & bundler |
 | **Language** | TypeScript | 5.9 | Type-safe development |
+| **Testing** | Vitest | 4.0 | Unit and component testing |
 | **Runtime** | Cloudflare Workers | Latest | Serverless edge compute |
+| **Node.js** | Node.js | 22+ | Development runtime (pinned in `.nvmrc`) |
 | **Package Manager** | npm | Any | Dependency management |
 | **CI/CD** | GitHub Actions | N/A | Automated deployment |
 
@@ -161,7 +164,7 @@ Every push to `main` triggers automatic deployment:
 
 ### Prerequisites
 
-- **Node.js** 18+ and npm
+- **Node.js** 22+ and npm (matches [Cloudflare Workers Builds default](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/))
 - **Cloudflare Account** ([sign up free](https://dash.cloudflare.com/sign-up))
 - **GitHub Account** (for automated deployment)
 - **Claude Code** *(optional, but recommended)* - [Get it here](https://claude.com/claude-code)
@@ -457,6 +460,11 @@ npm run build        # Build for production
 npm run preview      # Preview production build locally
 npm run lint         # Run ESLint
 
+# Testing
+npm run test         # Run tests once
+npm run test:watch   # Run tests in watch mode
+npm run test:coverage # Run tests with coverage report
+
 # Deployment
 npm run deploy       # Build and deploy to Cloudflare Workers
 git push origin main # Auto-deploy via GitHub Actions
@@ -502,11 +510,17 @@ cloudflare-workers-react-boilerplate/
 │       └── kv-sessions/
 ├── src/
 │   ├── App.tsx                  # Main React component
+│   ├── App.test.tsx             # Example component tests
 │   ├── main.tsx                 # React entry point
+│   ├── test/
+│   │   └── setup.ts             # Vitest test setup
 │   └── ...                      # Your frontend code
 ├── worker/
-│   └── index.ts                 # Cloudflare Worker (API endpoints)
+│   └── index.ts                 # Cloudflare Worker (API endpoints + security headers)
 ├── public/                      # Static assets
+├── .dev.vars.example            # Example local secrets template
+├── .nvmrc                       # Node.js version (22)
+├── vitest.config.ts             # Vitest testing configuration
 ├── wrangler.jsonc               # Cloudflare Workers configuration
 ├── vite.config.ts               # Vite configuration
 ├── tsconfig.json                # TypeScript config (root)
@@ -526,18 +540,22 @@ cloudflare-workers-react-boilerplate/
 This template follows security best practices:
 
 ✅ **No secrets in code** - All API keys stored in environment variables
-✅ **SQL injection prevention** - Parameterized queries in all examples
+✅ **SQL injection prevention** - Parameterised queries in all examples
 ✅ **Input validation** - All API endpoints validate inputs
 ✅ **CORS configured** - Proper cross-origin resource sharing
 ✅ **Secrets management** - Cloudflare secrets for sensitive data
 ✅ **Type safety** - TypeScript throughout for compile-time safety
+✅ **Security headers** - CSP, X-Frame-Options, X-Content-Type-Options included
+✅ **Health check endpoint** - `/api/health` for monitoring and uptime checks
 
 ### Managing Secrets
 
 **Never commit secrets to Git!**
 
-**Local development** (`.dev.vars` file - gitignored):
+**Local development** (copy `.dev.vars.example` to `.dev.vars` - gitignored):
 ```bash
+cp .dev.vars.example .dev.vars
+# Edit .dev.vars with your actual secret values
 ANTHROPIC_API_KEY=sk-ant-your-key-here
 DATABASE_URL=your-local-db
 ```

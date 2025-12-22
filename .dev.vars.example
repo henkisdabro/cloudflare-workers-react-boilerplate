@@ -1,0 +1,22 @@
+# .dev.vars.example
+# This file is a template for local development secrets.
+# Copy this file to .dev.vars and fill in the values.
+# The .dev.vars file is ignored by Git and should NOT be committed.
+#
+# Usage:
+#   cp .dev.vars.example .dev.vars
+#   # Then edit .dev.vars with your actual secret values
+#
+# These variables are automatically available in your Worker's `env` parameter
+# during local development with `npm run dev`.
+
+# Anthropic API Key (for Claude API integration)
+# Get your key at: https://console.anthropic.com/
+# ANTHROPIC_API_KEY=sk-ant-api03-...
+
+# OpenAI API Key (if using OpenAI integration)
+# OPENAI_API_KEY=sk-...
+
+# Other secrets for your application
+# DATABASE_PASSWORD=your-secret-password
+# JWT_SECRET=your-jwt-secret

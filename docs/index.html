@@ -33,6 +33,25 @@
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav" id="sticky-nav" aria-label="Main navigation">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-logo">CF Workers + React</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#tech-stack">Tech Stack</a>
+                <a href="#quick-start">Quick Start</a>
+                <a href="#claude-code">Claude Code</a>
+                <a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate" class="nav-cta" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <header class="hero" id="hero">
         <div class="container">
@@ -40,7 +59,8 @@
                 <div class="badges">
                     <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white" alt="React version 19 badge" loading="lazy" decoding="async">
                     <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript version 5.9 badge" loading="lazy" decoding="async">
-                    <img src="https://img.shields.io/badge/Vite-7.2-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite version 7.2 badge" loading="lazy" decoding="async">
+                    <img src="https://img.shields.io/badge/Vite-7.3-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite version 7.3 badge" loading="lazy" decoding="async">
+                    <img src="https://img.shields.io/badge/Vitest-4.0-6E9F18?style=flat&logo=vitest&logoColor=white" alt="Vitest version 4.0 badge" loading="lazy" decoding="async">
                     <img src="https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat&logo=cloudflare&logoColor=white" alt="Cloudflare Workers badge" loading="lazy" decoding="async">
                     <img src="https://img.shields.io/badge/Optimised_for-Claude_Code-5436DA?style=flat" alt="Optimised for Claude Code badge" loading="lazy" decoding="async">
                 </div>
@@ -117,7 +137,7 @@
                     <div class="comparison-column not-suitable">
                         <h3 class="comparison-title">❌ Not Suitable For</h3>
                         <ul class="comparison-list">
-                            <li>Static sites only (use Cloudflare Pages instead)</li>
+                            <li>Simple static sites without API logic</li>
                             <li>Traditional server-based Node.js apps</li>
                             <li>Projects requiring server-side rendering (SSR)</li>
                         </ul>
@@ -341,6 +361,18 @@
                         <h3>Automated CI/CD</h3>
                         <p>GitHub Actions pipeline deploys automatically on every push to main branch.</p>
                     </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Security Headers & Health Check</h3>
+                        <p>Built-in CSP, X-Frame-Options, and security headers. Health check endpoint at /api/health for monitoring.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🧪</div>
+                        <h3>Testing with Vitest</h3>
+                        <p>Vitest and React Testing Library pre-configured with example tests and coverage reporting.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -364,7 +396,11 @@
                             </div>
                             <div class="tech-item">
                                 <span class="tech-name">Vite</span>
-                                <span class="tech-version">7.2</span>
+                                <span class="tech-version">7.3</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-name">Vitest</span>
+                                <span class="tech-version">4.0</span>
                             </div>
                         </div>
                     </div>
@@ -664,6 +700,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+            <path d="M12 4l-8 8h5v8h6v-8h5z"/>
+        </svg>
+    </button>
 
     <script src="js/main.js"></script>
 </body>

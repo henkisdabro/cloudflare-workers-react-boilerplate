@@ -5,6 +5,8 @@ This guide provides comprehensive information about using Cloudflare Workers in 
 ## Table of Contents
 
 - [Introduction](#introduction)
+  - [Security Headers](#security-headers)
+  - [Health Check Endpoint](#health-check-endpoint)
 - [Wrangler CLI Reference](#wrangler-cli-reference)
 - [D1 Database Workflows](#d1-database-workflows)
 - [KV Namespace Workflows](#kv-namespace-workflows)
@@ -79,6 +81,51 @@ export default {
 ```
 
 The `env` parameter provides type-safe access to all Cloudflare bindings (D1, KV, R2, etc.) configured in `wrangler.jsonc`.
+
+### Security Headers
+
+The Worker includes built-in security headers applied to all API responses:
+
+```typescript
+const securityHeaders = {
+  'Content-Security-Policy': "default-src 'self'; script-src 'self'; ...",
+  'X-Frame-Options': 'DENY',
+  'X-Content-Type-Options': 'nosniff',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'geolocation=(), microphone=(), camera=()',
+};
+```
+
+These headers provide:
+- **Clickjacking protection** - X-Frame-Options prevents embedding in iframes
+- **MIME sniffing prevention** - X-Content-Type-Options stops browser content type guessing
+- **XSS protection** - Legacy browser XSS filter enabled
+- **Referrer control** - Limits referrer information sent to external sites
+- **Feature restrictions** - Disables geolocation, microphone, and camera APIs
+
+### Health Check Endpoint
+
+A health check endpoint is available at `/api/health`:
+
+```bash
+curl https://your-app.workers.dev/api/health
+```
+
+Response:
+```json
+{
+  "status": "healthy",
+  "timestamp": "2025-12-22T10:30:00.000Z",
+  "version": "1.0.0"
+}
+```
+
+Use this endpoint for:
+- **Load balancer health checks** - Verify worker is responsive
+- **Uptime monitoring** - External services (Pingdom, UptimeRobot, etc.)
+- **Deployment verification** - Confirm successful deployments
+- **Container orchestration** - Kubernetes liveness/readiness probes
 
 ## Wrangler CLI Reference
 
@@ -1984,6 +2031,6 @@ const contentType = request.headers.get("Content-Type");
 
 ---
 
-**Last Updated:** 2025-11-09
+**Last Updated:** 2025-12-22
 
 For project-specific information, see `CLAUDE.md` and other documentation files in this repository.

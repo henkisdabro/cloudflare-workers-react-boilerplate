@@ -96,54 +96,157 @@ This is a **comprehensive website development template** designed for building m
 
 ---
 
-## 🚀 Deployment Pipeline
+## 🚀 Deployment Options
 
-### Fully Automated CI/CD
+This template supports **three deployment methods** to fit different workflows and budgets. Choose based on your repository visibility and usage patterns.
 
-Every push to `main` triggers automatic deployment:
+### Deployment Methods Comparison
+
+| Method | Best For | Setup | Automation | Limits |
+|--------|----------|-------|------------|--------|
+| **GitHub Actions** | Public repos, teams | 5 min | On push to `main` | Unlimited (public) / 2,000 min/month (private) |
+| **Cloudflare Workers Builds** | Private repos, simplicity | 3 min | On push to branch | 3,000 build min/month (free) |
+| **Local Wrangler** | Manual control, testing | 2 min | Manual | Unlimited |
+
+### Free Tier Limits
+
+Both Cloudflare and GitHub offer generous free tiers:
+
+**GitHub Actions** ([source](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions)):
+| Repository Type | Minutes/Month | Storage |
+|----------------|---------------|---------|
+| **Public repos** | ∞ Unlimited | Unlimited |
+| **Private repos** | 2,000 minutes | 500 MB |
+
+> **Note:** Windows runners use 2× minutes, macOS uses 10× minutes. Linux runners (used in this template) have no multiplier.
+
+**Cloudflare Workers** ([source](https://developers.cloudflare.com/workers/platform/pricing/)):
+| Resource | Free Tier |
+|----------|-----------|
+| Requests | 100,000/day |
+| Build minutes | 3,000/month |
+| Concurrent builds | 1 |
+| Worker size | 3 MB |
+| KV reads | 100,000/day |
+
+---
+
+### Option 1: GitHub Actions (Default)
+
+**Best for:** Public repositories, teams, complex build pipelines
+
+This template comes pre-configured with GitHub Actions. Every push to `main` triggers automatic deployment.
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                     DEPLOYMENT PIPELINE                         │
-└─────────────────────────────────────────────────────────────────┘
-
-  Developer                GitHub                 Cloudflare
-      │                      │                         │
-      │  git push main       │                         │
-      ├─────────────────────>│                         │
-      │                      │                         │
-      │                      │  Trigger Action         │
-      │                      ├────────┐                │
-      │                      │        │                │
-      │                      │   ┌────▼─────┐          │
-      │                      │   │  Build   │          │
-      │                      │   │          │          │
-      │                      │   │ 1. npm install      │
-      │                      │   │ 2. tsc -b (compile) │
-      │                      │   │ 3. vite build       │
-      │                      │   └────┬─────┘          │
-      │                      │        │                │
-      │                      │   ┌────▼─────┐          │
-      │                      │   │  Deploy  │          │
-      │                      │   │          │          │
-      │                      │   │ wrangler deploy     │
-      │                      │   └────┬─────┘          │
-      │                      │        │                │
-      │                      │        │  Deploy via API │
-      │                      │        └────────────────>│
-      │                      │                         │
-      │                      │                    ┌────▼─────┐
-      │                      │                    │  Global  │
-      │                      │                    │   Edge   │
-      │                      │                    │  Deploy  │
-      │                      │                    └──────────┘
-      │                      │                         │
-      │  ✅ Deployment URL   │                         │
-      │<─────────────────────┼─────────────────────────┤
-      │                      │                         │
+Developer → git push main → GitHub Actions builds → Cloudflare deploys globally
 ```
 
-### Pipeline Configuration
+**Setup:**
+1. Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` to GitHub Secrets
+2. Push to `main` - deployment is automatic
+
+**Pros:**
+- ✅ Unlimited minutes for public repos
+- ✅ Full control over build pipeline
+- ✅ Easy to add tests, linting, preview deploys
+- ✅ Familiar GitHub workflow
+
+**Cons:**
+- ⚠️ 2,000 min/month limit for private repos (≈100-200 deploys)
+- ⚠️ Requires GitHub Secrets setup
+
+---
+
+### Option 2: Cloudflare Workers Builds (Native Git Integration)
+
+**Best for:** Private repositories, avoiding GitHub Actions limits
+
+Cloudflare can build and deploy directly from your GitHub/GitLab repo - no GitHub Actions needed.
+
+```
+Developer → git push → Cloudflare detects change → Builds & deploys
+```
+
+**Setup:**
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com) → Workers & Pages
+2. Click "Create" → "Import a repository"
+3. Connect your GitHub account and select your repo
+4. Configure build settings (Cloudflare auto-detects Vite projects)
+5. Deploy!
+
+**Pros:**
+- ✅ 3,000 build minutes/month on free tier (separate from GitHub)
+- ✅ No GitHub Actions minutes consumed
+- ✅ Preview URLs for pull requests
+- ✅ Simpler setup - no secrets to configure
+
+**Cons:**
+- ⚠️ 1 concurrent build on free tier
+- ⚠️ Less customisable than GitHub Actions
+- ⚠️ Can't run custom tests/linting in build pipeline
+
+**To switch to Cloudflare Builds:**
+1. Delete or disable `.github/workflows/deploy.yml`
+2. Set up Workers Builds in Cloudflare Dashboard
+3. Push to trigger first build
+
+---
+
+### Option 3: Local Wrangler Deployment
+
+**Best for:** Manual deployments, testing, CI/CD on other platforms
+
+Deploy directly from your terminal using Wrangler CLI.
+
+```
+Developer → npm run deploy → Wrangler builds & deploys → Live globally
+```
+
+**Setup:**
+```bash
+# First time: Authenticate with Cloudflare
+npx wrangler login
+
+# Deploy anytime
+npm run deploy
+```
+
+**Pros:**
+- ✅ No CI/CD limits - deploy as often as you want
+- ✅ Instant deployment feedback
+- ✅ Works with any CI/CD platform (GitLab CI, CircleCI, Jenkins)
+- ✅ Good for testing before committing
+
+**Cons:**
+- ⚠️ Manual process - not automated
+- ⚠️ Requires Wrangler installed and authenticated
+- ⚠️ No audit trail in GitHub
+
+---
+
+### Recommendation by Scenario
+
+| Scenario | Recommended Method |
+|----------|-------------------|
+| **Public repo, open source project** | GitHub Actions (unlimited) |
+| **Private repo, frequent deploys (>100/month)** | Cloudflare Workers Builds |
+| **Private repo, occasional deploys** | GitHub Actions (fits in 2,000 min) |
+| **CI/CD on GitLab, Bitbucket, etc.** | Local Wrangler in CI pipeline |
+| **Solo developer, manual control** | Local Wrangler |
+| **Testing before push** | Local Wrangler + GitHub Actions |
+
+### Monitoring Your Usage
+
+**GitHub Actions:**
+- Go to your repo → Settings → Billing → Actions
+- Or: Your profile → Settings → Billing → Actions
+
+**Cloudflare:**
+- Dashboard → Workers & Pages → Your Worker → Analytics
+
+---
+
+### Pipeline Configuration (GitHub Actions - Default)
 
 **Defined in**: `.github/workflows/deploy.yml`
 
@@ -497,6 +600,7 @@ cloudflare-workers-react-boilerplate/
 │   │   ├── new-project.md
 │   │   ├── add-ai-feature.md
 │   │   ├── setup-database.md
+│   │   ├── setup-sandbox.md
 │   │   └── ...
 │   ├── templates/               # Code generation templates
 │   │   ├── domain-setup-reminder.md
@@ -532,7 +636,9 @@ cloudflare-workers-react-boilerplate/
 ├── package.json                 # Dependencies and scripts
 ├── AI_INTEGRATION.md            # AI integration guide
 ├── CLOUDFLARE_WORKERS.md        # Cloudflare Workers guide
+├── SANDBOX.md                   # Sandbox SDK guide
 ├── CLAUDE.md                    # Claude Code instructions
+├── AGENTS.md                    # AI instructions (for other LLMs)
 └── README.md                    # This file
 ```
 
@@ -577,9 +683,11 @@ npx wrangler secret put DATABASE_URL
 |----------|-------------|
 | **[README.md](README.md)** | This file - Overview and quick start |
 | **[CLAUDE.md](CLAUDE.md)** | Developer guidelines and AI coding instructions |
+| **[AGENTS.md](AGENTS.md)** | AI guidelines for other LLMs (duplicate of CLAUDE.md) |
 | **[AI_INTEGRATION.md](AI_INTEGRATION.md)** | Complete AI integration guide |
 | **[SANDBOX.md](SANDBOX.md)** | Cloudflare Sandbox SDK for code execution |
 | **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** | Cloudflare Workers operations guide |
+| **[docs/CONVENTIONS.md](docs/CONVENTIONS.md)** | British English and style conventions |
 | **[.claude/README.md](.claude/README.md)** | Claude Code slash commands documentation |
 | **[examples/README.md](examples/README.md)** | How to use and integrate examples |
 

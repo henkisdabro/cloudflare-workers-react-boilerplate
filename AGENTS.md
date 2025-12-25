@@ -72,6 +72,7 @@ For complete spelling/punctuation guidelines, see **[docs/CONVENTIONS.md](docs/C
 `.claude/settings.json` includes pre-approved permissions for common operations (git, file editing, testing).
 
 ### Slash Commands (Claude Code)
+- `/setup-cloudflare` - Configure Cloudflare credentials and GitHub secrets (run first!)
 - `/new-project` - Complete project setup with domain configuration
 - `/add-ai-feature` - Add AI capabilities (Claude API, Workers AI, AI Gateway)
 - `/setup-database` - Configure D1 or KV storage
@@ -88,19 +89,21 @@ See `.claude/README.md` for complete slash command documentation.
 Use for: relational data, structured queries, transactions, ACID guarantees.
 
 ```jsonc
-[[d1_databases]]
-binding = "DB"
-database_name = "my-database"
-database_id = "uuid-from-wrangler-create"
+"d1_databases": [{
+  "binding": "DB",
+  "database_name": "my-database",
+  "database_id": "uuid-from-wrangler-create"
+}]
 ```
 
 ### KV (Key-Value)
 Use for: caching, sessions, config, high-read/low-write workloads.
 
 ```jsonc
-[[kv_namespaces]]
-binding = "KV"
-id = "namespace-id-from-wrangler-create"
+"kv_namespaces": [{
+  "binding": "KV",
+  "id": "namespace-id-from-wrangler-create"
+}]
 ```
 
 ### Sandbox SDK (Beta)
@@ -146,8 +149,13 @@ See **[AI_INTEGRATION.md](AI_INTEGRATION.md)** for detailed integration guides.
 
 Automated on push to `main`:
 1. GitHub Actions workflow triggers
-2. Builds Vite app and Worker
-3. Deploys to Cloudflare's global edge network
+2. Installs dependencies (`npm ci`)
+3. Runs linter (`npm run lint`)
+4. Runs tests (`npm run test`)
+5. Builds Vite app and Worker (`npm run build`)
+6. Deploys to Cloudflare's global edge network
+
+Run `/setup-cloudflare` (Claude Code) to configure the required GitHub secrets.
 
 ## Important Notes
 

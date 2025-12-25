@@ -361,13 +361,19 @@ This template is **optimized for AI-assisted development** with Claude Code, fea
 After cloning this template, open it in Claude Code and run:
 
 ```
+/setup-cloudflare
+```
+
+This guides you through Cloudflare credentials setup (Account ID, API token, GitHub secrets).
+
+Then run:
+
+```
 /new-project
 ```
 
 This interactive wizard will:
 - Configure your project name and metadata
-- Guide you through Cloudflare setup
-- Configure GitHub Actions secrets
 - Set up custom domain (optional):
   - Connect domains hosted on Cloudflare DNS
   - Provide DNS setup instructions for external providers (GoDaddy, Namecheap, AWS Route 53, etc.)
@@ -379,6 +385,7 @@ This interactive wizard will:
 
 | Command | Description |
 |---------|-------------|
+| `/setup-cloudflare` | Configure Cloudflare credentials and GitHub secrets (run first!) |
 | `/new-project` | Complete project setup wizard |
 | `/generate-prp <feature>` | Create a comprehensive Product Requirement Plan |
 | `/execute-prp <file>` | Implement a feature from a PRP |
@@ -390,25 +397,29 @@ This interactive wizard will:
 ### Example Workflow
 
 ```bash
-# 1. Set up your project (includes domain configuration)
+# 1. Configure Cloudflare credentials
+/setup-cloudflare
+# Step-by-step guide to set up Account ID, API token, and GitHub secrets
+
+# 2. Set up your project (includes domain configuration)
 /new-project
-# Wizard asks: project name, Cloudflare credentials, domain setup
+# Wizard asks: project name, domain setup
 # Result: Fully configured project + optional custom domain
 
-# 2. Add AI chat feature
+# 3. Add AI chat feature
 /add-ai-feature
 # Choose: Claude API → Streaming Chat
 # Result: Complete chat UI + API endpoint generated
 
-# 3. Add database for chat history
+# 4. Add database for chat history
 /setup-database
 # Choose: D1 (SQL)
 # Result: Database created, migrations generated, types updated
 
-# 4. Generate implementation plan
+# 5. Generate implementation plan
 /generate-prp "Save chat history to D1 database"
 
-# 5. Execute the plan
+# 6. Execute the plan
 /execute-prp PRPs/chat-history.md
 ```
 
@@ -597,6 +608,7 @@ cloudflare-workers-react-boilerplate/
 │       └── deploy.yml           # GitHub Actions CI/CD pipeline
 ├── .claude/
 │   ├── commands/                # Claude Code slash commands
+│   │   ├── setup-cloudflare.md
 │   │   ├── new-project.md
 │   │   ├── add-ai-feature.md
 │   │   ├── setup-database.md

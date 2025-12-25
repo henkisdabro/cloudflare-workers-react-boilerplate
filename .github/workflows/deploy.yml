@@ -10,15 +10,42 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Build and Deploy
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Use Node.js 22 to match local development and Cloudflare's default build image
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Build application
+        run: npm run build
+
       - name: Deploy to Cloudflare Workers
+        id: deploy
         # Use the official Cloudflare Wrangler action
         uses: cloudflare/wrangler-action@v3
         with:
           # These secrets must be configured in the repository settings of the new project
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Skip the build step since we've already built above
+          command: deploy --minify
+
+      - name: Show deployment URL
+        env:
+          DEPLOY_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: echo "Deployed to ${DEPLOY_URL}"

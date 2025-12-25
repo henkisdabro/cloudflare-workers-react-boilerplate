@@ -282,9 +282,9 @@
                             <div class="workflow-step">
                                 <div class="workflow-step-number">2</div>
                                 <div class="workflow-step-content">
-                                    <h4>Add Cloudflare Credentials</h4>
-                                    <p>Add API token and Account ID to GitHub secrets</p>
-                                    <span class="workflow-time">⏱️ 2 minutes</span>
+                                    <h4>Run /setup-cloudflare</h4>
+                                    <p>Guided setup for API token, Account ID, and GitHub secrets</p>
+                                    <span class="workflow-time">⏱️ 3 minutes</span>
                                 </div>
                             </div>
                             <div class="workflow-step">
@@ -477,9 +477,9 @@
                     <div class="step">
                         <div class="step-number">3</div>
                         <h3 class="step-title">Configure Cloudflare</h3>
-                        <p class="step-description">Add Cloudflare API token and Account ID to GitHub secrets.</p>
+                        <p class="step-description">Run <code>/setup-cloudflare</code> in Claude Code for guided setup of API token and secrets.</p>
                         <div class="step-code">
-                            <code>Settings → Secrets → Actions</code>
+                            <code>/setup-cloudflare</code>
                         </div>
                     </div>
 
@@ -494,7 +494,7 @@
                 </div>
 
                 <div class="quick-start-cta">
-                    <p class="quick-start-text">Using Claude Code? Run <code>/new-project</code> for an interactive setup wizard!</p>
+                    <p class="quick-start-text">Using Claude Code? Run <code>/setup-cloudflare</code> then <code>/new-project</code> for guided setup!</p>
                 </div>
             </div>
         </section>
@@ -608,6 +608,12 @@
                 <h3 class="commands-section-title">All Available Commands</h3>
 
                 <div class="commands-grid">
+                    <div class="command-card command-card-highlight">
+                        <div class="command-name">/setup-cloudflare</div>
+                        <p class="command-description">Step-by-step guide to configure Cloudflare credentials and GitHub secrets for deployment</p>
+                        <span class="command-badge">🚀 Run First</span>
+                    </div>
+
                     <div class="command-card">
                         <div class="command-name">/new-project</div>
                         <p class="command-description">Complete project setup wizard with guided configuration, including custom domain setup for Cloudflare DNS or external providers</p>

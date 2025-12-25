@@ -21,6 +21,22 @@ Interactive setup assistant that guides you through:
 /new-project
 ```
 
+### `/setup-cloudflare`
+
+**Use this when:** You need help setting up Cloudflare credentials and GitHub secrets for deployment.
+
+Step-by-step guide for:
+- Finding your Cloudflare Account ID
+- Creating an API token with correct permissions
+- Adding secrets to GitHub Actions
+- Local Wrangler authentication
+- Verifying your setup works
+
+**Usage:**
+```
+/setup-cloudflare
+```
+
 ### `/generate-prp <feature-description>`
 
 **Use this when:** You want to create a comprehensive Product Requirement Plan for a new feature.
@@ -122,6 +138,7 @@ Configure additional bindings:
 .claude/
 ├── commands/           # Slash command definitions
 │   ├── new-project.md
+│   ├── setup-cloudflare.md
 │   ├── generate-prp.md
 │   ├── execute-prp.md
 │   ├── add-ai-feature.md
@@ -143,11 +160,12 @@ PRPs/                   # Product Requirement Plans
 
 ## Workflow
 
-1. **Initial Setup:** Run `/new-project` after forking this template
-2. **Add Features:** Use `/add-ai-feature`, `/setup-database`, or `/setup-sandbox`
-3. **Plan Complex Features:** Use `/generate-prp` to create implementation plans
-4. **Build Features:** Use `/execute-prp` to implement the plans
-5. **Add Bindings:** Use `/add-binding` for additional Cloudflare services
+1. **Cloudflare Setup:** Run `/setup-cloudflare` to configure credentials and secrets
+2. **Project Setup:** Run `/new-project` to configure project name and metadata
+3. **Add Features:** Use `/add-ai-feature`, `/setup-database`, or `/setup-sandbox`
+4. **Plan Complex Features:** Use `/generate-prp` to create implementation plans
+5. **Build Features:** Use `/execute-prp` to implement the plans
+6. **Add Bindings:** Use `/add-binding` for additional Cloudflare services
 
 ## Templates
 

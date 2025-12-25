@@ -1,316 +1,91 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with this repository.
 
 ## Core Technology Stack
 
 - **Framework:** Vite + React 19
 - **Language:** TypeScript
-- **Platform:** Cloudflare Workers (handles both static asset serving for the React SPA and server-side API logic)
+- **Platform:** Cloudflare Workers (static assets + API)
 - **Version Control:** Git, hosted on GitHub
-- **CI/CD:** GitHub Actions for automated deployments
+- **CI/CD:** GitHub Actions
 
-## Core Development Philosophy
+## Development Philosophy
 
 ### KISS (Keep It Simple, Stupid)
-
-Simplicity should be a key goal in design. Choose straightforward solutions over complex ones whenever possible. Simple solutions are easier to understand, maintain, and debug.
+Choose straightforward solutions over complex ones. Simple solutions are easier to understand, maintain, and debug.
 
 ### YAGNI (You Aren't Gonna Need It)
+Implement features only when needed, not when you anticipate they might be useful.
 
-Avoid building functionality on speculation. Implement features only when they are needed, not when you anticipate they might be useful in the future.
+## Language Conventions
 
-## ⚠️ IMPORTANT: Language and Spelling Conventions
+**ALL text content MUST use British English spelling and grammar.**
 
-**ALL text content in this project MUST use British English spelling and grammar.**
+Quick reference: colour (not color), optimise (not optimize), analyse (not analyze), behaviour (not behavior).
 
-This applies to:
-- ✅ All code comments and documentation
-- ✅ Variable names, function names, and type names
-- ✅ User-facing text (UI labels, messages, error messages)
-- ✅ README files, documentation, and guides
-- ✅ Commit messages and PR descriptions
-- ✅ API response messages
-- ✅ Log messages and console output
+**Use hyphens `-` with spaces, NOT em-dashes `—`.**
 
-### Common British vs American English Patterns
-
-**Use British English (✅) NOT American English (❌):**
-
-| British English ✅ | American English ❌ |
-|-------------------|---------------------|
-| colour | color |
-| favourite | favorite |
-| analyse | analyze |
-| optimise | optimize |
-| recognise | recognize |
-| behaviour | behavior |
-| centre | center |
-| licence (noun) | license (noun) |
-| defence | defense |
-| organisation | organization |
-| summarise | summarize |
-| realise | realize |
-| catalogue | catalog |
-| travelled | traveled |
-| cancelled | canceled |
-
-**Examples in code:**
-
-```typescript
-// ✅ CORRECT - British English
-const userColour = '#FF0000';
-const analysisResults = analyseData(input);
-function optimisePerformance() { ... }
-const errorMessage = 'Failed to recognise user credentials';
-
-// ❌ INCORRECT - American English
-const userColor = '#FF0000';
-const analysisResults = analyzeData(input);
-function optimizePerformance() { ... }
-const errorMessage = 'Failed to recognize user credentials';
-```
-
-**Examples in documentation:**
-
-```markdown
-✅ "This feature optimises the application's performance..."
-✅ "The system analyses user behaviour..."
-✅ "Configure your favourite colour scheme..."
-
-❌ "This feature optimizes the application's performance..."
-❌ "The system analyzes user behavior..."
-❌ "Configure your favorite color scheme..."
-```
-
-### Punctuation Conventions
-
-**Use hyphens, NOT em-dashes:**
-
-```markdown
-✅ "This feature - which optimises performance - is optional"
-✅ "The system works in three stages - analysis, processing, and output"
-
-❌ "This feature — which optimizes performance — is optional"
-❌ "The system works in three stages — analysis, processing, and output"
-```
-
-Use single hyphens `-` with spaces around them for parenthetical statements, not em-dashes `—` or `--`.
-
-### When Adding New Features
-
-When generating ANY text content (code, documentation, UI text):
-1. **Check spelling**: Use British English variants (-ise, -our, -re, -ce)
-2. **Review variables**: Ensure function/variable names use British spelling
-3. **Verify messages**: All user-facing text must be British English
-4. **Check punctuation**: Use hyphens with spaces, not em-dashes
-5. **Update docs**: All documentation follows British conventions
-
-**Exception:** External library names and third-party API terms should remain as-is (e.g., `color` in CSS properties, `Authorization` in HTTP headers).
-
-## AI Integration Patterns
-
-This template supports integration with AI capabilities through multiple Cloudflare and Anthropic solutions. Choose the approach that best fits your use case:
-
-### Quick Reference: AI Options
-
-- **Claude API** - Direct integration with Anthropic's API for advanced AI features, best for complex reasoning and long conversations
-- **Workers AI** - Cloudflare's native AI inference at the edge, best for low-latency, cost-effective AI operations
-- **AI Gateway** - Cloudflare's caching and rate-limiting layer for AI APIs, best for production deployments with cost control
-
-### Common Use Cases
-
-- **Conversational AI**: Chat interfaces, customer support bots, interactive assistants
-- **Content Generation**: Dynamic content creation, copywriting, summarization
-- **Data Processing**: Text analysis, classification, sentiment analysis
-- **Code Assistance**: Code generation, documentation, debugging help
-
-### Basic Integration Example
-
-```typescript
-// worker/index.ts - Claude API integration
-export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
-    if (request.url.endsWith('/api/chat')) {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-api-key': env.ANTHROPIC_API_KEY,
-          'anthropic-version': '2023-06-01',
-        },
-        body: JSON.stringify({
-          model: 'claude-3-5-sonnet-20241022',
-          max_tokens: 1024,
-          messages: [{ role: 'user', content: 'Hello, Claude!' }],
-        }),
-      });
-      return response;
-    }
-  },
-};
-```
-
-### Getting Started
-
-Use the `/add-ai-feature` command for guided setup of AI capabilities in your project.
-
-For detailed integration guides, best practices, and complete examples, see:
-- **[AI_INTEGRATION.md](AI_INTEGRATION.md)** - Comprehensive AI integration documentation
-- **[examples/ai/](examples/ai/)** - Working AI integration examples
+For complete spelling/punctuation guidelines, see **[docs/CONVENTIONS.md](docs/CONVENTIONS.md)**.
 
 ## Common Commands
 
-### Development & Build
-
+### Development
 - `npm run dev` - Start local development server
-- `npm run build` - Build for production (TypeScript compilation + Vite build)
+- `npm run build` - Build for production
 - `npm run lint` - Run ESLint
-- `npm run preview` - Build and preview production build locally
 - `npm run deploy` - Build and deploy to Cloudflare Workers
 
 ### Testing
-
 - `npm run test` - Run tests once
-- `npm run test:watch` - Run tests in watch mode (re-runs on file changes)
+- `npm run test:watch` - Run tests in watch mode
 - `npm run test:coverage` - Run tests with coverage report
 
-This project uses [Vitest](https://vitest.dev) with React Testing Library:
-
-- **Configuration**: `vitest.config.ts`
-- **Test Setup**: `src/test/setup.ts`
-- **Test Files**: Place test files as `*.test.tsx` or `*.spec.tsx` in `src/`
-- **Example Test**: `src/App.test.tsx`
-
-### Cloudflare Bindings & Types
-
-- `npm run cf-typegen` - Generate TypeScript types for Cloudflare bindings (run after adding any binding)
-- `npx wrangler d1 create <database-name>` - Create a new D1 database
-- `npx wrangler d1 migrations create <database-name> <migration-name>` - Create a new D1 migration
-- `npx wrangler d1 migrations apply <database-name>` - Apply D1 migrations
-- `npx wrangler d1 migrations apply <database-name> --local` - Apply migrations to local database
-- `npx wrangler kv namespace create <namespace-name>` - Create a new KV namespace
-- `npx wrangler kv key put --binding=KV "key" "value"` - Set a KV key-value pair
-- `npx wrangler kv key get --binding=KV "key"` - Get a KV value
-
-### Local Development with Bindings
-
-- `npm run dev` - Automatically uses local bindings (D1, KV) for development
-- `npx wrangler d1 execute <database-name> --local --command="SELECT * FROM table"` - Query local D1 database
-- `npx wrangler kv key list --binding=KV --local` - List local KV keys
-
-### Custom Domain Setup
-
-- `npx wrangler domains add <domain>` - Add custom domain (Cloudflare DNS only)
-- `npx wrangler domains list` - List configured custom domains
-- `npx wrangler domains remove <domain>` - Remove custom domain
-
-**For domains with external DNS providers:**
-Use the `/new-project` command which provides provider-specific instructions for:
-- GoDaddy
-- Namecheap
-- Google Domains / Google Cloud DNS
-- AWS Route 53
-- Squarespace Domains
-- Other providers (generic CNAME setup)
-
-The command can also generate a `.domain-setup-reminder.md` file with complete setup instructions if you want to defer domain configuration.
-
-## Claude Code Configuration
-
-### Tool Permissions (`.claude/settings.json`)
-
-This project includes a `.claude/settings.json` file with pre-approved tool permissions for common development operations. This reduces friction during development by allowing Claude Code to execute frequently-used commands without requesting permission each time.
-
-**Approved tools include:**
-- Git operations (add, commit, push, pull, status, diff, log)
-- File operations (Edit, MultiEdit, Write, Read)
-- Shell utilities (cat, ls, mkdir, mv, touch, tree, grep)
-- Python/testing tools (pytest, ruff)
-- Web operations (WebFetch for documentation lookups)
-- MCP tools (time, fetch)
-
-**Location:** `.claude/settings.json`
-
-**Customisation:** Modify the `permissions.allow` array to add or remove tool permissions based on your project's needs.
-
-### Slash Commands
-
-The `.claude/commands/` directory contains interactive slash commands for common workflows:
-
-- `/new-project` - Complete project setup including domain configuration
-- `/add-ai-feature` - Add AI capabilities (Claude API, Workers AI, AI Gateway)
-- `/setup-database` - Configure D1 or KV storage
-- `/add-binding` - Add other Cloudflare bindings (R2, Queues, etc.)
-- `/generate-prp` - Create Product Requirement Plans
-- `/execute-prp` - Implement features from PRPs
-
-See `.claude/README.md` for complete documentation on slash commands.
+### Cloudflare Bindings
+- `npm run cf-typegen` - Generate TypeScript types for bindings (run after adding any binding)
+- `npx wrangler d1 create <database-name>` - Create D1 database
+- `npx wrangler kv namespace create <namespace-name>` - Create KV namespace
 
 ## Project Architecture
 
-### Dual-Build TypeScript Setup
+### TypeScript Setup
+- `tsconfig.app.json` - Frontend React application
+- `tsconfig.worker.json` - Cloudflare Worker
+- `tsconfig.node.json` - Vite config and tooling
+- `tsconfig.json` - Root config referencing all three
 
-This project uses TypeScript project references to separate concerns:
-
-- `tsconfig.app.json` - Frontend React application configuration
-- `tsconfig.worker.json` - Cloudflare Worker configuration
-- `tsconfig.node.json` - Vite config and build tooling
-- `tsconfig.json` - Root config that references all three
-
-### Worker Request Handling
-
-The Cloudflare Worker (`worker/index.ts`) uses a routing pattern:
-
-- Routes matching `/api/*` are handled by the Worker's fetch handler and return JSON responses
-- All other routes fall through (return 404) and are handled by the static asset serving
-- Static assets use SPA mode (`not_found_handling: "single-page-application"` in `wrangler.jsonc`), which serves `index.html` for non-existent routes
-
-### Worker API Features
-
-The Worker includes built-in security features:
-
-**Security Headers** (applied to all API responses):
-- Content-Security-Policy (CSP)
-- X-Frame-Options: DENY (clickjacking protection)
-- X-Content-Type-Options: nosniff (MIME sniffing prevention)
-- X-XSS-Protection: 1; mode=block (legacy XSS filter)
-- Referrer-Policy: strict-origin-when-cross-origin
-- Permissions-Policy (restricts browser features)
-
-**Health Check Endpoint**:
-- `GET /api/health` - Returns JSON with status, timestamp, and version
-- Use for uptime monitoring, load balancer health checks, and deployment verification
+### Request Routing
+- `/api/*` routes → Handled by Worker (`worker/index.ts`)
+- All other routes → Static assets (React SPA)
+- Non-existent routes → Falls back to `index.html` (SPA mode)
 
 ### Key Files
+- `src/main.tsx` - React entry point
+- `worker/index.ts` - Worker fetch handler (includes security headers and `/api/health` endpoint)
+- `wrangler.jsonc` - Cloudflare Worker configuration
+- `vite.config.ts` - Vite configuration
+- `.github/workflows/deploy.yml` - CI/CD pipeline
 
-- `src/main.tsx` - React application entry point
-- `src/App.test.tsx` - Example component test
-- `src/test/setup.ts` - Vitest test setup
-- `worker/index.ts` - Cloudflare Worker fetch handler for API routes (includes security headers and health check)
-- `wrangler.jsonc` - Cloudflare Worker configuration (name, compatibility date, assets, bindings)
-- `vite.config.ts` - Vite configuration with Cloudflare plugin (`@cloudflare/vite-plugin`)
-- `vitest.config.ts` - Vitest testing configuration
-- `.nvmrc` - Node.js version pinning (22)
-- `.dev.vars.example` - Template for local development secrets
-- `.github/workflows/deploy.yml` - CI/CD pipeline using `cloudflare/wrangler-action@v3`
+## Claude Code Configuration
 
-## Data Storage & Bindings
+### Tool Permissions
+`.claude/settings.json` includes pre-approved permissions for common operations (git, file editing, testing).
 
-**This is a boilerplate template project** designed to be duplicated and customized for new website projects. When users request database or storage functionality, use Cloudflare's native storage products that integrate seamlessly with Workers:
+### Slash Commands
+- `/new-project` - Complete project setup with domain configuration
+- `/add-ai-feature` - Add AI capabilities (Claude API, Workers AI, AI Gateway)
+- `/setup-database` - Configure D1 or KV storage
+- `/setup-sandbox` - Configure Cloudflare Sandbox SDK for code execution
+- `/add-binding` - Add Cloudflare bindings (R2, Queues, etc.)
+- `/generate-prp` - Create Product Requirement Plans
+- `/execute-prp` - Implement features from PRPs
 
-### Cloudflare D1 (SQL Database)
+See `.claude/README.md` for complete slash command documentation.
 
-**Use D1 when:** Users need relational data, structured queries, transactions, or traditional database features.
+## Data Storage
 
-- Serverless SQLite database with zero-latency reads
-- Configure in `wrangler.jsonc` under `[[d1_databases]]`
-- Access via `env.DB` binding in Worker code
-- Create with: `npx wrangler d1 create <database-name>`
-- Run migrations with: `npx wrangler d1 migrations apply <database-name>`
-- Use `npm run cf-typegen` to generate TypeScript types for bindings
-
-**Example configuration:**
+### D1 (SQL Database)
+Use for: relational data, structured queries, transactions, ACID guarantees.
 
 ```jsonc
 [[d1_databases]]
@@ -319,17 +94,8 @@ database_name = "my-database"
 database_id = "uuid-from-wrangler-create"
 ```
 
-### Cloudflare KV (Key-Value Storage)
-
-**Use KV when:** Users need simple key-value storage, caching, session data, or configuration storage.
-
-- Low-latency key-value store optimized for high-read workloads
-- Configure in `wrangler.jsonc` under `[[kv_namespaces]]`
-- Access via `env.KV` binding in Worker code
-- Create with: `npx wrangler kv namespace create <namespace-name>`
-- Use `npm run cf-typegen` to generate TypeScript types for bindings
-
-**Example configuration:**
+### KV (Key-Value)
+Use for: caching, sessions, config, high-read/low-write workloads.
 
 ```jsonc
 [[kv_namespaces]]
@@ -337,282 +103,66 @@ binding = "KV"
 id = "namespace-id-from-wrangler-create"
 ```
 
-### General Guidance
+### Sandbox SDK (Beta)
+Use for: AI code execution, REPLs, data analysis, isolated environments.
 
-- **Always recommend Cloudflare-native storage** over external databases (PostgreSQL, MongoDB, etc.) for this stack
-- **Run `npm run cf-typegen`** after adding bindings to get proper TypeScript types in `env.d.ts`
-- **Bindings are available** in the Worker's `env` parameter: `env.DB`, `env.KV`, etc.
-- **Local development:** Use `--local` flag with wrangler commands for local testing
-- **Multiple environments:** Use different bindings for dev/staging/production as needed
-- **Guided setup:** Use `/setup-database` command for interactive database setup
-- **Other bindings:** Use `/add-binding` command to add other Cloudflare bindings (R2, Queues, etc.)
-
-### Working Examples
-
-Explore practical implementations in the **[examples/database/](examples/database/)** directory:
-- **D1 Contact Form** - Complete example with schema, migrations, and form handling
-- **KV Sessions** - Session management with Cloudflare KV
-
-## Database Patterns
-
-### When to Use D1 vs KV
-
-**Choose D1 (SQL Database) when you need:**
-- Relational data with foreign keys and joins
-- Complex queries with filtering, sorting, and aggregation
-- Transactions and ACID guarantees
-- Structured data with schemas
-- Full-text search capabilities
-- Examples: User accounts, blog posts, e-commerce orders, CMS content
-
-**Choose KV (Key-Value Store) when you need:**
-- Simple key-value lookups
-- Caching frequently accessed data
-- Session storage
-- Configuration settings
-- High-read, low-write workloads
-- Eventually consistent data
-- Examples: API response caching, feature flags, user sessions, temporary data
-
-### Quick Setup Reference
-
-```bash
-# D1 Database Setup
-npx wrangler d1 create my-database
-# Add to wrangler.jsonc under [[d1_databases]]
-npm run cf-typegen
-
-# KV Namespace Setup
-npx wrangler kv namespace create my-kv
-# Add to wrangler.jsonc under [[kv_namespaces]]
-npm run cf-typegen
-```
-
-### Common Patterns
-
-**D1 CRUD Operations:**
-```typescript
-// Create
-await env.DB.prepare('INSERT INTO users (name, email) VALUES (?, ?)')
-  .bind(name, email)
-  .run();
-
-// Read
-const user = await env.DB.prepare('SELECT * FROM users WHERE id = ?')
-  .bind(userId)
-  .first();
-
-// Update
-await env.DB.prepare('UPDATE users SET name = ? WHERE id = ?')
-  .bind(newName, userId)
-  .run();
-
-// Delete
-await env.DB.prepare('DELETE FROM users WHERE id = ?')
-  .bind(userId)
-  .run();
-```
-
-**KV Operations:**
-```typescript
-// Set value
-await env.KV.put('session:123', JSON.stringify(sessionData), {
-  expirationTtl: 3600, // 1 hour
-});
-
-// Get value
-const sessionData = await env.KV.get('session:123', 'json');
-
-// Delete value
-await env.KV.delete('session:123');
-
-// List keys
-const keys = await env.KV.list({ prefix: 'session:' });
-```
-
-**Session Management with KV:**
-```typescript
-// Store session
-const sessionId = crypto.randomUUID();
-await env.KV.put(
-  `session:${sessionId}`,
-  JSON.stringify({ userId, createdAt: Date.now() }),
-  { expirationTtl: 86400 } // 24 hours
-);
-
-// Retrieve session
-const session = await env.KV.get(`session:${sessionId}`, 'json');
-```
-
-**Caching with KV:**
-```typescript
-// Check cache first
-let data = await env.KV.get('api:data', 'json');
-if (!data) {
-  // Cache miss - fetch from source
-  data = await fetchFromAPI();
-  // Cache for 5 minutes
-  await env.KV.put('api:data', JSON.stringify(data), { expirationTtl: 300 });
+```jsonc
+"unsafe": {
+  "bindings": [{ "name": "Sandbox", "type": "sandbox" }]
 }
-return data;
 ```
 
-### Migration Workflows
+**Always run `npm run cf-typegen` after adding bindings.**
 
-**D1 Migration Best Practices:**
+For detailed patterns and examples:
+- **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** - Complete Cloudflare Workers guide
+- **[AI_INTEGRATION.md](AI_INTEGRATION.md)** - AI integration patterns
+- **[SANDBOX.md](SANDBOX.md)** - Sandbox SDK for code execution
+- **[examples/](examples/)** - Working code examples
 
-1. **Create Migration:**
-   ```bash
-   npx wrangler d1 migrations create my-database create_users_table
-   ```
+## AI Integration
 
-2. **Write Migration SQL** (in `migrations/` directory):
-   ```sql
-   -- Up migration
-   CREATE TABLE users (
-     id INTEGER PRIMARY KEY AUTOINCREMENT,
-     name TEXT NOT NULL,
-     email TEXT UNIQUE NOT NULL,
-     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-   );
-   ```
+### Quick Reference
+- **Claude API** - Advanced reasoning, long conversations
+- **Workers AI** - Edge inference, cost-effective
+- **AI Gateway** - Caching and rate limiting for AI APIs
+- **Sandbox SDK** - Safe execution of AI-generated code
 
-3. **Test Locally:**
-   ```bash
-   npx wrangler d1 migrations apply my-database --local
-   ```
+Use `/add-ai-feature` for guided setup. See **[AI_INTEGRATION.md](AI_INTEGRATION.md)** for details.
 
-4. **Deploy to Production:**
-   ```bash
-   npx wrangler d1 migrations apply my-database
-   ```
+## Security Best Practices
 
-### Additional Resources
-
-- **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** - Detailed Cloudflare Workers and bindings documentation
-- **[examples/database/](examples/database/)** - Working database integration examples
-- Use **`/setup-database`** command for guided database setup
-
-## Deployment Flow
-
-Deployment is fully automated on push to `main`:
-
-1. Developer pushes commits to `main` branch
-2. GitHub Actions workflow (`.github/workflows/deploy.yml`) triggers
-3. Workflow uses `cloudflare/wrangler-action` to build and deploy
-4. Wrangler builds both the Vite app and Worker, then deploys to Cloudflare
-
-
-## Working with Examples
-
-The **`examples/`** directory contains production-ready reference implementations demonstrating common patterns and integrations. These examples are designed to be copied and adapted into your project.
-
-### Available Examples
-
-**AI Integration** (`examples/ai/`)
-- **Simple Claude Chat** - Basic chat interface with Claude API
-- **Streaming Chat** - Real-time streaming responses with Server-Sent Events
-- **Workers AI Chat** - Edge AI with Cloudflare Workers AI
-- **AI Gateway Integration** - Cost optimization and caching with AI Gateway
-
-**Database & Storage** (`examples/database/`)
-- **D1 Contact Form** - Complete form with D1 database storage, including schema and migrations
-- **KV Sessions** - Session management using Cloudflare KV
-
-### How to Use Examples
-
-1. **Browse Examples**: Explore the `examples/` directory to find relevant patterns
-2. **Read Documentation**: Each example has its own README with setup instructions
-3. **Copy Code**: Copy relevant files to your project structure
-4. **Adapt Configuration**: Update `wrangler.jsonc` with necessary bindings
-5. **Generate Types**: Run `npm run cf-typegen` after adding bindings
-6. **Test Locally**: Verify functionality with `npm run dev`
-
-### Integration Workflow
-
-```bash
-# 1. Review the example you want to use
-cat examples/database/d1-contact-form/README.md
-
-# 2. Copy relevant files to your project
-# Frontend: examples/ai/simple-chat/src/ → src/
-# Worker: examples/ai/simple-chat/worker/ → worker/
-
-# 3. Update wrangler.jsonc with bindings
-# Add necessary D1, KV, or other bindings
-
-# 4. Generate TypeScript types
-npm run cf-typegen
-
-# 5. Test locally
-npm run dev
-```
-
-### Example File Locations
-
-- **Frontend Code**: `examples/*/src/` - React components and hooks
-- **Worker Code**: `examples/*/worker/` - API endpoints and business logic
-- **Database**: `examples/*/migrations/` - D1 migration files
-- **Configuration**: `examples/*/wrangler.example.jsonc` - Example binding configurations
-
-For comprehensive guides and detailed explanations, see **[examples/README.md](examples/README.md)**.
-
-## 🛡️ Security Best Practices
-
-### Security Guidelines
-
-- Never commit secrets - use environment variables
-- Use parameterized queries for database operations
+- Never commit secrets - use environment variables and `wrangler secret put`
+- Use parameterised queries for database operations
 - Implement rate limiting for APIs
-- Use HTTPS for all external communications
-- Implement proper authentication and authorization
+- Worker includes built-in security headers (CSP, X-Frame-Options, etc.)
 
 ### Secrets Management
+- **Local:** `.dev.vars` file (gitignored)
+- **Production:** `npx wrangler secret put SECRET_NAME`
+- **GitHub Actions:** Repository secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`)
 
-Cloudflare credentials are stored as GitHub Actions secrets (not in code):
+## Deployment
 
-- `CLOUDFLARE_API_TOKEN` - API token with Workers edit permissions
-- `CLOUDFLARE_ACCOUNT_ID` - Cloudflare account identifier
+Automated on push to `main`:
+1. GitHub Actions workflow triggers
+2. Builds Vite app and Worker
+3. Deploys to Cloudflare's global edge network
 
-Access these in workflows via `${{ secrets.VARIABLE_NAME }}` syntax.
+## Important Notes
 
-## ⚠️ Important Notes
-
-- **NEVER ASSUME OR GUESS** - When in doubt, ask for clarification
-- **Always verify file paths and module names** before use
-- **Keep CLAUDE.md updated** when adding new patterns or dependencies
+- **NEVER ASSUME OR GUESS** - Ask for clarification when uncertain
+- **Verify file paths and module names** before use
+- **Keep CLAUDE.md updated** when adding new patterns
 - **Test your code** - No feature is complete without tests
-- **Document your decisions** - Future developers (including yourself) will thank you
+- **Use `rg` (ripgrep)** instead of `grep` and `find`
 
-## 🔍 Search Command Requirements
-
-**CRITICAL**: Always use `rg` (ripgrep) instead of traditional `grep` and `find` commands:
+## Search Commands
 
 ```bash
-# ❌ Don't use grep
-grep -r "pattern" .
-
-# ✅ Use rg instead
+# Use rg instead of grep
 rg "pattern"
 
-# ❌ Don't use find with name
-find . -name "*.py"
-
-# ✅ Use rg with file filtering
-rg --files | rg "\.py$"
-# or
-rg --files -g "*.py"
-```
-
-**Enforcement Rules:**
-
-```
-(
-    r"^grep\b(?!.*\|)",
-    "Use 'rg' (ripgrep) instead of 'grep' for better performance and features",
-),
-(
-    r"^find\s+\S+\s+-name\b",
-    "Use 'rg --files | rg pattern' or 'rg --files -g pattern' instead of 'find -name' for better performance",
-),
+# Use rg instead of find
+rg --files -g "*.ts"
 ```

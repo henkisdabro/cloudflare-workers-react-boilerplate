@@ -13,6 +13,7 @@ This guide provides comprehensive information about using Cloudflare Workers in 
 - [R2 Storage](#r2-storage)
 - [Queues](#queues)
 - [AI Bindings](#ai-bindings)
+- [Sandbox SDK](#sandbox-sdk)
 - [Secrets Management](#secrets-management)
 - [Environment Management](#environment-management)
 - [Local Development](#local-development)
@@ -994,6 +995,86 @@ For detailed AI integration patterns, see the `AI_INTEGRATION.md` guide (if avai
 **Learn more:**
 - [Workers AI Documentation](https://developers.cloudflare.com/workers-ai/)
 - [AI Gateway Documentation](https://developers.cloudflare.com/ai-gateway/)
+
+## Sandbox SDK
+
+Cloudflare Sandbox SDK enables running untrusted code safely in isolated containers on the edge. Ideal for AI agents, code interpreters, and data analysis.
+
+> **Status:** Beta (June 2025) - Active development with production support coming soon.
+
+### When to Use Sandbox
+
+- **AI Code Execution** - Run LLM-generated Python, JavaScript, or shell scripts
+- **Interactive REPLs** - Build code playgrounds with rich output support
+- **Data Analysis** - Process files securely in isolated environments
+- **CI/CD Systems** - Isolated build and test environments
+
+### Basic Setup
+
+**Step 1: Install the SDK**
+
+```bash
+npm install @cloudflare/sandbox
+```
+
+**Step 2: Add to `wrangler.jsonc`**
+
+```jsonc
+{
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "Sandbox",
+        "type": "sandbox"
+      }
+    ]
+  }
+}
+```
+
+**Step 3: Generate types**
+
+```bash
+npm run cf-typegen
+```
+
+### Usage Example
+
+```typescript
+import { getSandbox } from '@cloudflare/sandbox';
+
+interface Env {
+  Sandbox: Sandbox;
+}
+
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const sandbox = getSandbox(env.Sandbox, 'my-sandbox');
+
+    // Execute Python code
+    const result = await sandbox.exec('python3 -c "print(2 + 2)"');
+
+    // File operations
+    await sandbox.writeFile('/workspace/data.txt', 'Hello!');
+    const content = await sandbox.readFile('/workspace/data.txt');
+
+    return Response.json({
+      output: result.stdout,
+      file: content,
+    });
+  },
+} satisfies ExportedHandler<Env>;
+```
+
+### Key Features
+
+- **Command Execution** - Run any command with streaming output
+- **File System** - Read, write, and manage files
+- **Code Interpreters** - Python and JavaScript with rich outputs
+- **Git Integration** - Clone repositories directly
+- **Preview URLs** - Expose services publicly
+
+**Learn more:** See **[SANDBOX.md](SANDBOX.md)** for comprehensive documentation and examples.
 
 ## Secrets Management
 

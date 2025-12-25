@@ -90,6 +90,7 @@ This is a **comprehensive website development template** designed for building m
 - **R2** - S3-compatible object storage *(setup helper included)*
 - **Workers AI** - Edge-native AI inference *(examples included)*
 - **AI Gateway** - Caching & analytics for AI APIs *(examples included)*
+- **Sandbox SDK** - Secure isolated code execution *(Beta - documentation included)*
 - **Queues** - Message queue system *(setup helper included)*
 - **Analytics Engine** - Custom analytics *(setup helper included)*
 
@@ -280,6 +281,7 @@ This interactive wizard will:
 | `/execute-prp <file>` | Implement a feature from a PRP |
 | `/add-ai-feature` | Add AI capabilities (Claude API, Workers AI, AI Gateway) |
 | `/setup-database` | Set up D1 (SQL) or KV (key-value) storage |
+| `/setup-sandbox` | Configure Cloudflare Sandbox SDK for code execution |
 | `/add-binding` | Add Cloudflare bindings (R2, Queues, etc.) |
 
 ### Example Workflow
@@ -322,6 +324,7 @@ Build AI-powered applications with **zero infrastructure setup**. This template 
 | **Claude API** | Advanced reasoning, long conversations | 2 min | Pay per token |
 | **Workers AI** | Edge inference, cost-effective | 1 min | Included in Workers |
 | **AI Gateway** | Production apps with caching | 5 min | Reduces AI costs 30-80% |
+| **Sandbox SDK** | Safe AI code execution, REPLs | 5 min | Beta (free during beta) |
 
 ### Quick Start: Add AI
 
@@ -575,6 +578,7 @@ npx wrangler secret put DATABASE_URL
 | **[README.md](README.md)** | This file - Overview and quick start |
 | **[CLAUDE.md](CLAUDE.md)** | Developer guidelines and AI coding instructions |
 | **[AI_INTEGRATION.md](AI_INTEGRATION.md)** | Complete AI integration guide |
+| **[SANDBOX.md](SANDBOX.md)** | Cloudflare Sandbox SDK for code execution |
 | **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** | Cloudflare Workers operations guide |
 | **[.claude/README.md](.claude/README.md)** | Claude Code slash commands documentation |
 | **[examples/README.md](examples/README.md)** | How to use and integrate examples |

@@ -11,6 +11,7 @@ This directory contains Claude Code specific configuration for this project.
 Interactive setup assistant that guides you through:
 - Updating project name and configuration
 - Setting up Cloudflare credentials
+- Configuring custom domains (Cloudflare DNS or external providers)
 - Configuring GitHub Actions secrets
 - Testing local development
 - Creating your first PRP
@@ -54,6 +55,67 @@ Executes a PRP by:
 /execute-prp PRPs/user-authentication.md
 ```
 
+### `/add-ai-feature`
+
+**Use this when:** You want to add AI capabilities to your project.
+
+Interactive guide for:
+- Claude API integration
+- Workers AI setup
+- AI Gateway configuration
+- Streaming chat implementation
+
+**Usage:**
+```
+/add-ai-feature
+```
+
+### `/setup-database`
+
+**Use this when:** You need to add database storage to your project.
+
+Interactive setup for:
+- D1 (SQL database) configuration
+- KV (key-value storage) setup
+- Migration file generation
+- TypeScript type generation
+
+**Usage:**
+```
+/setup-database
+```
+
+### `/setup-sandbox`
+
+**Use this when:** You need secure code execution for AI agents or REPLs.
+
+Interactive setup for Cloudflare Sandbox SDK:
+- AI code execution environments
+- Code interpreter/REPL setup
+- Data analysis pipelines
+- Custom sandbox applications
+
+**Usage:**
+```
+/setup-sandbox
+```
+
+### `/add-binding`
+
+**Use this when:** You want to add other Cloudflare bindings.
+
+Configure additional bindings:
+- R2 (object storage)
+- Queues (message queues)
+- Analytics Engine
+- Durable Objects
+- And more
+
+**Usage:**
+```
+/add-binding
+```
+
 ## Directory Structure
 
 ```
@@ -61,9 +123,19 @@ Executes a PRP by:
 ├── commands/           # Slash command definitions
 │   ├── new-project.md
 │   ├── generate-prp.md
-│   └── execute-prp.md
-└── templates/          # Templates for code generation
-    └── prp_base.md     # PRP template
+│   ├── execute-prp.md
+│   ├── add-ai-feature.md
+│   ├── setup-database.md
+│   ├── setup-sandbox.md
+│   └── add-binding.md
+├── templates/          # Templates for code generation
+│   ├── domain-setup-reminder.md
+│   ├── prp_base.md
+│   ├── prp_ai_feature.md
+│   ├── prp_api_feature.md
+│   ├── prp_auth_feature.md
+│   └── prp_database_feature.md
+└── settings.json       # Pre-approved tool permissions
 
 PRPs/                   # Product Requirement Plans
 └── .gitkeep
@@ -72,9 +144,10 @@ PRPs/                   # Product Requirement Plans
 ## Workflow
 
 1. **Initial Setup:** Run `/new-project` after forking this template
-2. **Plan Features:** Use `/generate-prp` to create implementation plans
-3. **Build Features:** Use `/execute-prp` to implement the plans
-4. **Iterate:** Create new PRPs for additional features
+2. **Add Features:** Use `/add-ai-feature`, `/setup-database`, or `/setup-sandbox`
+3. **Plan Complex Features:** Use `/generate-prp` to create implementation plans
+4. **Build Features:** Use `/execute-prp` to implement the plans
+5. **Add Bindings:** Use `/add-binding` for additional Cloudflare services
 
 ## Templates
 
@@ -88,12 +161,33 @@ Comprehensive template for Product Requirement Plans including:
 - Testing approach and validation gates
 - Success criteria
 
+### Feature-Specific Templates
+
+- `prp_ai_feature.md` - AI integration features
+- `prp_api_feature.md` - API endpoint development
+- `prp_auth_feature.md` - Authentication features
+- `prp_database_feature.md` - Database/storage features
+
+## Tool Permissions
+
+The `settings.json` file contains pre-approved tool permissions for common development operations:
+
+- Git operations (add, commit, push, pull, status, diff, log)
+- File operations (Edit, MultiEdit, Write, Read)
+- Shell utilities (cat, ls, mkdir, mv, touch, tree, grep)
+- Python/testing tools (pytest, ruff)
+- Web operations (WebFetch for documentation lookups)
+
+Modify `permissions.allow` array to customise for your project needs.
+
 ## Project-Specific Context
 
 This template is built for:
 - **Framework:** Vite + React 19
 - **Language:** TypeScript
 - **Platform:** Cloudflare Workers
+- **Database:** D1 (SQL) and KV (key-value)
+- **AI:** Claude API, Workers AI, AI Gateway, Sandbox SDK
 - **Deployment:** GitHub Actions
 
-PRPs generated here are optimized for this stack and include Cloudflare-specific considerations.
+PRPs and commands are optimised for this stack and include Cloudflare-specific considerations.

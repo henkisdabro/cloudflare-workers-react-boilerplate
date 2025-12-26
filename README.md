@@ -41,6 +41,94 @@ This is a **comprehensive website development template** designed for building m
 
 ---
 
+## ⚡ Quick Start
+
+### Prerequisites
+
+- **Node.js** 22+ and npm (matches [Cloudflare Workers Builds default](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/))
+- **Cloudflare Account** ([sign up free](https://dash.cloudflare.com/sign-up))
+- **GitHub Account** (for automated deployment)
+
+### 🤖 Claude Code Setup (Recommended)
+
+If you're using [Claude Code](https://claude.com/claude-code), this is the fastest way to get started:
+
+```bash
+# 1. Clone your new repository (after clicking "Use this template")
+git clone https://github.com/your-username/your-new-repo.git
+cd your-new-repo
+
+# 2. Install dependencies
+npm install
+
+# 3. Open in Claude Code and run:
+/start
+```
+
+The `/start` wizard handles everything:
+- ✅ Configure project name and metadata
+- ✅ Set up Cloudflare credentials (Account ID, API token)
+- ✅ Configure GitHub secrets for CI/CD deployment
+- ✅ Optionally enable Claude GitHub Actions (`@claude` in PRs)
+- ✅ Set up custom domain (optional)
+- ✅ First deployment to production
+- ✅ Guide you to your next feature
+
+**That's it!** Claude Code walks you through each step interactively.
+
+---
+
+### 🛠️ Manual Setup (Alternative)
+
+<details>
+<summary><strong>Click to expand manual setup instructions</strong></summary>
+
+If you prefer to set up manually without Claude Code:
+
+#### 1️⃣ Create Your Project
+
+Click **"Use this template"** on GitHub, then:
+
+```bash
+git clone https://github.com/your-username/your-new-repo.git
+cd your-new-repo
+npm install
+```
+
+#### 2️⃣ Get Cloudflare Credentials
+
+**Account ID:**
+1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com)
+2. Go to Workers & Pages
+3. Copy your **Account ID** from the right sidebar
+
+**API Token:**
+1. Go to [API Tokens](https://dash.cloudflare.com/profile/api-tokens)
+2. Click **"Create Token"** → Use **"Edit Cloudflare Workers"** template
+3. Copy the generated token immediately
+
+#### 3️⃣ Add GitHub Secrets
+
+1. In your GitHub repo: **Settings** → **Secrets and variables** → **Actions**
+2. Add `CLOUDFLARE_ACCOUNT_ID` with your account ID
+3. Add `CLOUDFLARE_API_TOKEN` with your API token
+
+#### 4️⃣ Deploy
+
+```bash
+# Start local development
+npm run dev
+
+# Or push to main for automatic deployment
+git add . && git commit -m "Initial setup" && git push origin main
+```
+
+Your app is now live! Check the Actions tab for your deployment URL.
+
+</details>
+
+---
+
 ## 🏗️ Architecture & Tech Stack
 
 ```
@@ -264,113 +352,9 @@ npm run deploy
 
 ---
 
-## ⚡ Quick Start
-
-### Prerequisites
-
-- **Node.js** 22+ and npm (matches [Cloudflare Workers Builds default](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/))
-- **Cloudflare Account** ([sign up free](https://dash.cloudflare.com/sign-up))
-- **GitHub Account** (for automated deployment)
-- **Claude Code** *(optional, but recommended)* - [Get it here](https://claude.com/claude-code)
-
-### 1️⃣ Create Your Project
-
-Click **"Use this template"** on GitHub, then:
-
-```bash
-# Clone your new repository
-git clone https://github.com/your-username/your-new-repo.git
-cd your-new-repo
-
-# Install dependencies
-npm install
-```
-
-### 2️⃣ Configure Deployment (One-Time Setup)
-
-You need two values from your Cloudflare dashboard:
-
-**Get your Cloudflare Account ID:**
-1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com)
-2. Go to Workers & Pages
-3. Copy your **Account ID** from the right sidebar
-
-**Create an API Token:**
-1. Go to [API Tokens](https://dash.cloudflare.com/profile/api-tokens)
-2. Click **"Create Token"**
-3. Use the **"Edit Cloudflare Workers"** template
-4. Copy the generated token immediately
-
-**Add secrets to GitHub:**
-1. In your GitHub repo: **Settings** → **Secrets and variables** → **Actions**
-2. Click **"New repository secret"**
-3. Add `CLOUDFLARE_ACCOUNT_ID` with your account ID
-4. Add `CLOUDFLARE_API_TOKEN` with your API token
-
-### 3️⃣ Start Developing
-
-```bash
-# Start local development server
-npm run dev
-```
-
-Visit **http://localhost:5173** - your app is running!
-
-### 4️⃣ Deploy to Production
-
-```bash
-# Commit your changes
-git add .
-git commit -m "Initial setup"
-
-# Push to main branch (auto-deploys via GitHub Actions)
-git push origin main
-```
-
-✅ **Your app is now live globally!** Check the Actions tab for your deployment URL.
-
-### 5️⃣ Connect Custom Domain (Optional)
-
-Your Worker is accessible at `https://your-worker.workers.dev`, but you can connect a custom domain:
-
-**If DNS is on Cloudflare:**
-```bash
-npx wrangler domains add yourdomain.com
-# or for a subdomain:
-npx wrangler domains add www.yourdomain.com
-```
-
-**If DNS is elsewhere** (GoDaddy, Namecheap, AWS Route 53, etc.):
-- Use `/start` command for provider-specific instructions
-- Or manually add a CNAME record pointing to your `.workers.dev` URL
-
-**Deferred Setup:**
-- Run `/start` and choose "set up later" when prompted
-- A `.domain-setup-reminder.md` file will be created with detailed instructions
-
-📖 See `.claude/commands/start.md` for complete domain setup guide.
-
----
-
 ## 🤖 Claude Code Integration
 
-This template is **optimized for AI-assisted development** with Claude Code, featuring interactive slash commands that accelerate your workflow.
-
-### Quick Start with Claude Code
-
-After cloning this template, open it in Claude Code and run:
-
-```
-/start
-```
-
-This single command handles everything:
-- Configure your project name and metadata
-- Set up Cloudflare credentials (Account ID, API token)
-- Configure GitHub secrets for deployment
-- Set up custom domain (optional)
-- First deployment to production
-- Plan your first feature with `/generate-prp`
+This template is **optimised for AI-assisted development** with Claude Code, featuring interactive slash commands that accelerate your workflow.
 
 ### Available Slash Commands
 

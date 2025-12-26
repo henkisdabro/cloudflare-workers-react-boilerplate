@@ -341,14 +341,14 @@ npx wrangler domains add www.yourdomain.com
 ```
 
 **If DNS is elsewhere** (GoDaddy, Namecheap, AWS Route 53, etc.):
-- Use `/new-project` command for provider-specific instructions
+- Use `/start` command for provider-specific instructions
 - Or manually add a CNAME record pointing to your `.workers.dev` URL
 
 **Deferred Setup:**
-- Run `/new-project` and choose "set up later"
+- Run `/start` and choose "set up later" when prompted
 - A `.domain-setup-reminder.md` file will be created with detailed instructions
 
-📖 See `.claude/commands/new-project.md` for complete domain setup guide.
+📖 See `.claude/commands/start.md` for complete domain setup guide.
 
 ---
 
@@ -361,32 +361,22 @@ This template is **optimized for AI-assisted development** with Claude Code, fea
 After cloning this template, open it in Claude Code and run:
 
 ```
-/setup-cloudflare
+/start
 ```
 
-This guides you through Cloudflare credentials setup (Account ID, API token, GitHub secrets).
-
-Then run:
-
-```
-/new-project
-```
-
-This interactive wizard will:
+This single command handles everything:
 - Configure your project name and metadata
-- Set up custom domain (optional):
-  - Connect domains hosted on Cloudflare DNS
-  - Provide DNS setup instructions for external providers (GoDaddy, Namecheap, AWS Route 53, etc.)
-  - Create reminder file for deferred domain setup
-- Test your local environment
-- Help you create your first feature
+- Set up Cloudflare credentials (Account ID, API token)
+- Configure GitHub secrets for deployment
+- Set up custom domain (optional)
+- First deployment to production
+- Plan your first feature with `/generate-prp`
 
 ### Available Slash Commands
 
 | Command | Description |
 |---------|-------------|
-| `/setup-cloudflare` | Configure Cloudflare credentials and GitHub secrets (run first!) |
-| `/new-project` | Complete project setup wizard |
+| `/start` | Complete project setup (run first!) - config, credentials, domain, deployment |
 | `/generate-prp <feature>` | Create a comprehensive Product Requirement Plan |
 | `/execute-prp <file>` | Implement a feature from a PRP |
 | `/add-ai-feature` | Add AI capabilities (Claude API, Workers AI, AI Gateway) |
@@ -397,29 +387,24 @@ This interactive wizard will:
 ### Example Workflow
 
 ```bash
-# 1. Configure Cloudflare credentials
-/setup-cloudflare
-# Step-by-step guide to set up Account ID, API token, and GitHub secrets
+# 1. Complete setup in one command
+/start
+# Handles: project config, credentials, domain, first deployment
 
-# 2. Set up your project (includes domain configuration)
-/new-project
-# Wizard asks: project name, domain setup
-# Result: Fully configured project + optional custom domain
-
-# 3. Add AI chat feature
+# 2. Add AI chat feature
 /add-ai-feature
 # Choose: Claude API → Streaming Chat
 # Result: Complete chat UI + API endpoint generated
 
-# 4. Add database for chat history
+# 3. Add database for chat history
 /setup-database
 # Choose: D1 (SQL)
 # Result: Database created, migrations generated, types updated
 
-# 5. Generate implementation plan
+# 4. Generate implementation plan
 /generate-prp "Save chat history to D1 database"
 
-# 6. Execute the plan
+# 5. Execute the plan
 /execute-prp PRPs/chat-history.md
 ```
 
@@ -608,12 +593,13 @@ cloudflare-workers-react-boilerplate/
 │       └── deploy.yml           # GitHub Actions CI/CD pipeline
 ├── .claude/
 │   ├── commands/                # Claude Code slash commands
-│   │   ├── setup-cloudflare.md
-│   │   ├── new-project.md
+│   │   ├── start.md
+│   │   ├── generate-prp.md
+│   │   ├── execute-prp.md
 │   │   ├── add-ai-feature.md
 │   │   ├── setup-database.md
 │   │   ├── setup-sandbox.md
-│   │   └── ...
+│   │   └── add-binding.md
 │   ├── templates/               # Code generation templates
 │   │   ├── domain-setup-reminder.md
 │   │   └── ...

@@ -72,14 +72,13 @@ For complete spelling/punctuation guidelines, see **[docs/CONVENTIONS.md](docs/C
 `.claude/settings.json` includes pre-approved permissions for common operations (git, file editing, testing).
 
 ### Slash Commands
-- `/setup-cloudflare` - Configure Cloudflare credentials and GitHub secrets (run first!)
-- `/new-project` - Complete project setup with domain configuration
+- `/start` - Complete project setup (run first!) - config, credentials, domain, deployment
+- `/generate-prp` - Create Product Requirement Plans
+- `/execute-prp` - Implement features from PRPs
 - `/add-ai-feature` - Add AI capabilities (Claude API, Workers AI, AI Gateway)
 - `/setup-database` - Configure D1 or KV storage
 - `/setup-sandbox` - Configure Cloudflare Sandbox SDK for code execution
 - `/add-binding` - Add Cloudflare bindings (R2, Queues, etc.)
-- `/generate-prp` - Create Product Requirement Plans
-- `/execute-prp` - Implement features from PRPs
 
 See `.claude/README.md` for complete slash command documentation.
 
@@ -155,7 +154,7 @@ Automated on push to `main`:
 5. Builds Vite app and Worker (`npm run build`)
 6. Deploys to Cloudflare's global edge network
 
-Run `/setup-cloudflare` to configure the required GitHub secrets.
+Run `/start` to configure the required GitHub secrets and complete project setup.
 
 ## Important Notes
 

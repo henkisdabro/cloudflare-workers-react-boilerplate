@@ -585,6 +585,40 @@ strong {
     margin-top: var(--spacing-xl);
 }
 
+/* Hero Next Step Callout */
+.hero-next-step {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+    animation: gentle-bounce 2s ease-in-out infinite;
+}
+
+.hero-next-step .hero-arrow {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-cloudflare);
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-next-step p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.hero-next-step code {
+    background: rgba(84, 54, 218, 0.2);
+    color: var(--color-claude);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+}
+
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
 /* ===================================
    Value Props Section
    =================================== */
@@ -785,6 +819,16 @@ strong {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
+}
+
+.steps-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+    .steps-grid-3 {
+        grid-template-columns: 1fr;
+    }
 }
 
 .step {

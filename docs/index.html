@@ -84,6 +84,11 @@
                         Star on GitHub
                     </a>
                 </div>
+
+                <div class="hero-next-step">
+                    <span class="hero-arrow">↓</span>
+                    <p>Then run <code>/start</code> in Claude Code to complete setup</p>
+                </div>
             </div>
         </div>
     </header>
@@ -282,9 +287,9 @@
                             <div class="workflow-step">
                                 <div class="workflow-step-number">2</div>
                                 <div class="workflow-step-content">
-                                    <h4>Run /setup-cloudflare</h4>
-                                    <p>Guided setup for API token, Account ID, and GitHub secrets</p>
-                                    <span class="workflow-time">⏱️ 3 minutes</span>
+                                    <h4>Run /start</h4>
+                                    <p>One command handles everything - config, credentials, and deployment</p>
+                                    <span class="workflow-time">⏱️ 5 minutes</span>
                                 </div>
                             </div>
                             <div class="workflow-step">
@@ -353,7 +358,7 @@
                     <div class="feature-card">
                         <div class="feature-icon">🎯</div>
                         <h3>Claude Code Slash Commands</h3>
-                        <p>Interactive wizards for rapid feature development: /new-project with domain setup, /add-ai-feature, /setup-database, and more.</p>
+                        <p>Interactive wizards for rapid development: /start for complete setup, /generate-prp for feature planning, and more.</p>
                     </div>
 
                     <div class="feature-card">
@@ -453,9 +458,9 @@
         <!-- Quick Start Section -->
         <section class="section section-light" id="quick-start">
             <div class="container">
-                <h2 class="section-title">Get Started in 4 Steps</h2>
+                <h2 class="section-title">Get Started in 3 Steps</h2>
 
-                <div class="steps-grid">
+                <div class="steps-grid steps-grid-3">
                     <div class="step">
                         <div class="step-number">1</div>
                         <h3 class="step-title">Use Template</h3>
@@ -467,34 +472,25 @@
 
                     <div class="step">
                         <div class="step-number">2</div>
-                        <h3 class="step-title">Clone & Install</h3>
-                        <p class="step-description">Clone your new repo and install dependencies.</p>
+                        <h3 class="step-title">Clone & Run /start</h3>
+                        <p class="step-description">Clone your repo, install dependencies, then run <code>/start</code> in Claude Code.</p>
                         <div class="step-code">
-                            <code>git clone your-repo.git<br>cd your-repo<br>npm install</code>
+                            <code>git clone your-repo.git<br>cd your-repo<br>npm install<br>/start</code>
                         </div>
                     </div>
 
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h3 class="step-title">Configure Cloudflare</h3>
-                        <p class="step-description">Run <code>/setup-cloudflare</code> in Claude Code for guided setup of API token and secrets.</p>
+                        <h3 class="step-title">Build Features</h3>
+                        <p class="step-description">Use <code>/generate-prp</code> to plan features and <code>/execute-prp</code> to build them.</p>
                         <div class="step-code">
-                            <code>/setup-cloudflare</code>
-                        </div>
-                    </div>
-
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3 class="step-title">Deploy</h3>
-                        <p class="step-description">Push to main branch - automatic deployment via GitHub Actions.</p>
-                        <div class="step-code">
-                            <code>git push origin main</code>
+                            <code>/generate-prp</code>
                         </div>
                     </div>
                 </div>
 
                 <div class="quick-start-cta">
-                    <p class="quick-start-text">Using Claude Code? Run <code>/setup-cloudflare</code> then <code>/new-project</code> for guided setup!</p>
+                    <p class="quick-start-text">Just run <code>/start</code> - it handles everything!</p>
                 </div>
             </div>
         </section>
@@ -539,66 +535,61 @@
                 <h2 class="section-title">Optimised for Claude Code</h2>
                 <p class="section-intro">This template includes interactive slash commands that accelerate your development workflow with AI assistance.</p>
 
-                <!-- Featured PRP Command -->
+                <!-- Featured /start Command -->
                 <div class="prp-spotlight">
-                    <div class="prp-spotlight-badge">⭐ Featured Command</div>
+                    <div class="prp-spotlight-badge">🚀 Start Here</div>
                     <div class="prp-spotlight-content">
                         <div class="prp-spotlight-header">
-                            <div class="prp-spotlight-icon">🎯</div>
+                            <div class="prp-spotlight-icon">⚡</div>
                             <div>
-                                <h3 class="prp-spotlight-title"><code>/generate-prp</code> - Product Requirement Plans</h3>
-                                <p class="prp-spotlight-subtitle">The secret to high-quality project outcomes</p>
+                                <h3 class="prp-spotlight-title"><code>/start</code> - Complete Project Setup</h3>
+                                <p class="prp-spotlight-subtitle">One command. Zero confusion. Production-ready in minutes.</p>
                             </div>
                         </div>
                         <div class="prp-spotlight-description">
-                            <p>Before writing any code, use <code>/generate-prp</code> to create a comprehensive Product Requirement Plan. This command dramatically improves output quality by:</p>
+                            <p>After forking the template, run <code>/start</code> to handle everything automatically:</p>
                             <div class="prp-benefits">
                                 <div class="prp-benefit">
-                                    <span class="prp-benefit-icon">✨</span>
+                                    <span class="prp-benefit-icon">⚙️</span>
                                     <div>
-                                        <strong>Clarifying Requirements</strong>
-                                        <p>Define exact specifications, user stories, and acceptance criteria before coding</p>
+                                        <strong>Configure Project</strong>
+                                        <p>Rename your project, update metadata, and verify the build works</p>
                                     </div>
                                 </div>
                                 <div class="prp-benefit">
-                                    <span class="prp-benefit-icon">🏗️</span>
+                                    <span class="prp-benefit-icon">🔐</span>
                                     <div>
-                                        <strong>Planning Architecture</strong>
-                                        <p>Map out components, database schemas, and API endpoints systematically</p>
+                                        <strong>Set Up Credentials</strong>
+                                        <p>Cloudflare Account ID, API token, and GitHub secrets - all guided step-by-step</p>
                                     </div>
                                 </div>
                                 <div class="prp-benefit">
                                     <span class="prp-benefit-icon">🚀</span>
                                     <div>
-                                        <strong>Executing Perfectly</strong>
-                                        <p>Use <code>/execute-prp</code> to implement the plan with precision and consistency</p>
+                                        <strong>Deploy & Build</strong>
+                                        <p>First deployment to production, then plan your first feature with <code>/generate-prp</code></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="prp-workflow">
                                 <div class="prp-workflow-step">
                                     <span class="prp-workflow-number">1</span>
-                                    <span>Describe your feature</span>
+                                    <span>Fork template</span>
                                 </div>
                                 <span class="prp-workflow-arrow">→</span>
                                 <div class="prp-workflow-step">
                                     <span class="prp-workflow-number">2</span>
-                                    <span>Run /generate-prp</span>
+                                    <span>Run /start</span>
                                 </div>
                                 <span class="prp-workflow-arrow">→</span>
                                 <div class="prp-workflow-step">
                                     <span class="prp-workflow-number">3</span>
-                                    <span>Review & refine plan</span>
-                                </div>
-                                <span class="prp-workflow-arrow">→</span>
-                                <div class="prp-workflow-step">
-                                    <span class="prp-workflow-number">4</span>
-                                    <span>Run /execute-prp</span>
+                                    <span>Plan features</span>
                                 </div>
                                 <span class="prp-workflow-arrow">→</span>
                                 <div class="prp-workflow-step prp-workflow-success">
                                     <span>✅</span>
-                                    <span>Perfect result!</span>
+                                    <span>Ship to production!</span>
                                 </div>
                             </div>
                         </div>
@@ -609,24 +600,9 @@
 
                 <div class="commands-grid">
                     <div class="command-card command-card-highlight">
-                        <div class="command-name">/setup-cloudflare</div>
-                        <p class="command-description">Step-by-step guide to configure Cloudflare credentials and GitHub secrets for deployment</p>
+                        <div class="command-name">/start</div>
+                        <p class="command-description">Complete project setup - configuration, credentials, domain, and first deployment in one command</p>
                         <span class="command-badge">🚀 Run First</span>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-name">/new-project</div>
-                        <p class="command-description">Complete project setup wizard with guided configuration, including custom domain setup for Cloudflare DNS or external providers</p>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-name">/add-ai-feature</div>
-                        <p class="command-description">Add AI capabilities (Claude API, Workers AI, AI Gateway)</p>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-name">/setup-database</div>
-                        <p class="command-description">Set up D1 (SQL) or KV (key-value) storage with migrations</p>
                     </div>
 
                     <div class="command-card command-card-highlight">
@@ -639,6 +615,16 @@
                         <div class="command-name">/execute-prp</div>
                         <p class="command-description">Implement features from generated PRPs automatically</p>
                         <span class="command-badge">⭐ Recommended</span>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-name">/add-ai-feature</div>
+                        <p class="command-description">Add AI capabilities (Claude API, Workers AI, AI Gateway)</p>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-name">/setup-database</div>
+                        <p class="command-description">Set up D1 (SQL) or KV (key-value) storage with migrations</p>
                     </div>
 
                     <div class="command-card">

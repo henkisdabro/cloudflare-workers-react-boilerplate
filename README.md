@@ -44,9 +44,9 @@ This is a **comprehensive website development template** designed for building m
 ## 🏗️ Architecture & Tech Stack
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    CLOUDFLARE GLOBAL EDGE                    │
-│                                                              │
+┌────────────────────────────────────────────────────────────┐
+│                    CLOUDFLARE GLOBAL EDGE                  │
+│                                                            │
 │  ┌────────────────────┐         ┌──────────────────────┐   │
 │  │   Static Assets    │         │  Cloudflare Worker   │   │
 │  │   (React SPA)      │         │  (API Endpoints)     │   │
@@ -55,18 +55,18 @@ This is a **comprehensive website development template** designed for building m
 │  │  • Vite Build      │         │  • Edge Functions    │   │
 │  │  • SPA Routing     │         │  • 0ms cold start    │   │
 │  └────────────────────┘         └──────────────────────┘   │
-│           │                              │                  │
-│           └──────────────┬───────────────┘                  │
-│                          │                                  │
+│           │                              │                 │
+│           └──────────────┬───────────────┘                 │
+│                          │                                 │
 │  ┌───────────────────────▼──────────────────────────────┐  │
 │  │          CLOUDFLARE BINDINGS & SERVICES              │  │
-│  │                                                       │  │
-│  │  • D1 (SQLite Database)    • KV (Key-Value Store)   │  │
-│  │  • R2 (Object Storage)     • Queues (Message Bus)   │  │
-│  │  • Workers AI (Edge AI)    • AI Gateway (Caching)   │  │
-│  │  • Analytics Engine        • Durable Objects        │  │
-│  └───────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
+│  │                                                      │  │
+│  │  • D1 (SQLite Database)    • KV (Key-Value Store)    │  │
+│  │  • R2 (Object Storage)     • Queues (Message Bus)    │  │
+│  │  • Workers AI (Edge AI)    • AI Gateway (Caching)    │  │
+│  │  • Analytics Engine        • Durable Objects         │  │
+│  └──────────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────────┘
 ```
 
 ### Core Technologies

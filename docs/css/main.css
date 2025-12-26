@@ -325,6 +325,17 @@ strong {
 
 .section-gradient {
     background: var(--gradient-hero);
+    color: var(--colour-white);
+}
+
+.section-gradient h2,
+.section-gradient h3,
+.section-gradient h4 {
+    color: var(--colour-white);
+}
+
+.section-gradient .section-intro {
+    color: var(--colour-grey-300);
 }
 
 .section-claude {
@@ -595,22 +606,22 @@ strong {
 .hero-next-step .hero-arrow {
     display: block;
     font-size: 1.5rem;
-    color: var(--color-cloudflare);
+    color: var(--colour-cloudflare);
     margin-bottom: var(--spacing-xs);
 }
 
 .hero-next-step p {
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: var(--colour-grey-300);
     margin: 0;
 }
 
 .hero-next-step code {
-    background: rgba(84, 54, 218, 0.2);
-    color: var(--color-claude);
+    background: rgba(84, 54, 218, 0.3);
+    color: var(--colour-white);
     padding: 0.2em 0.5em;
     border-radius: 4px;
-    font-family: var(--font-mono);
+    font-family: var(--font-family-mono);
     font-weight: 500;
 }
 

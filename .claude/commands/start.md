@@ -20,13 +20,9 @@ You are guiding a user through setting up their new Cloudflare Workers + React p
 Start with a warm, visually engaging welcome:
 
 ```
-╔══════════════════════════════════════════════════════════════════╗
-║                                                                  ║
-║   🚀 CLOUDFLARE WORKERS + REACT PROJECT SETUP WIZARD 🚀         ║
-║                                                                  ║
-║   Let's get your project deployed to the edge in minutes!       ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
+CLOUDFLARE WORKERS + REACT PROJECT SETUP WIZARD
+
+Let's get your project deployed to the edge in minutes!
 ```
 
 ### 1.2 Detect Repository Information
@@ -152,42 +148,30 @@ The user needs their Cloudflare Account ID and an API Token.
 
 ### 4.1 Get Account ID
 
-Display instructions in a clear box:
+Display instructions:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  📍 GET YOUR CLOUDFLARE ACCOUNT ID                              │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  1. Open: https://dash.cloudflare.com                           │
-│  2. Click "Workers & Pages" in the left sidebar                 │
-│  3. Look at the right sidebar under "Account details"           │
-│  4. Copy the Account ID (32-character hex string)               │
-│                                                                 │
-│  Example: a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6                       │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+**GET YOUR CLOUDFLARE ACCOUNT ID**
+
+1. Open: https://dash.cloudflare.com
+2. Click "Workers & Pages" in the left sidebar
+3. Look at the right sidebar under "Account details"
+4. Copy the Account ID (32-character hex string)
+
+Example: `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`
 
 ### 4.2 Create API Token
 
 Display instructions:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🔑 CREATE A CLOUDFLARE API TOKEN                               │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  1. Open: https://dash.cloudflare.com/profile/api-tokens        │
-│  2. Click "Create Token"                                        │
-│  3. Find "Edit Cloudflare Workers" template → Use Template      │
-│  4. Under Account Resources → Select your account               │
-│  5. Under Zone Resources → Select "All zones"                   │
-│  6. Click "Continue to summary" → "Create Token"                │
-│  7. ⚠️  Copy the token immediately - shown only once!           │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+**CREATE A CLOUDFLARE API TOKEN**
+
+1. Open: https://dash.cloudflare.com/profile/api-tokens
+2. Click "Create Token"
+3. Find "Edit Cloudflare Workers" template - Use Template
+4. Under Account Resources - Select your account
+5. Under Zone Resources - Select "All zones"
+6. Click "Continue to summary" - "Create Token"
+7. Copy the token immediately - shown only once!
 
 ---
 
@@ -217,17 +201,11 @@ Store their choice - this determines whether we need the ANTHROPIC_API_KEY secre
 
 Display instructions:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🤖 GET YOUR ANTHROPIC API KEY                                  │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  1. Open: https://console.anthropic.com/settings/keys           │
-│  2. Click "Create Key"                                          │
-│  3. Copy the key (starts with sk-ant-)                          │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+**GET YOUR ANTHROPIC API KEY**
+
+1. Open: https://console.anthropic.com/settings/keys
+2. Click "Create Key"
+3. Copy the key (starts with `sk-ant-`)
 
 ---
 
@@ -267,39 +245,23 @@ Tell the user: "This file enables wrangler CLI commands without browser login. I
 
 Display the secrets to add with direct links:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🔐 ADD GITHUB SECRETS                                          │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  Add the following secrets to your repository:                  │
-│                                                                 │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │ CLOUDFLARE_ACCOUNT_ID                                     │  │
-│  │ 👉 https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new │
-│  │ Value: Your Cloudflare Account ID from step 4.1           │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                                                                 │
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │ CLOUDFLARE_API_TOKEN                                      │  │
-│  │ 👉 https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new │
-│  │ Value: Your Cloudflare API Token from step 4.2            │  │
-│  └───────────────────────────────────────────────────────────┘  │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+**ADD GITHUB SECRETS**
 
-**If user chose Claude GitHub Actions in Phase 5:**
+Add the following secrets to your repository:
 
-Also add:
+1. **CLOUDFLARE_ACCOUNT_ID**
+   - Link: `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new`
+   - Value: Your Cloudflare Account ID from step 4.1
 
-```
-│  ┌───────────────────────────────────────────────────────────┐  │
-│  │ ANTHROPIC_API_KEY                                         │  │
-│  │ 👉 https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new │
-│  │ Value: Your Anthropic API key from step 5                 │  │
-│  └───────────────────────────────────────────────────────────┘  │
-```
+2. **CLOUDFLARE_API_TOKEN**
+   - Link: `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new`
+   - Value: Your Cloudflare API Token from step 4.2
+
+**If user chose Claude GitHub Actions in Phase 5, also add:**
+
+3. **ANTHROPIC_API_KEY**
+   - Link: `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new`
+   - Value: Your Anthropic API key from step 5
 
 **IMPORTANT:** Replace `{GITHUB_USERNAME}` and `{GITHUB_REPO}` with actual values detected in Phase 1!
 
@@ -352,21 +314,15 @@ Display a progress indicator:
 
 Display instructions:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  📱 INSTALL CLAUDE GITHUB APP                                   │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  1. Open: https://github.com/apps/claude                        │
-│  2. Click "Install"                                             │
-│  3. Select your repository: {GITHUB_USERNAME}/{GITHUB_REPO}     │
-│  4. Grant the required permissions:                             │
-│     • Contents: Read & Write (to modify files)                  │
-│     • Issues: Read & Write (to respond to issues)               │
-│     • Pull Requests: Read & Write (to create PRs)               │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+**INSTALL CLAUDE GITHUB APP**
+
+1. Open: https://github.com/apps/claude
+2. Click "Install"
+3. Select your repository: `{GITHUB_USERNAME}/{GITHUB_REPO}`
+4. Grant the required permissions:
+   - Contents: Read & Write (to modify files)
+   - Issues: Read & Write (to respond to issues)
+   - Pull Requests: Read & Write (to create PRs)
 
 ### 7.2 Create the Workflow File
 
@@ -406,8 +362,28 @@ Use AskUserQuestion:
 | Option | Description |
 |--------|-------------|
 | **No, use workers.dev** | Use the free `*.workers.dev` subdomain for now |
-| **Yes, Cloudflare DNS** | Domain's DNS is managed by Cloudflare |
+| **Buy a new domain** | Purchase a domain from Cloudflare Registrar at cost (no markup) |
+| **Yes, Cloudflare DNS** | Domain's DNS is already managed by Cloudflare |
 | **Yes, external DNS** | Domain's DNS is with another provider (GoDaddy, etc.) |
+
+### If Buy a new domain:
+
+Tell the user:
+
+**BUY A DOMAIN FROM CLOUDFLARE REGISTRAR**
+
+Cloudflare Registrar sells domains at cost with no markup - often the cheapest option for major TLDs (.com, .net, .org, etc.).
+
+1. Open: https://dash.cloudflare.com/?to=/:account/domains/register
+2. Search for your desired domain name
+3. Complete the purchase
+4. Return here once the domain is registered
+
+After purchase, the domain will automatically use Cloudflare DNS. Then run:
+
+```bash
+npx wrangler domains add yourdomain.com
+```
 
 ### If Cloudflare DNS:
 
@@ -421,22 +397,18 @@ This automatically creates DNS records and enables HTTPS.
 
 Provide CNAME setup instructions:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  🌐 EXTERNAL DNS CONFIGURATION                                  │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  Add a CNAME record at your DNS provider:                       │
-│                                                                 │
-│  Type:   CNAME                                                  │
-│  Name:   www (or @ for root, if supported)                      │
-│  Target: {project-name}.{subdomain}.workers.dev                 │
-│  TTL:    300-600 seconds                                        │
-│                                                                 │
-│  Note: DNS propagation takes 5-60 minutes.                      │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+**EXTERNAL DNS CONFIGURATION**
+
+Add a CNAME record at your DNS provider:
+
+| Field | Value |
+|-------|-------|
+| Type | CNAME |
+| Name | www (or @ for root, if supported) |
+| Target | `{project-name}.{subdomain}.workers.dev` |
+| TTL | 300-600 seconds |
+
+Note: DNS propagation takes 5-60 minutes.
 
 ### If No Domain:
 
@@ -513,41 +485,29 @@ Display the direct link:
 Display a celebratory completion message:
 
 ```
-╔══════════════════════════════════════════════════════════════════╗
-║                                                                  ║
-║   🎉 CONGRATULATIONS! YOUR PROJECT IS LIVE! 🎉                   ║
-║                                                                  ║
-╚══════════════════════════════════════════════════════════════════╝
+CONGRATULATIONS! YOUR PROJECT IS LIVE!
 ```
 
-Display a summary table based on what was configured:
+Display a summary based on what was configured:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  ✅ SETUP SUMMARY                                               │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  Project Name:     {project-name}                               │
-│  Live URL:         https://{project-name}.workers.dev           │
-│                                                                 │
-│  ─────────────────────────────────────────────────────────────  │
-│                                                                 │
-│  Local Development:                                             │
-│    ✅ .env configured with Cloudflare credentials               │
-│    ✅ npm run deploy ready to use                               │
-│                                                                 │
-│  GitHub Actions:                                                │
-│    ✅ CLOUDFLARE_ACCOUNT_ID secret                              │
-│    ✅ CLOUDFLARE_API_TOKEN secret                               │
-│    ✅ Auto-deploy on push to main                               │
-│                                                                 │
-│  Claude GitHub Actions: (if configured)                         │
-│    ✅ Claude GitHub App installed                               │
-│    ✅ ANTHROPIC_API_KEY secret                                  │
-│    ✅ @claude mentions enabled                                  │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
-```
+**SETUP SUMMARY**
+
+- **Project Name:** {project-name}
+- **Live URL:** https://{project-name}.workers.dev
+
+**Local Development:**
+- .env configured with Cloudflare credentials
+- `npm run deploy` ready to use
+
+**GitHub Actions:**
+- CLOUDFLARE_ACCOUNT_ID secret added
+- CLOUDFLARE_API_TOKEN secret added
+- Auto-deploy on push to main enabled
+
+**Claude GitHub Actions:** (if configured)
+- Claude GitHub App installed
+- ANTHROPIC_API_KEY secret added
+- @claude mentions enabled
 
 ---
 
@@ -575,26 +535,16 @@ Based on their choice, either:
 
 Display this table before ending:
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  📚 AVAILABLE COMMANDS                                          │
-├─────────────────┬───────────────────────────────────────────────┤
-│ Command         │ Purpose                                       │
-├─────────────────┼───────────────────────────────────────────────┤
-│ /generate-prp   │ Create a Product Requirement Plan for a      │
-│                 │ feature                                       │
-├─────────────────┼───────────────────────────────────────────────┤
-│ /execute-prp    │ Implement a feature from its PRP              │
-├─────────────────┼───────────────────────────────────────────────┤
-│ /add-ai-feature │ Add Claude API, Workers AI, or AI Gateway     │
-├─────────────────┼───────────────────────────────────────────────┤
-│ /setup-database │ Configure D1 or KV storage                    │
-├─────────────────┼───────────────────────────────────────────────┤
-│ /setup-sandbox  │ Set up Sandbox SDK for code execution         │
-├─────────────────┼───────────────────────────────────────────────┤
-│ /add-binding    │ Add other Cloudflare bindings (R2, Queues)    │
-└─────────────────┴───────────────────────────────────────────────┘
-```
+**AVAILABLE COMMANDS**
+
+| Command | Purpose |
+|---------|---------|
+| `/generate-prp` | Create a Product Requirement Plan for a feature |
+| `/execute-prp` | Implement a feature from its PRP |
+| `/add-ai-feature` | Add Claude API, Workers AI, or AI Gateway |
+| `/setup-database` | Configure D1 or KV storage |
+| `/setup-sandbox` | Set up Sandbox SDK for code execution |
+| `/add-binding` | Add other Cloudflare bindings (R2, Queues) |
 
 ---
 

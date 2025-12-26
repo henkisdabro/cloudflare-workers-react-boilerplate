@@ -1,14 +1,29 @@
 # .dev.vars.example
-# This file is a template for local development secrets.
-# Copy this file to .dev.vars and fill in the values.
-# The .dev.vars file is ignored by Git and should NOT be committed.
+# Application Secrets for Local Worker Development
 #
-# Usage:
+# This file provides secrets to your Worker during local development.
+# Copy to .dev.vars and add your secrets:
+#
 #   cp .dev.vars.example .dev.vars
-#   # Then edit .dev.vars with your actual secret values
 #
-# These variables are automatically available in your Worker's `env` parameter
-# during local development with `npm run dev`.
+# The .dev.vars file is gitignored and safe to store locally.
+#
+# When to use this file:
+#   - Your Worker needs API keys (Claude, OpenAI, etc.)
+#   - Your Worker needs database credentials
+#   - Your Worker needs any secret values
+#
+# How it works:
+#   - Values are injected into your Worker's `env` parameter
+#   - Available during `npm run dev`
+#   - For production, use: npx wrangler secret put SECRET_NAME
+#
+# Note: This file is OPTIONAL. If your Worker doesn't need secrets,
+# you don't need to create .dev.vars at all.
+
+# ─────────────────────────────────────────────────────────────────
+# AI Integration (uncomment and fill in as needed)
+# ─────────────────────────────────────────────────────────────────
 
 # Anthropic API Key (for Claude API integration)
 # Get your key at: https://console.anthropic.com/
@@ -17,6 +32,15 @@
 # OpenAI API Key (if using OpenAI integration)
 # OPENAI_API_KEY=sk-...
 
-# Other secrets for your application
+# ─────────────────────────────────────────────────────────────────
+# Application Secrets (examples)
+# ─────────────────────────────────────────────────────────────────
+
+# Database password
 # DATABASE_PASSWORD=your-secret-password
+
+# JWT signing secret
 # JWT_SECRET=your-jwt-secret
+
+# Session encryption key
+# SESSION_SECRET=your-session-secret

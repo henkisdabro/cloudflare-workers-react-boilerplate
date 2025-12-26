@@ -2,39 +2,45 @@
 
 This directory contains Claude Code specific configuration for this project.
 
+## Getting Started
+
+Run this single command after forking:
+
+```
+/start
+```
+
+This interactive wizard guides you through complete project setup with decision points tailored to your needs.
+
 ## Available Slash Commands
 
-### `/new-project`
+### `/start`
 
 **Use this when:** You've just forked this template and want to set up your new project.
 
-Interactive setup assistant that guides you through:
-- Updating project name and configuration
-- Setting up Cloudflare credentials
-- Configuring custom domains (Cloudflare DNS or external providers)
-- Configuring GitHub Actions secrets
-- Testing local development
-- Creating your first PRP
+Interactive setup wizard that:
+
+1. **Asks your deployment preference:**
+   - Local deployment (solo devs, quick prototyping)
+   - GitHub Actions CI/CD (teams, automated deploys)
+   - Both (recommended for maximum flexibility)
+
+2. **Configures based on your choice:**
+   - Local: Creates `.env` with Cloudflare credentials, optionally `.dev.vars` for app secrets
+   - GitHub: Guides you through repository secrets setup
+   - Both: Full configuration for local and CI/CD deployment
+
+3. **Guides you through:**
+   - Project naming and configuration
+   - Cloudflare account setup (Account ID, API token)
+   - Local development verification
+   - Custom domain setup (optional)
+   - First deployment
+   - Next steps with `/generate-prp`
 
 **Usage:**
 ```
-/new-project
-```
-
-### `/setup-cloudflare`
-
-**Use this when:** You need help setting up Cloudflare credentials and GitHub secrets for deployment.
-
-Step-by-step guide for:
-- Finding your Cloudflare Account ID
-- Creating an API token with correct permissions
-- Adding secrets to GitHub Actions
-- Local Wrangler authentication
-- Verifying your setup works
-
-**Usage:**
-```
-/setup-cloudflare
+/start
 ```
 
 ### `/generate-prp <feature-description>`
@@ -137,8 +143,7 @@ Configure additional bindings:
 ```
 .claude/
 ├── commands/           # Slash command definitions
-│   ├── new-project.md
-│   ├── setup-cloudflare.md
+│   ├── start.md
 │   ├── generate-prp.md
 │   ├── execute-prp.md
 │   ├── add-ai-feature.md
@@ -160,12 +165,11 @@ PRPs/                   # Product Requirement Plans
 
 ## Workflow
 
-1. **Cloudflare Setup:** Run `/setup-cloudflare` to configure credentials and secrets
-2. **Project Setup:** Run `/new-project` to configure project name and metadata
-3. **Add Features:** Use `/add-ai-feature`, `/setup-database`, or `/setup-sandbox`
-4. **Plan Complex Features:** Use `/generate-prp` to create implementation plans
-5. **Build Features:** Use `/execute-prp` to implement the plans
-6. **Add Bindings:** Use `/add-binding` for additional Cloudflare services
+1. **Complete Setup:** Run `/start` to configure everything in one go
+2. **Plan Features:** Use `/generate-prp` to create implementation plans
+3. **Build Features:** Use `/execute-prp` to implement the plans
+4. **Add Capabilities:** Use `/add-ai-feature`, `/setup-database`, or `/setup-sandbox`
+5. **Add Bindings:** Use `/add-binding` for additional Cloudflare services
 
 ## Templates
 

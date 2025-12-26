@@ -384,6 +384,20 @@ This single command handles everything:
 | `/setup-sandbox` | Configure Cloudflare Sandbox SDK for code execution |
 | `/add-binding` | Add Cloudflare bindings (R2, Queues, etc.) |
 
+### Claude GitHub Actions
+
+Enable `@claude` mentions in pull requests and issues to get AI-powered assistance directly in GitHub:
+
+- **Ask questions** - `@claude explain how authentication works`
+- **Request reviews** - `@claude review this PR for security issues`
+- **Implement changes** - `@claude add input validation to the form`
+
+Claude reads your code, follows your `CLAUDE.md` guidelines, and commits changes directly to your branch.
+
+**Quick setup:** Run `/start` and select "Yes" when asked about Claude GitHub Actions.
+
+📖 See **[docs/GITHUB_ACTIONS_CLAUDE.md](docs/GITHUB_ACTIONS_CLAUDE.md)** for complete setup instructions.
+
 ### Example Workflow
 
 ```bash
@@ -590,7 +604,8 @@ npx wrangler tail                          # Stream logs
 cloudflare-workers-react-boilerplate/
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml           # GitHub Actions CI/CD pipeline
+│       ├── deploy.yml           # GitHub Actions CI/CD pipeline
+│       └── claude.yml           # Claude GitHub Actions (after /start setup)
 ├── .claude/
 │   ├── commands/                # Claude Code slash commands
 │   │   ├── start.md
@@ -601,6 +616,7 @@ cloudflare-workers-react-boilerplate/
 │   │   ├── setup-sandbox.md
 │   │   └── add-binding.md
 │   ├── templates/               # Code generation templates
+│   │   ├── claude-code-action.yml  # GitHub Actions workflow template
 │   │   ├── domain-setup-reminder.md
 │   │   └── ...
 │   └── settings.json            # Claude Code tool permissions
@@ -683,6 +699,7 @@ npx wrangler secret put DATABASE_URL
 | **[CLAUDE.md](CLAUDE.md)** | Developer guidelines and AI coding instructions |
 | **[AGENTS.md](AGENTS.md)** | AI guidelines for other LLMs (duplicate of CLAUDE.md) |
 | **[AI_INTEGRATION.md](AI_INTEGRATION.md)** | Complete AI integration guide |
+| **[docs/GITHUB_ACTIONS_CLAUDE.md](docs/GITHUB_ACTIONS_CLAUDE.md)** | Claude GitHub Actions for PR automation |
 | **[SANDBOX.md](SANDBOX.md)** | Cloudflare Sandbox SDK for code execution |
 | **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** | Cloudflare Workers operations guide |
 | **[docs/CONVENTIONS.md](docs/CONVENTIONS.md)** | British English and style conventions |

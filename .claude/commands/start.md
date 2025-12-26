@@ -324,7 +324,79 @@ The workflow logs show the deployment URL. Guide the user to verify the live app
 
 ---
 
-## Phase 9: Setup Complete
+## Phase 9: Claude GitHub Actions (Optional)
+
+**Only offer this phase if the user chose "GitHub Actions CI/CD" or "Both" in Phase 1.**
+
+Use AskUserQuestion:
+
+**Question:** "Would you like to enable Claude Code GitHub Actions?"
+
+| Option | Description |
+|--------|-------------|
+| **Yes, set it up** | Allow `@claude` mentions in PRs/issues to trigger Claude for code review, questions, and changes |
+| **No, skip for now** | You can set this up later using the documentation in `docs/GITHUB_ACTIONS_CLAUDE.md` |
+
+### If Yes:
+
+#### 9.1 Install Claude GitHub App
+
+Provide these instructions:
+
+1. Visit [github.com/apps/claude](https://github.com/apps/claude)
+2. Click **Install**
+3. Select your repository
+4. Grant the required permissions:
+   - **Contents**: Read & Write (to modify files)
+   - **Issues**: Read & Write (to respond to issues)
+   - **Pull Requests**: Read & Write (to create PRs and push changes)
+
+#### 9.2 Add Anthropic API Key Secret
+
+Provide these instructions:
+
+1. Get your API key from [console.anthropic.com](https://console.anthropic.com)
+2. Go to your GitHub repository
+3. Navigate to **Settings** > **Secrets and variables** > **Actions**
+4. Click **New repository secret**
+5. Add:
+   - **Name**: `ANTHROPIC_API_KEY`
+   - **Value**: Your Anthropic API key
+
+#### 9.3 Create the Workflow File
+
+Copy the template to the workflows directory:
+
+```bash
+cp .claude/templates/claude-code-action.yml .github/workflows/claude.yml
+```
+
+Explain to the user:
+
+"This workflow enables Claude to respond when you mention `@claude` in any PR comment or issue. Claude can:
+- Answer questions about your code
+- Review PRs for issues and improvements
+- Implement code changes and commit them to your branch
+
+For more details and advanced configuration, see `docs/GITHUB_ACTIONS_CLAUDE.md`."
+
+#### 9.4 Commit the Workflow
+
+If changes were made:
+
+```bash
+git add .github/workflows/claude.yml
+git commit -m "feat: add Claude Code GitHub Actions workflow"
+git push origin main
+```
+
+### If No:
+
+Tell the user: "No problem! You can set this up anytime by following the guide in `docs/GITHUB_ACTIONS_CLAUDE.md` or by running `/install-github-app` in Claude Code."
+
+---
+
+## Phase 10: Setup Complete
 
 Congratulate the user and summarise what was configured:
 
@@ -338,12 +410,18 @@ Congratulate the user and summarise what was configured:
 - [ ] `CLOUDFLARE_API_TOKEN` secret configured
 - [ ] Automated deployment on push to main
 
+**Claude GitHub Actions (if configured):**
+- [ ] Claude GitHub App installed
+- [ ] `ANTHROPIC_API_KEY` secret configured
+- [ ] `.github/workflows/claude.yml` workflow created
+- [ ] `@claude` mentions enabled in PRs and issues
+
 **Optional configurations:**
 - [ ] Custom domain (if configured)
 
 ---
 
-## Phase 10: What's Next?
+## Phase 11: What's Next?
 
 Use AskUserQuestion:
 

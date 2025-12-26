@@ -30,7 +30,12 @@ Interactive setup wizard that:
    - GitHub: Guides you through repository secrets setup
    - Both: Full configuration for local and CI/CD deployment
 
-3. **Guides you through:**
+3. **Optionally sets up Claude GitHub Actions:**
+   - Install Claude GitHub App
+   - Configure `ANTHROPIC_API_KEY` secret
+   - Create workflow for `@claude` mentions in PRs
+
+4. **Guides you through:**
    - Project naming and configuration
    - Cloudflare account setup (Account ID, API token)
    - Local development verification
@@ -151,6 +156,7 @@ Configure additional bindings:
 │   ├── setup-sandbox.md
 │   └── add-binding.md
 ├── templates/          # Templates for code generation
+│   ├── claude-code-action.yml  # GitHub Actions workflow for @claude mentions
 │   ├── domain-setup-reminder.md
 │   ├── prp_base.md
 │   ├── prp_ai_feature.md

@@ -328,9 +328,7 @@ strong {
     color: var(--colour-white);
 }
 
-.section-gradient h2,
-.section-gradient h3,
-.section-gradient h4 {
+.section-gradient .section-title {
     color: var(--colour-white);
 }
 

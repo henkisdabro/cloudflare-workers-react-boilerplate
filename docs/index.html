@@ -24,7 +24,7 @@
     <!-- Preconnect to Google Fonts for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="canonical" href="https://henkisdabro.github.io/cloudflare-workers-react-boilerplate/">
@@ -66,9 +66,9 @@
                 </div>
 
                 <h1 class="hero-title">Cloudflare Workers + React Boilerplate</h1>
-                <p class="hero-subtitle">Production-ready template for building full-stack web applications at the edge, optimised for AI-assisted development with <strong>Claude Code</strong></p>
+                <p class="hero-subtitle">Deploy React apps to <strong>300+ global locations for free</strong>. A complete starter kit with databases, AI integration, and CI/CD - all on Cloudflare's generous free tier.</p>
 
-                <p class="hero-description">Build globally-distributed, edge-native web applications with integrated AI capabilities, serverless databases, and automated CI/CD - all in one template.</p>
+                <p class="hero-description">From portfolio sites to AI-powered SaaS - start simple and scale when you need to. Push to GitHub, deploy in seconds.</p>
 
                 <div class="cta-buttons">
                     <a href="https://github.com/new?template_name=cloudflare-workers-react-boilerplate&template_owner=henkisdabro" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Use this template to create a new repository">
@@ -88,6 +88,15 @@
                 <div class="hero-next-step">
                     <span class="hero-arrow">↓</span>
                     <p>Then run <code>/start</code> in Claude Code to complete setup</p>
+                </div>
+
+                <!-- Beginner Callout - For Jason and non-technical users -->
+                <div class="beginner-callout">
+                    <div class="beginner-callout-icon">💡</div>
+                    <div class="beginner-callout-content">
+                        <h3>First time building a website?</h3>
+                        <p>Don't worry about the tech jargon. Run <code>/start</code> in Claude Code and answer a few questions - you'll be live in minutes. Claude handles the hard parts while you learn.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -131,22 +140,76 @@
                     <div class="comparison-column perfect">
                         <h3 class="comparison-title">✅ Perfect For</h3>
                         <ul class="comparison-list">
-                            <li>Full-stack web applications</li>
-                            <li>AI-powered SaaS products</li>
-                            <li>Real-time APIs and microservices</li>
-                            <li>Global-scale websites with edge performance</li>
-                            <li>Developers using Claude Code or AI pair programming</li>
+                            <li><strong>Portfolio & personal sites</strong> - free global hosting, looks professional, room to add features later</li>
+                            <li><strong>Side projects & MVPs</strong> - ship in hours, not days. Database and auth patterns included</li>
+                            <li><strong>Learning Cloudflare Workers</strong> - well-documented, beginner-friendly, with working examples</li>
+                            <li><strong>Keeping costs at zero</strong> - generous free tiers: 100K requests/day, 5GB database, unlimited deploys</li>
+                            <li><strong>AI-powered apps</strong> - Claude API and Workers AI examples ready to copy</li>
                         </ul>
                     </div>
 
                     <div class="comparison-column not-suitable">
-                        <h3 class="comparison-title">❌ Not Suitable For</h3>
+                        <h3 class="comparison-title">⚠️ Consider Alternatives For</h3>
                         <ul class="comparison-list">
-                            <li>Simple static sites without API logic</li>
-                            <li>Traditional server-based Node.js apps</li>
-                            <li>Projects requiring server-side rendering (SSR)</li>
+                            <li><strong>Server-side rendering (SSR)</strong> - use <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/" target="_blank" rel="noopener noreferrer">TanStack Start</a> or <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/" target="_blank" rel="noopener noreferrer">React Router v7</a></li>
+                            <li><strong>Persistent Node.js server</strong> - try Railway, Render, or a VPS (Workers are stateless edge functions)</li>
+                            <li><strong>WordPress/CMS content</strong> - use Cloudflare Pages with a headless CMS</li>
                         </ul>
+                        <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--colour-grey-300);">💡 <strong>Simple static sites work great here!</strong> You get free global CDN, instant deploys, and room to add APIs/databases when you need them.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free Tier Highlights Section -->
+        <section class="section free-tier-section" id="free-tier">
+            <div class="container">
+                <h2 class="section-title">💰 Free Tier Highlights</h2>
+                <p class="section-intro">Everything in this template runs on Cloudflare's generous free tier. No credit card required.</p>
+
+                <div class="free-tier-card">
+                    <table class="free-tier-table">
+                        <thead>
+                            <tr>
+                                <th>Resource</th>
+                                <th>Free Allowance</th>
+                                <th>That's Enough For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Requests</td>
+                                <td>100,000/day</td>
+                                <td>~3 million/month</td>
+                            </tr>
+                            <tr>
+                                <td>D1 Database</td>
+                                <td>5GB storage, 5M reads/day</td>
+                                <td>Most small-to-medium apps</td>
+                            </tr>
+                            <tr>
+                                <td>KV Storage</td>
+                                <td>1GB storage, 100K reads/day</td>
+                                <td>Sessions, caching, config</td>
+                            </tr>
+                            <tr>
+                                <td>R2 Storage</td>
+                                <td>10GB/month, zero egress fees</td>
+                                <td>User uploads, file storage</td>
+                            </tr>
+                            <tr>
+                                <td>Deploys</td>
+                                <td>Unlimited</td>
+                                <td>Push as often as you want</td>
+                            </tr>
+                            <tr>
+                                <td>Custom domains</td>
+                                <td>Unlimited</td>
+                                <td>Your brand, free SSL</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="free-tier-note">No credit card required to start.</p>
                 </div>
             </div>
         </section>

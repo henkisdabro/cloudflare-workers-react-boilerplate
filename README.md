@@ -8,36 +8,63 @@
 [![Claude Code](https://img.shields.io/badge/Optimized_for-Claude_Code-5436DA?style=flat)](https://claude.com/claude-code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> **Production-ready boilerplate for building full-stack web applications with React and Cloudflare Workers, optimized for AI-assisted development with Claude Code.**
+> **Deploy React apps to 300+ global locations for free.** A complete starter kit with databases, AI integration, and CI/CD - all on Cloudflare's generous free tier.
 
-Build globally-distributed, edge-native web applications with integrated AI capabilities, serverless databases, and automated CI/CD — all in one template.
+From portfolio sites to AI-powered SaaS - start simple and scale when you need to. Push to GitHub, deploy in seconds.
+
+> 💡 **First time building a website?** Don't worry about the tech jargon. Run `/start` in Claude Code and answer a few questions - you'll be live in minutes. Claude handles the hard parts while you learn.
 
 ---
 
 ## 🎯 What Is This?
 
-This is a **comprehensive website development template** designed for building modern web applications that deploy to **Cloudflare's global edge network**. It combines:
+A **free, production-ready starter kit** for React apps that deploy to Cloudflare's global edge network. Everything you need to ship:
 
-- **Frontend**: React 19 + TypeScript + Vite (ultra-fast development)
-- **Backend**: Cloudflare Workers (serverless edge functions)
-- **AI Integration**: Built-in support for Claude API, Workers AI, and AI Gateway
-- **Database**: Native Cloudflare D1 (SQL) and KV (key-value) storage
-- **CI/CD**: Automated GitHub Actions deployment pipeline
-- **Developer Experience**: Claude Code slash commands for rapid development
+- **React 19 + TypeScript + Vite** - Fast development, type safety, instant hot reload
+- **API backend at the edge** - Serverless functions that run near your users
+- **Optional databases** - D1 (SQL) or KV (key-value) when you need them
+- **Optional AI integration** - Claude API or Workers AI patterns included
+- **Automatic deploys** - Push to GitHub → live in seconds
+- **Claude Code commands** - `/start`, `/add-ai-feature`, `/setup-database`
 
-### Perfect For:
+**Start with what you need. Add more when you're ready.**
 
-✅ Full-stack web applications
-✅ AI-powered SaaS products
-✅ Real-time APIs and microservices
-✅ Global-scale websites with edge performance
-✅ Developers using Claude Code or AI pair programming
+### Perfect For
 
-### Not Suitable For:
+| Use Case | Why This Template |
+|----------|-------------------|
+| **Portfolio & personal sites** | Free global hosting, looks professional, room to add features later |
+| **Side projects & MVPs** | Ship in hours, not days. Database and auth patterns included |
+| **Learning Cloudflare Workers** | Well-documented, beginner-friendly, with working examples |
+| **Keeping costs at zero** | Generous free tiers: 100K requests/day, 5GB database, unlimited deploys |
+| **AI-powered apps** | Claude API and Workers AI examples ready to copy |
 
-❌ Simple static sites without API logic (this template includes Worker infrastructure you won't need)
-❌ Traditional server-based Node.js apps
-❌ Projects requiring server-side rendering (SSR) - use [TanStack Start](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/) or [React Router v7](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/) templates instead
+### When to Use Something Else
+
+| Requirement | Better Choice | Why |
+|-------------|---------------|-----|
+| **Server-side rendering (SSR)** | [TanStack Start](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/) or [React Router v7](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/) | This template is a client-side SPA |
+| **Persistent Node.js server** | Railway, Render, or VPS | Workers are stateless edge functions |
+| **WordPress/CMS content** | Cloudflare Pages + headless CMS | Different architecture needed |
+
+> 💡 **Simple static sites work great here!** You get free global CDN, instant deploys, and room to add APIs/databases when you need them.
+
+### 💰 Free Tier Highlights
+
+Everything in this template runs on Cloudflare's free tier:
+
+| Resource | Free Allowance | That's Enough For |
+|----------|---------------|-------------------|
+| **Requests** | 100,000/day | ~3 million/month |
+| **D1 Database** | 5GB storage, 5M reads/day | Most small-to-medium apps |
+| **KV Storage** | 1GB storage, 100K reads/day | Sessions, caching, config |
+| **R2 Storage** | 10GB/month, zero egress fees | User uploads, file storage |
+| **Deploys** | Unlimited | Push as often as you want |
+| **Custom domains** | Unlimited | Your brand, free SSL |
+
+GitHub Actions is also free for public repos (unlimited) or private repos (2,000 min/month).
+
+**No credit card required to start.**
 
 ---
 

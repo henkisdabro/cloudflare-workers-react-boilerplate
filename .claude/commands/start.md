@@ -60,7 +60,7 @@ Store their choice - it determines which setup steps to include.
 Display a progress indicator:
 
 ```
-📋 Phase 2/8: Prerequisites Check
+📋 Phase 2/9: Prerequisites Check
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -100,7 +100,7 @@ Display success:
 Display a progress indicator:
 
 ```
-📋 Phase 3/8: Project Configuration
+📋 Phase 3/9: Project Configuration
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -135,18 +135,155 @@ Display success:
 
 ---
 
-## Phase 4: Cloudflare Account Setup
+## Phase 4: Feature Discovery
 
 Display a progress indicator:
 
 ```
-📋 Phase 4/8: Cloudflare Credentials
+📋 Phase 4/9: Feature Discovery
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### 4.1 Introduction
+
+Display:
+
+```
+Before we set up your Cloudflare credentials, let's understand what
+features you'll need. This ensures your API token has the right
+permissions from the start.
+
+All Cloudflare developer products have generous free tiers - perfect
+for development and small-to-medium production apps.
+```
+
+### 4.2 Product Education
+
+Display:
+
+```
+CLOUDFLARE DEVELOPER PRODUCTS
+─────────────────────────────
+
+🔷 WORKERS (Compute) - Included by default
+   Serverless functions that run at the edge, close to your users.
+
+   Free tier:
+   • 100,000 requests/day
+   • 10ms CPU time per request
+
+   You need this for: APIs, form handling, authentication, any
+   server-side logic. This is already included - no extra setup.
+
+─────────────────────────────
+
+🗄️ KV (Key-Value Store)
+   Simple key-value storage for data that changes occasionally
+   but is read frequently.
+
+   Free tier:
+   • 100,000 reads/day
+   • 1,000 writes/day
+   • 1 GB storage
+
+   You need this when:
+   ✅ Users log in → store session tokens
+   ✅ You want to cache API responses to speed things up
+   ✅ Feature flags ("show beta features to 10% of users")
+   ✅ Rate limiting ("max 100 requests per hour per user")
+
+   You DON'T need this for:
+   ❌ A simple website or landing page
+   ❌ Displaying static content
+   ❌ If your app has no login or personalisation
+
+─────────────────────────────
+
+🗃️ D1 (SQL Database)
+   Full SQLite database for structured, persistent data that
+   changes over time. Supports SQL queries, JOINs, transactions.
+
+   Free tier:
+   • 5 million rows read/day
+   • 100,000 rows written/day
+   • 5 GB storage
+
+   You need this when:
+   ✅ Users create accounts and log in
+   ✅ Users submit data (blog posts, orders, comments)
+   ✅ You need to query/filter/sort data (e.g., "show products under £50")
+   ✅ Data has relationships (users have orders, orders have items)
+
+   You DON'T need this for:
+   ❌ A portfolio or marketing website
+   ❌ Static pages with no user accounts
+   ❌ If users only view content, never submit anything
+
+─────────────────────────────
+
+📦 R2 (Object Storage)
+   Store files that USERS upload - not your website's own images.
+   Like Dropbox/S3 but with zero egress fees (data out is free).
+
+   Free tier:
+   • 10 GB storage/month
+   • 1 million writes/month
+   • 10 million reads/month
+   • Zero egress fees (always)
+
+   You need this when:
+   ✅ Users upload profile pictures or avatars
+   ✅ Users upload documents (PDFs, spreadsheets)
+   ✅ E-commerce: sellers upload product images
+   ✅ File sharing features ("share this document")
+
+   You DON'T need this for:
+   ❌ Your website's own images (logo, hero images, icons)
+      → Those are already served by your static build
+   ❌ CSS, JavaScript, or other static assets
+   ❌ If users never upload anything
+```
+
+### 4.3 Feature Selection
+
+Use AskUserQuestion with multiSelect enabled:
+
+**Question:** "Which Cloudflare products will your app use? (Select all that apply)"
+
+| Option | Description |
+|--------|-------------|
+| **Workers only** | Just compute - no storage needed yet |
+| **KV (Key-Value)** | Sessions, caching, feature flags |
+| **D1 (SQL Database)** | Structured data with relationships |
+| **R2 (Object Storage)** | Files, images, documents |
+
+Store the user's selections for use in Phase 5 (Cloudflare Account Setup).
+
+### 4.4 Confirm Understanding
+
+Display based on selections:
+
+```
+✅ You've selected: {list of selections}
+
+Your API token will be configured with permissions for these products.
+You can always add more products later using `/add-binding`.
+```
+
+---
+
+## Phase 5: Cloudflare Account Setup
+
+Display a progress indicator:
+
+```
+📋 Phase 5/9: Cloudflare Credentials
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 The user needs their Cloudflare Account ID and an API Token.
 
-### 4.1 Get Account ID
+### 5.1 Get Account ID
 
 Display instructions:
 
@@ -159,30 +296,52 @@ Display instructions:
 
 Example: `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`
 
-### 4.2 Create API Token
+### 5.2 Create API Token
 
-Display instructions:
+Display instructions based on Phase 4 selections:
 
 **CREATE A CLOUDFLARE API TOKEN**
 
 1. Open: https://dash.cloudflare.com/profile/api-tokens
 2. Click "Create Token"
-3. Find "Edit Cloudflare Workers" template - Use Template
-4. Under Account Resources - Select your account
-5. Under Zone Resources - Select "All zones"
-6. Click "Continue to summary" - "Create Token"
+3. Click "Create Custom Token" (at the bottom)
+
+**Add these permissions based on your earlier selections:**
+
+| Permission | Access | When to add |
+|------------|--------|-------------|
+| Account > Cloudflare Workers Scripts | Edit | Always (required) |
+| Account > Workers KV Storage | Edit | If you selected KV |
+| Account > D1 | Edit | If you selected D1 |
+| Account > Workers R2 Storage | Edit | If you selected R2 |
+| Zone > Zone | Read | Always (required) |
+
+4. Under Account Resources → Select your account (or "All accounts")
+5. Under Zone Resources → Select "All zones" (or specific zones)
+6. Click "Continue to summary" → "Create Token"
 7. Copy the token immediately - shown only once!
+
+**TIP:** You can edit token permissions later at:
+https://dash.cloudflare.com/profile/api-tokens
+
+**If user selected "Workers only" in Phase 4:**
+
+Display:
+```
+📝 Since you only need Workers for now, you can also use the
+   "Edit Cloudflare Workers" template for a quicker setup.
+```
 
 ---
 
-## Phase 5: Claude GitHub Actions Decision (Early)
+## Phase 6: Claude GitHub Actions Decision (Early)
 
 **Only offer this phase if the user chose "GitHub Actions CI/CD" or "Both" in Phase 1.**
 
 Display a progress indicator:
 
 ```
-📋 Phase 5/8: Claude GitHub Actions
+📋 Phase 6/9: Claude GitHub Actions
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -209,12 +368,12 @@ Display instructions:
 
 ---
 
-## Phase 6: Environment Configuration
+## Phase 7: Environment Configuration
 
 Display a progress indicator:
 
 ```
-📋 Phase 6/8: Environment Setup
+📋 Phase 7/9: Environment Setup
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -222,7 +381,7 @@ This phase configures all secrets in one go, based on earlier choices.
 
 ### If "Local deployment" or "Both":
 
-#### 6.1 Create Local Environment File
+#### 7.1 Create Local Environment File
 
 ```bash
 cp .env.example .env
@@ -231,15 +390,15 @@ cp .env.example .env
 Edit `.env` and add the credentials:
 
 ```
-CLOUDFLARE_API_TOKEN=<token from step 4.2>
-CLOUDFLARE_ACCOUNT_ID=<account ID from step 4.1>
+CLOUDFLARE_API_TOKEN=<token from step 5.2>
+CLOUDFLARE_ACCOUNT_ID=<account ID from step 5.1>
 ```
 
 Tell the user: "This file enables wrangler CLI commands without browser login. It's gitignored and safe to store locally."
 
 ### If "GitHub Actions CI/CD" or "Both":
 
-#### 6.2 Add GitHub Repository Secrets (All at Once)
+#### 7.2 Add GitHub Repository Secrets (All at Once)
 
 **CRITICAL: Use direct links with the detected GITHUB_USERNAME and GITHUB_REPO from Phase 1.**
 
@@ -251,17 +410,17 @@ Add the following secrets to your repository:
 
 1. **CLOUDFLARE_ACCOUNT_ID**
    - Link: `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new`
-   - Value: Your Cloudflare Account ID from step 4.1
+   - Value: Your Cloudflare Account ID from step 5.1
 
 2. **CLOUDFLARE_API_TOKEN**
    - Link: `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new`
-   - Value: Your Cloudflare API Token from step 4.2
+   - Value: Your Cloudflare API Token from step 5.2
 
-**If user chose Claude GitHub Actions in Phase 5, also add:**
+**If user chose Claude GitHub Actions in Phase 6, also add:**
 
 3. **ANTHROPIC_API_KEY**
    - Link: `https://github.com/{GITHUB_USERNAME}/{GITHUB_REPO}/settings/secrets/actions/new`
-   - Value: Your Anthropic API key from step 5
+   - Value: Your Anthropic API key from Phase 6
 
 **IMPORTANT:** Replace `{GITHUB_USERNAME}` and `{GITHUB_REPO}` with actual values detected in Phase 1!
 
@@ -278,7 +437,7 @@ After the user confirms they've added the secrets, display:
 ✅ ANTHROPIC_API_KEY secret added (if applicable)
 ```
 
-### 6.3 Application Secrets (Optional)
+### 7.3 Application Secrets (Optional)
 
 Use AskUserQuestion:
 
@@ -299,18 +458,18 @@ Tell the user: "Add secrets to `.dev.vars` for local development. For production
 
 ---
 
-## Phase 7: Claude GitHub Actions Setup (If Selected)
+## Phase 8: Claude GitHub Actions Setup (If Selected)
 
-**Only execute if user chose "Yes" in Phase 5.**
+**Only execute if user chose "Yes" in Phase 6.**
 
 Display a progress indicator:
 
 ```
-📋 Phase 7/8: Claude GitHub Actions Configuration
+📋 Phase 8/9: Claude GitHub Actions Configuration
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### 7.1 Install Claude GitHub App
+### 8.1 Install Claude GitHub App
 
 Display instructions:
 
@@ -324,7 +483,7 @@ Display instructions:
    - Issues: Read & Write (to respond to issues)
    - Pull Requests: Read & Write (to create PRs)
 
-### 7.2 Create the Workflow File
+### 8.2 Create the Workflow File
 
 ```bash
 cp .claude/templates/claude-code-action.yml .github/workflows/claude.yml
@@ -346,12 +505,12 @@ comment or issue. Claude can:
 
 ---
 
-## Phase 8: Domain Configuration (Optional)
+## Phase 9: Domain Configuration (Optional)
 
 Display a progress indicator:
 
 ```
-📋 Phase 8/8: Domain & Deployment
+📋 Phase 9/9: Domain & Deployment
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -363,62 +522,66 @@ Use AskUserQuestion:
 |--------|-------------|
 | **No, use workers.dev** | Use the free `*.workers.dev` subdomain for now |
 | **Buy a new domain** | Purchase a domain from Cloudflare Registrar at cost (no markup) |
-| **Yes, Cloudflare DNS** | Domain's DNS is already managed by Cloudflare |
-| **Yes, external DNS** | Domain's DNS is with another provider (GoDaddy, etc.) |
+| **Yes, add custom domain** | Connect an existing domain (Cloudflare or external DNS) |
 
-### If Buy a new domain:
+### If No Domain (workers.dev):
 
 Tell the user:
 
-**BUY A DOMAIN FROM CLOUDFLARE REGISTRAR**
+```
+Your app will be available at:
+https://{project-name}.{subdomain}.workers.dev
 
-Cloudflare Registrar sells domains at cost with no markup - often the cheapest option for major TLDs (.com, .net, .org, etc.).
-
-1. Open: https://dash.cloudflare.com/?to=/:account/domains/register
-2. Search for your desired domain name
-3. Complete the purchase
-4. Return here once the domain is registered
-
-After purchase, the domain will automatically use Cloudflare DNS. Then run:
-
-```bash
-npx wrangler domains add yourdomain.com
+You can add a custom domain anytime from your Worker settings.
 ```
 
-### If Cloudflare DNS:
+### If Buy a new domain:
 
-```bash
-npx wrangler domains add yourdomain.com
+Display with direct link (replace `{ACCOUNT_ID}` with value from Phase 5):
+
+```
+BUY A DOMAIN FROM CLOUDFLARE REGISTRAR
+──────────────────────────────────────
+
+Cloudflare Registrar sells domains at cost with no markup.
+
+👉 https://dash.cloudflare.com/{ACCOUNT_ID}/registrar/register
+
+1. Search for your desired domain name
+2. Complete the purchase
+3. Return here once registered
+
+After purchase, we'll connect it to your Worker.
 ```
 
-This automatically creates DNS records and enables HTTPS.
+After purchase, proceed to the "Add custom domain" instructions below.
 
-### If External DNS:
+### If Yes, add custom domain:
 
-Provide CNAME setup instructions:
+Display with direct link to Worker settings (replace `{ACCOUNT_ID}` and `{PROJECT_NAME}` with values from earlier phases):
 
-**EXTERNAL DNS CONFIGURATION**
+```
+ADD CUSTOM DOMAIN
+─────────────────
 
-Add a CNAME record at your DNS provider:
+👉 https://dash.cloudflare.com/{ACCOUNT_ID}/workers/services/view/{PROJECT_NAME}/production/settings
 
-| Field | Value |
-|-------|-------|
-| Type | CNAME |
-| Name | www (or @ for root, if supported) |
-| Target | `{project-name}.{subdomain}.workers.dev` |
-| TTL | 300-600 seconds |
+1. Click the link above (opens your Worker's settings)
+2. Scroll to "Domains & Routes"
+3. Click "Add" → "Custom domain"
+4. Enter your domain (e.g., app.yourdomain.com)
+5. Cloudflare will automatically configure DNS and SSL
 
-Note: DNS propagation takes 5-60 minutes.
-
-### If No Domain:
-
-Tell the user: "Your app will be available at `https://{project-name}.{subdomain}.workers.dev`. You can add a custom domain anytime."
+If your domain uses external DNS (GoDaddy, etc.):
+• You'll be shown a CNAME record to add at your DNS provider
+• DNS propagation takes 5-60 minutes
+```
 
 ---
 
-## Phase 9: Local Verification & First Deployment
+## Phase 10: Local Verification & First Deployment
 
-### 9.1 Verify Local Development
+### 10.1 Verify Local Development
 
 ```bash
 npm run dev
@@ -437,7 +600,7 @@ Display success:
 ✅ API health endpoint responding
 ```
 
-### 9.2 First Deployment
+### 10.2 First Deployment
 
 **Now commit everything at once (including claude.yml if configured):**
 
@@ -480,7 +643,7 @@ Display the direct link:
 
 ---
 
-## Phase 10: Setup Complete
+## Phase 11: Setup Complete
 
 Display a celebratory completion message:
 
@@ -511,7 +674,7 @@ Display a summary based on what was configured:
 
 ---
 
-## Phase 11: What's Next?
+## Phase 12: What's Next?
 
 Use AskUserQuestion:
 
@@ -563,6 +726,12 @@ Display this table before ending:
 **Local wrangler commands fail:**
 - Check `.env` has correct credentials, OR
 - Run `npx wrangler login` to re-authenticate
+
+**"Forbidden" or "Unauthorized" when using KV/D1/R2:**
+- Your API token may not have permissions for these products
+- Edit your token at https://dash.cloudflare.com/profile/api-tokens
+- Add the missing permission (e.g., "Account > D1 > Edit")
+- Or create a new token with all required permissions
 
 ### Build Errors
 

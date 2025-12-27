@@ -77,6 +77,20 @@ Check if `node_modules` exists. If not, run:
 npm install
 ```
 
+Update dependencies to latest safe versions (within semver ranges):
+
+```bash
+npm update
+```
+
+This ensures you're using the latest patch/minor versions without breaking changes.
+
+Verify Wrangler is available (installed as devDependency):
+
+```bash
+npx wrangler --version    # Should output version 4.x+
+```
+
 Verify the build works:
 
 ```bash
@@ -90,6 +104,8 @@ Display success:
 ```
 ✅ Node.js v22+ detected
 ✅ Dependencies installed
+✅ Dependencies updated to latest safe versions
+✅ Wrangler CLI available
 ✅ Build successful
 ```
 
@@ -556,26 +572,73 @@ After purchase, we'll connect it to your Worker.
 
 After purchase, proceed to the "Add custom domain" instructions below.
 
-### If Yes, add custom domain:
+### If Buy a new domain or Yes, add custom domain:
+
+#### 9.1 Get Domain Name
+
+Use AskUserQuestion:
+
+**Question:** "What is your custom domain?"
+
+- Ask for the full domain (e.g., `myapp.com` or `app.myapp.com`)
+- Store as `{CUSTOM_DOMAIN}` for configuration
+
+#### 9.2 Update wrangler.jsonc
+
+Add the custom domain route configuration to `wrangler.jsonc`:
+
+```jsonc
+"routes": [
+  {
+    "pattern": "{CUSTOM_DOMAIN}",
+    "custom_domain": true
+  }
+]
+```
+
+If the user has multiple domains (e.g., `www.example.com` and `example.com`), add both:
+
+```jsonc
+"routes": [
+  {
+    "pattern": "example.com",
+    "custom_domain": true
+  },
+  {
+    "pattern": "www.example.com",
+    "custom_domain": true
+  }
+]
+```
+
+Display success:
+
+```
+✅ wrangler.jsonc updated with custom domain route
+```
+
+#### 9.3 Dashboard Configuration
 
 Display with direct link to Worker settings (replace `{ACCOUNT_ID}` and `{PROJECT_NAME}` with values from earlier phases):
 
 ```
-ADD CUSTOM DOMAIN
-─────────────────
+ADD CUSTOM DOMAIN IN CLOUDFLARE DASHBOARD
+──────────────────────────────────────────
 
 👉 https://dash.cloudflare.com/{ACCOUNT_ID}/workers/services/view/{PROJECT_NAME}/production/settings
 
 1. Click the link above (opens your Worker's settings)
 2. Scroll to "Domains & Routes"
 3. Click "Add" → "Custom domain"
-4. Enter your domain (e.g., app.yourdomain.com)
+4. Enter your domain: {CUSTOM_DOMAIN}
 5. Cloudflare will automatically configure DNS and SSL
 
 If your domain uses external DNS (GoDaddy, etc.):
 • You'll be shown a CNAME record to add at your DNS provider
 • DNS propagation takes 5-60 minutes
 ```
+
+**Note:** The `wrangler.jsonc` routes configuration ensures your domain is correctly linked when you deploy via `npm run deploy` or CI/CD.
 
 ---
 

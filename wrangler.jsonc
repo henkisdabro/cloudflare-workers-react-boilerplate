@@ -12,7 +12,17 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	/**
+	 * Custom Domains
+	 * Docs: https://developers.cloudflare.com/workers/configuration/routing/custom-domains/
+	 */
+	// "routes": [
+	// 	{
+	// 		"pattern": "example.com",
+	// 		"custom_domain": true
+	// 	}
+	// ]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

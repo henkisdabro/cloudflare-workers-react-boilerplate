@@ -40,7 +40,6 @@
             .step,
             .command-card,
             .example-category,
-            .tech-category,
             .comparison-column,
             .use-case-card,
             .workflow-column,

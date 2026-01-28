@@ -1,0 +1,17 @@
+{
+	"files.associations": {
+		"wrangler.json": "jsonc",
+		".dev.vars": "properties"
+	},
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/dist": true,
+		"**/.wrangler": true
+	},
+	"files.exclude": {
+		"**/.wrangler": true
+	}
+}

@@ -658,6 +658,7 @@ strong {
     max-width: 800px;
     margin: 0 auto var(--spacing-xl);
     line-height: 1.7;
+    text-wrap: pretty;
 }
 
 .cta-buttons {

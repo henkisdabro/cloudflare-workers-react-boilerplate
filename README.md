@@ -435,6 +435,50 @@ Claude reads your code, follows your `CLAUDE.md` guidelines, and commits changes
 
 See **[.claude/README.md](.claude/README.md)** for complete documentation.
 
+### Cloudflare Documentation MCP Server
+
+This template includes the official **Cloudflare Documentation MCP Server** pre-configured (`.mcp.json`). Claude Code can search official Cloudflare docs to answer questions about Workers, D1, KV, R2, Durable Objects, and any other Cloudflare product.
+
+Just ask Claude Code questions like:
+- "How do I set up a D1 database?"
+- "What are Workers KV limits?"
+- "Show me R2 bucket examples"
+
+---
+
+## 🎨 Opinionated VS Code Defaults
+
+This template includes **sensible VS Code configuration** out-of-the-box, optimised for Claude Code development.
+
+### Recommended Extensions (`.vscode/extensions.json`)
+
+When you open the project, VS Code will prompt you to install:
+
+| Extension | Purpose |
+|-----------|---------|
+| **ESLint** | Code linting |
+| **Prettier** | Code formatting |
+| **Vitest** | Test explorer integration |
+| **Error Lens** | Inline error display |
+| **Auto Rename Tag** | JSX tag renaming |
+| **Path Intellisense** | Import path autocomplete |
+| **npm Intellisense** | npm module autocomplete |
+| **DotENV** | `.dev.vars` syntax highlighting |
+
+### Workspace Settings (`.vscode/settings.json`)
+
+Pre-configured for a clean coding experience:
+
+- **Format on save** with Prettier
+- **Terminal panel on the right** - more vertical space for code
+- **Activity bar at top** - compact, modern layout
+- **Minimap disabled** - cleaner editor
+- **Search excludes** node_modules, dist, .wrangler
+- **JSONC support** for `wrangler.json` (allows comments)
+- **Syntax highlighting** for `.dev.vars` secrets file
+
+These defaults work great with Claude Code's terminal-focused workflow. Override any setting in your user preferences if needed.
+
 ---
 
 ## 🤖 AI Integration Features

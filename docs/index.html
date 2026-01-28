@@ -67,37 +67,78 @@
                 <h1 class="hero-title">Cloudflare Workers + React Boilerplate</h1>
                 <p class="hero-subtitle">Everything you need to build a modern website, already set up and ready to go. Best practices baked in, technical decisions already made - you just add your ideas.</p>
 
-                <p class="hero-description">This template uses Cloudflare and GitHub - both offer remarkably generous free tiers. Handle thousands of users, store plenty of data, and deploy unlimited updates without spending a cent. Most projects never outgrow these limits. And if yours does? That's a good problem to have. New to this? You're in the right place - follow the steps below and you'll be live in minutes.</p>
+                <p class="hero-description">This template uses Cloudflare and GitHub - both offer remarkably generous free tiers. Handle thousands of users, store plenty of data, and deploy unlimited updates without spending a cent. Most projects never outgrow these limits. And if yours does? That's a good problem to have.</p>
 
-                <!-- Quick Start Steps -->
-                <div class="hero-steps">
-                    <div class="hero-step">
-                        <span class="hero-step-number">1</span>
-                        <div class="hero-step-content">
-                            <strong>Use this Template</strong>
-                            <span>Get your own copy → your GitHub account</span>
-                        </div>
-                        <a href="https://github.com/new?template_name=cloudflare-workers-react-boilerplate&template_owner=henkisdabro" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
-                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                            </svg>
-                            Use Template
+                <!-- Step 1: Use Template (Common to both paths) -->
+                <div class="hero-first-step">
+                    <div class="hero-first-step-badge">Step 1</div>
+                    <h3 class="hero-first-step-title">Create Your Copy</h3>
+                    <p class="hero-first-step-desc">Click below to copy this template to your GitHub account</p>
+                    <a href="https://github.com/new?template_name=cloudflare-workers-react-boilerplate&template_owner=henkisdabro" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="24" height="24" fill="currentColor" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        Use this Template
+                    </a>
+                </div>
+
+                <!-- Flow Arrow Connector (Diverging) -->
+                <div class="hero-flow-connector">
+                    <svg class="hero-flow-arrows" viewBox="0 0 400 80" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <!-- Left branch -->
+                        <path class="hero-flow-arrow-path" d="M200,0 C200,30 100,30 100,70" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                        <polygon class="hero-flow-arrow-head" points="100,80 95,65 105,65" fill="rgba(255,255,255,0.4)"/>
+                        <!-- Right branch -->
+                        <path class="hero-flow-arrow-path" d="M200,0 C200,30 300,30 300,70" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                        <polygon class="hero-flow-arrow-head" points="300,80 295,65 305,65" fill="rgba(255,255,255,0.4)"/>
+                    </svg>
+                    <span class="hero-flow-label">Choose your path:</span>
+                </div>
+
+                <!-- Two Paths (Step 2 only) -->
+                <div class="hero-paths">
+                    <!-- Path A: Browser-based (Easiest) -->
+                    <div class="hero-path hero-path-recommended">
+                        <div class="hero-path-badge">Easiest</div>
+                        <div class="hero-path-step-badge">Step 2</div>
+                        <h4 class="hero-path-title">🌐 Browser</h4>
+                        <p class="hero-path-desc">No installation needed</p>
+                        <a href="https://claude.ai/code" class="btn btn-outline-light btn-path" target="_blank" rel="noopener noreferrer">
+                            Open Claude.ai Code Mode →
                         </a>
+                        <p class="hero-path-instruction">Connect your new GitHub repo</p>
                     </div>
-                    <div class="hero-step">
-                        <span class="hero-step-number">2</span>
-                        <div class="hero-step-content">
-                            <strong>Clone & Open</strong>
-                            <span>Clone your repo in VS Code, then run <code>claude</code></span>
+
+                    <!-- Path B: Local Development -->
+                    <div class="hero-path">
+                        <div class="hero-path-step-badge">Step 2</div>
+                        <h4 class="hero-path-title">💻 Local (VS Code)</h4>
+                        <p class="hero-path-desc">For developers who prefer local tooling</p>
+                        <div class="hero-path-code">
+                            <code>git clone your-repo</code>
+                            <code>cd your-repo</code>
+                            <code>claude</code>
                         </div>
                     </div>
-                    <div class="hero-step">
-                        <span class="hero-step-number">3</span>
-                        <div class="hero-step-content">
-                            <strong>Run <code>/start</code></strong>
-                            <span>Answer a few questions - Claude handles the rest</span>
-                        </div>
-                    </div>
+                </div>
+
+                <!-- Flow Arrow Connector (Converging) -->
+                <div class="hero-flow-connector hero-flow-converge">
+                    <svg class="hero-flow-arrows" viewBox="0 0 400 80" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <!-- Left branch converging -->
+                        <path class="hero-flow-arrow-path" d="M100,0 C100,40 200,40 200,70" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                        <!-- Right branch converging -->
+                        <path class="hero-flow-arrow-path" d="M300,0 C300,40 200,40 200,70" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                        <!-- Single arrow head at bottom -->
+                        <polygon class="hero-flow-arrow-head" points="200,80 195,65 205,65" fill="rgba(255,255,255,0.4)"/>
+                    </svg>
+                </div>
+
+                <!-- Step 3: Run /start (Common to both paths) -->
+                <div class="hero-final-step">
+                    <div class="hero-final-step-badge">Step 3</div>
+                    <h3 class="hero-final-step-title">Type <code>/start</code></h3>
+                    <p class="hero-final-step-desc">Answer a few questions and your website goes live!</p>
                 </div>
 
                 <!-- LLM Helper Links - For users who need step-by-step guidance -->
@@ -439,37 +480,61 @@
             <div class="container">
                 <h2 class="section-title">Get Started in 3 Steps</h2>
 
-                <div class="steps-grid steps-grid-3">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3 class="step-title">Use Template</h3>
-                        <p class="step-description">Click "Use this Template" to create your own repository on GitHub.</p>
-                        <div class="step-code">
-                            <code>Click button above ↑</code>
+                <div class="quick-start-paths">
+                    <!-- Browser Path -->
+                    <div class="quick-start-path">
+                        <h3 class="quick-start-path-title">🌐 Browser Path (Easiest)</h3>
+                        <div class="steps-grid steps-grid-3">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <h4 class="step-title">Use Template</h4>
+                                <p class="step-description">Click "Use this Template" on GitHub to create your own copy.</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <h4 class="step-title">Connect Claude</h4>
+                                <p class="step-description">Open <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">claude.ai</a> or Claude Desktop → Enable Code mode → Connect your GitHub repo.</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <h4 class="step-title">Run /start</h4>
+                                <p class="step-description">Type <code>/start</code> and answer a few questions. Your site goes live!</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3 class="step-title">Clone & Run /start</h3>
-                        <p class="step-description">Clone your repo, install dependencies, then run <code>/start</code> in Claude Code.</p>
-                        <div class="step-code">
-                            <code>git clone your-repo.git<br>cd your-repo<br>npm install<br>/start</code>
-                        </div>
+                    <div class="quick-start-divider">
+                        <span>or</span>
                     </div>
 
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3 class="step-title">Build Features</h3>
-                        <p class="step-description">Use <code>/generate-prp</code> to plan features and <code>/execute-prp</code> to build them.</p>
-                        <div class="step-code">
-                            <code>/generate-prp</code>
+                    <!-- Local Path -->
+                    <div class="quick-start-path">
+                        <h3 class="quick-start-path-title">💻 Local Path (VS Code)</h3>
+                        <div class="steps-grid steps-grid-3">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <h4 class="step-title">Use Template</h4>
+                                <p class="step-description">Click "Use this Template" on GitHub to create your own copy.</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <h4 class="step-title">Clone & Open</h4>
+                                <p class="step-description">Clone your repo in VS Code, open terminal, run <code>claude</code>.</p>
+                                <div class="step-code">
+                                    <code>git clone your-repo<br>cd your-repo<br>claude</code>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <h4 class="step-title">Run /start</h4>
+                                <p class="step-description">Type <code>/start</code> and answer a few questions. Your site goes live!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="quick-start-cta">
-                    <p class="quick-start-text">Just run <code>/start</code> - it handles everything!</p>
+                    <p class="quick-start-text">Either way, <code>/start</code> handles everything - credentials, deployment, and more!</p>
                 </div>
             </div>
         </section>
@@ -526,27 +591,34 @@
                             </div>
                         </div>
                         <div class="prp-spotlight-description">
-                            <p>After forking the template, run <code>/start</code> to handle everything automatically:</p>
+                            <p>After creating your repo, run <code>/start</code> and it handles everything:</p>
                             <div class="prp-benefits">
                                 <div class="prp-benefit">
-                                    <span class="prp-benefit-icon">⚙️</span>
+                                    <span class="prp-benefit-icon">🎯</span>
                                     <div>
-                                        <strong>Configure Project</strong>
-                                        <p>Rename your project, update metadata, and verify the build works</p>
+                                        <strong>Choose Your Path</strong>
+                                        <p>Quick Setup (5 min) for beginners, or Guided Setup for full control</p>
                                     </div>
                                 </div>
                                 <div class="prp-benefit">
-                                    <span class="prp-benefit-icon">🔐</span>
+                                    <span class="prp-benefit-icon">💬</span>
                                     <div>
-                                        <strong>Set Up Credentials</strong>
-                                        <p>Cloudflare Account ID, API token, and GitHub secrets - all guided step-by-step</p>
+                                        <strong>Plain English Questions</strong>
+                                        <p>"What are you building?" - portfolio, app with forms, user accounts, etc.</p>
+                                    </div>
+                                </div>
+                                <div class="prp-benefit">
+                                    <span class="prp-benefit-icon">🆓</span>
+                                    <div>
+                                        <strong>Account Setup Help</strong>
+                                        <p>No Cloudflare account? We'll walk you through creating one (free)</p>
                                     </div>
                                 </div>
                                 <div class="prp-benefit">
                                     <span class="prp-benefit-icon">🚀</span>
                                     <div>
-                                        <strong>Deploy & Build</strong>
-                                        <p>First deployment to production, then plan your first feature with <code>/generate-prp</code></p>
+                                        <strong>Deploy & Go</strong>
+                                        <p>Your website goes live, then start building features</p>
                                     </div>
                                 </div>
                             </div>

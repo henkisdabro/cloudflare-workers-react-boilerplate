@@ -877,6 +877,415 @@ strong {
 }
 
 /* ===================================
+   Hero Prerequisites
+   =================================== */
+
+.hero-prereqs {
+    max-width: 700px;
+    margin: var(--spacing-md) auto 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+.hero-prereqs strong {
+    color: var(--colour-white);
+}
+
+/* ===================================
+   Hero First Step (Common Step)
+   =================================== */
+
+.hero-first-step {
+    max-width: 500px;
+    margin: var(--spacing-xl) auto 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.hero-first-step-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--colour-white);
+    color: var(--colour-hero-bg);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-first-step-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--colour-white);
+    margin: 0 0 var(--spacing-xs);
+}
+
+.hero-first-step-desc {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 var(--spacing-md);
+}
+
+.hero-first-step .btn-large {
+    padding: 1rem 2rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.hero-first-step .btn-large .icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* ===================================
+   Hero Flow Connector (Bezier Arrows)
+   =================================== */
+
+.hero-flow-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--spacing-md) auto;
+    max-width: 400px;
+}
+
+.hero-flow-arrows {
+    width: 100%;
+    height: 80px;
+    max-width: 400px;
+}
+
+.hero-flow-arrow-path {
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 2;
+    fill: none;
+}
+
+.hero-flow-arrow-head {
+    fill: rgba(255, 255, 255, 0.4);
+}
+
+.hero-flow-label {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: var(--font-weight-medium);
+    margin-top: -0.5rem;
+}
+
+/* ===================================
+   Hero Two-Path Layout
+   =================================== */
+
+.hero-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-path {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+}
+
+.hero-path-recommended {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.hero-path-badge {
+    position: absolute;
+    top: -10px;
+    right: var(--spacing-md);
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: var(--colour-white);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-path-step-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--colour-white);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero-path-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--colour-white);
+    margin: 0 0 var(--spacing-xs);
+    text-align: center;
+}
+
+.hero-path-desc {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    margin: 0 0 var(--spacing-md);
+}
+
+.btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--colour-white);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-path {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-path-instruction {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin: 0;
+}
+
+.hero-path-code {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm);
+}
+
+.hero-path-code code {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.9);
+    background: none;
+    padding: 0;
+}
+
+.hero-path .hero-steps {
+    margin: 0;
+    max-width: none;
+}
+
+.hero-path .hero-step {
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.hero-path .hero-step-number {
+    width: 28px;
+    height: 28px;
+    font-size: var(--font-size-base);
+}
+
+.hero-path .hero-step-content strong {
+    font-size: var(--font-size-base);
+}
+
+.hero-path .hero-step-content span {
+    font-size: var(--font-size-xs);
+}
+
+/* ===================================
+   Hero Final Step (Step 3)
+   =================================== */
+
+.hero-final-step {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.hero-final-step-badge {
+    display: inline-block;
+    background: var(--colour-white);
+    color: var(--colour-hero-bg);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-final-step-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--colour-white);
+    margin: 0 0 var(--spacing-xs);
+}
+
+.hero-final-step-title code {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family-mono);
+}
+
+.hero-final-step-desc {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+.hero-flow-converge {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-first-step {
+        margin: var(--spacing-lg) auto 0;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .hero-first-step-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .hero-flow-connector {
+        margin: var(--spacing-sm) auto;
+    }
+
+    .hero-flow-arrows {
+        height: 60px;
+    }
+
+    .hero-paths {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .hero-path {
+        padding: var(--spacing-md);
+    }
+
+    .hero-path-badge {
+        top: -8px;
+        right: var(--spacing-sm);
+    }
+
+    .hero-final-step {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .hero-final-step-title {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Hide converging arrows on mobile - just use simple connector */
+    .hero-flow-converge .hero-flow-arrows {
+        display: none;
+    }
+
+    .hero-flow-converge::after {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.4);
+        margin: 0 auto;
+    }
+}
+
+/* ===================================
+   Quick Start Two-Path Layout
+   =================================== */
+
+.quick-start-paths {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.quick-start-path {
+    background: var(--colour-white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.quick-start-path-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--colour-grey-900);
+    margin: 0 0 var(--spacing-md);
+    text-align: center;
+}
+
+.quick-start-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.quick-start-divider::before,
+.quick-start-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--colour-grey-300);
+}
+
+.quick-start-divider span {
+    padding: 0 var(--spacing-md);
+    color: var(--colour-grey-600);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===================================
    Beginner Callout (Jason-friendly)
    =================================== */
 

@@ -13,5 +13,12 @@
 	},
 	"files.exclude": {
 		"**/.wrangler": true
-	}
+	},
+	"workbench.panel.defaultLocation": "right",
+	"workbench.sideBar.location": "left",
+	"workbench.activityBar.location": "top",
+	"workbench.editor.showTabs": "multiple",
+	"breadcrumbs.enabled": true,
+	"editor.minimap.enabled": false,
+	"terminal.integrated.defaultLocation": "editor"
 }

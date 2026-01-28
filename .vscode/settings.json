@@ -19,6 +19,6 @@
 	"workbench.activityBar.location": "top",
 	"workbench.editor.showTabs": "multiple",
 	"breadcrumbs.enabled": true,
-	"editor.minimap.enabled": false,
+	"editor.minimap.enabled": true,
 	"terminal.integrated.defaultLocation": "editor"
 }

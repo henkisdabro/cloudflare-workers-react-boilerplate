@@ -472,7 +472,7 @@ Pre-configured for a clean coding experience:
 - **Format on save** with Prettier
 - **Terminal panel on the right** - more vertical space for code
 - **Activity bar at top** - compact, modern layout
-- **Minimap disabled** - cleaner editor
+- **Minimap enabled** - code overview on the right
 - **Search excludes** node_modules, dist, .wrangler
 - **JSONC support** for `wrangler.json` (allows comments)
 - **Syntax highlighting** for `.dev.vars` secrets file

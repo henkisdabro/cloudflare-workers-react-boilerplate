@@ -3100,6 +3100,78 @@ strong {
 }
 
 /* ===================================
+   Technical Details (Collapsible)
+   =================================== */
+
+.technical-details {
+    margin-top: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.technical-details summary {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    color: var(--colour-grey-300);
+    font-size: var(--font-size-sm);
+    transition: background var(--transition-base);
+}
+
+.technical-details summary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.technical-details summary strong {
+    color: var(--colour-white);
+}
+
+.technical-details-content {
+    padding: var(--spacing-md);
+    padding-top: 0;
+    color: var(--colour-grey-300);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+}
+
+.technical-details-content p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.technical-details-content p:last-child {
+    margin-bottom: 0;
+}
+
+.technical-comparison-table {
+    width: 100%;
+    margin: var(--spacing-md) 0;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+}
+
+.technical-comparison-table th,
+.technical-comparison-table td {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.technical-comparison-table th {
+    color: var(--colour-white);
+    font-weight: var(--font-weight-semibold);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.technical-comparison-table td {
+    color: var(--colour-grey-300);
+}
+
+.technical-comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ===================================
    Print Styles
    =================================== */
 

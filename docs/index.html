@@ -65,7 +65,7 @@
                 </div>
 
                 <h1 class="hero-title">Cloudflare Workers + React Boilerplate</h1>
-                <p class="hero-subtitle">Everything you need to build a modern website, already set up and ready to go. Best practices baked in, technical decisions already made - you just add your ideas.</p>
+                <p class="hero-subtitle">Everything you need to build a modern website - without the complexity. Best practices baked in, technical decisions already made - you just add your ideas.</p>
 
                 <p class="hero-description">This template uses Cloudflare and GitHub - both offer generous free tiers. Handle thousands of users, store plenty of data, and deploy unlimited updates for free. Most projects never outgrow these limits. And if yours does? That's a good problem to have.</p>
 
@@ -206,13 +206,51 @@
                     <div class="comparison-column not-suitable">
                         <h3 class="comparison-title">⚠️ Consider Alternatives For</h3>
                         <ul class="comparison-list">
-                            <li><strong>Server-side rendering (SSR)</strong> - use <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/" target="_blank" rel="noopener noreferrer">TanStack Start</a> or <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/" target="_blank" rel="noopener noreferrer">React Router v7</a></li>
+                            <li><strong>SEO-focused content sites</strong> - use <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/" target="_blank" rel="noopener noreferrer">React Router v7</a> or <a href="https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/" target="_blank" rel="noopener noreferrer">TanStack Start</a> for faster indexing, working social media previews, and better performance scores</li>
                             <li><strong>Persistent Node.js server</strong> - try Railway, Render, or a VPS (Workers are stateless edge functions)</li>
                             <li><strong>WordPress/CMS content</strong> - use Cloudflare Pages with a headless CMS</li>
                         </ul>
                         <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--colour-grey-300);">💡 <strong>Simple static sites work great here!</strong> You get free global CDN, instant deploys, and room to add APIs/databases when you need them.</p>
                     </div>
                 </div>
+
+                <!-- Technical Details (Collapsible) -->
+                <details class="technical-details">
+                    <summary><strong>🔧 Technical: How this compares to React Router v7</strong></summary>
+                    <div class="technical-details-content">
+                        <p>This template uses <strong>client-side rendering</strong> - your React app runs entirely in the browser. React Router v7 and TanStack Start use <strong>server-side rendering</strong> - the server generates HTML before sending it to the browser.</p>
+
+                        <table class="technical-comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>This Template</th>
+                                    <th>React Router v7 / TanStack Start</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Browser renders the UI</td>
+                                    <td>Server renders the UI</td>
+                                </tr>
+                                <tr>
+                                    <td>Simpler architecture, fewer concepts</td>
+                                    <td>More features, more framework conventions</td>
+                                </tr>
+                                <tr>
+                                    <td>You choose your routing library</td>
+                                    <td>Routing built into the framework</td>
+                                </tr>
+                                <tr>
+                                    <td>You control data fetching</td>
+                                    <td>Framework controls data loading</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p><strong>Choose this template if:</strong> You're building dashboards, admin panels, internal tools, or apps behind a login.</p>
+                        <p><strong>Choose React Router v7 if:</strong> SEO is a priority - you'll get faster indexing, working social media previews, and better Core Web Vitals scores.</p>
+                    </div>
+                </details>
             </div>
         </section>
 

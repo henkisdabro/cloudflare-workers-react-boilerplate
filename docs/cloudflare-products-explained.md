@@ -2,6 +2,27 @@
 
 This guide explains Cloudflare's developer products in plain English. Use this to understand what each product does and whether you need it.
 
+## How This Template Works
+
+Before diving into products, it helps to understand how this template is structured:
+
+**Your website has two parts:**
+
+1. **The React app** - This is what visitors see and interact with. It runs in their browser.
+2. **The Worker** - This handles "behind the scenes" tasks like saving data, talking to databases, or calling AI services. It runs on Cloudflare's servers.
+
+When someone visits your website:
+1. Their browser downloads your React app
+2. The React app runs in their browser
+3. When the app needs data (like submitting a form), it asks the Worker
+4. The Worker does the work and sends back the answer
+
+This is called a "client-side" architecture - the browser (client) does the rendering. It's simpler to understand than "server-side" alternatives where the server generates the pages.
+
+> 💡 **Why does this matter?** If SEO is a priority (blogs, marketing sites), a "server-side" template like React Router v7 gives you faster indexing and working social media previews. For dashboards, apps, and tools behind a login, this template's simpler architecture is a better fit.
+
+---
+
 ## The Basics
 
 When you build a website, you might need:

@@ -54,6 +54,16 @@ Storing a copy of data so you don't have to fetch it again. Makes things faster.
 
 Automatic testing and deployment. When you push code to GitHub, it automatically goes live.
 
+### Client-side Rendering
+
+When your website runs in the visitor's browser. The browser downloads your code, then builds the page.
+
+**This template uses client-side rendering** - simpler to understand, great for apps and dashboards.
+
+**Opposite of:** Server-side rendering (where the server builds the page first)
+
+Automatic testing and deployment. When you push code to GitHub, it automatically goes live.
+
 ### CLI (Command Line Interface)
 
 A text-based way to interact with your computer. The terminal or command prompt.
@@ -231,6 +241,22 @@ A computer that runs your website and responds to visitors.
 ### Serverless
 
 You don't manage the server - Cloudflare handles it. Your code just runs when needed.
+
+### Server-side Rendering (SSR)
+
+When the server builds your web page before sending it to the browser. Provides faster indexing, working social media previews, and better performance scores - but adds complexity.
+
+**Used by:** React Router v7, TanStack Start, Next.js
+
+**Opposite of:** Client-side rendering (what this template uses)
+
+### SPA (Single Page Application)
+
+A website that loads once and updates without refreshing the whole page. This template creates an SPA.
+
+**How it works:** The browser downloads your app once, then updates parts of the page as needed.
+
+**Example:** Gmail, Twitter, most modern web apps
 
 ### SQL
 

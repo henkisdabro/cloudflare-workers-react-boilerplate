@@ -8,7 +8,7 @@
 [![Claude Code](https://img.shields.io/badge/Optimized_for-Claude_Code-5436DA?style=flat)](https://claude.com/claude-code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> **Deploy React apps to 300+ global locations for free.** A complete starter kit with databases, AI integration, and CI/CD - all on Cloudflare's generous free tier.
+> **Deploy React apps to 300+ global locations for free.** A complete starter kit with databases, AI integration, and CI/CD - all on Cloudflare's generous free tier. Simple architecture, no unnecessary complexity.
 
 From portfolio sites to AI-powered SaaS - start simple and scale when you need to. Push to GitHub, deploy in seconds.
 
@@ -43,11 +43,33 @@ A **free, production-ready starter kit** for React apps that deploy to Cloudflar
 
 | Requirement | Better Choice | Why |
 |-------------|---------------|-----|
-| **Server-side rendering (SSR)** | [TanStack Start](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/) or [React Router v7](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/) | This template is a client-side SPA |
+| **SEO-focused content sites** | [React Router v7](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/) or [TanStack Start](https://developers.cloudflare.com/workers/framework-guides/web-apps/tanstack-start/) | Server-side rendering gives you faster indexing, working social media previews, and better performance scores |
 | **Persistent Node.js server** | Railway, Render, or VPS | Workers are stateless edge functions |
 | **WordPress/CMS content** | Cloudflare Pages + headless CMS | Different architecture needed |
 
 > 💡 **Simple static sites work great here!** You get free global CDN, instant deploys, and room to add APIs/databases when you need them.
+
+<details>
+<summary><strong>🔧 Technical: How this compares to React Router v7 / TanStack Start</strong></summary>
+
+This template uses **client-side rendering** - your React app runs entirely in the browser.
+React Router v7 and TanStack Start use **server-side rendering** - the server generates HTML before sending it to the browser.
+
+| This Template | React Router v7 / TanStack Start |
+|---------------|----------------------------------|
+| Browser renders the UI | Server renders the UI |
+| Simpler architecture, fewer concepts | More features, more framework conventions |
+| You choose your routing library | Routing built into the framework |
+| You control data fetching | Framework controls data loading |
+| No hydration complexity | Must handle server/client sync |
+
+**Choose this template if:** You're building dashboards, admin panels, internal tools, or apps behind a login.
+
+**Choose React Router v7 if:** SEO is a priority - you'll get faster indexing, working social media previews, and better Core Web Vitals scores.
+
+Both use the same `@cloudflare/vite-plugin` under the hood - the difference is in how your app renders.
+
+</details>
 
 ### 💰 Free Tier Highlights
 

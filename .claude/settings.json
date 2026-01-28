@@ -38,7 +38,8 @@
       "Bash(tree:*)",
       "Edit",
       "MultiEdit",
-      "WebFetch(domain:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:cloudflare.com)",
       "Write",
       "mcp__cloudflare__search_cloudflare_documentation"
     ]

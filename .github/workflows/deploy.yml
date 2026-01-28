@@ -15,11 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      # Use Node.js 22 to match local development and Cloudflare's default build image
+      # Use Node.js 24 (Active LTS) to match local development
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '22'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install dependencies

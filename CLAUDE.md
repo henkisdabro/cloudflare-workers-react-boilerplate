@@ -59,6 +59,19 @@ Three separate configs:
 - **Production:** `npx wrangler secret put SECRET_NAME`
 - **CI/CD:** GitHub repository secrets
 
+## Cloudflare Documentation MCP Server
+
+This project includes the official **Cloudflare Documentation MCP Server** (`.mcp.json`).
+
+**IMPORTANT:** Use the `mcp__cloudflare__search_cloudflare_documentation` tool frequently when:
+- Answering questions about Cloudflare products (Workers, D1, KV, R2, Durable Objects, Queues, etc.)
+- Implementing Cloudflare features or bindings
+- Debugging Cloudflare-related issues
+- Checking current limits, pricing, or best practices
+- Looking up API patterns or configuration options
+
+The MCP server provides direct access to official Cloudflare documentation - always prefer it over relying on training data for Cloudflare-specific information.
+
 ## Directives
 
 - **NEVER assume or guess** - ask for clarification
@@ -66,6 +79,7 @@ Three separate configs:
 - **Test your code** - no feature is complete without tests
 - **Use `rg`** instead of `grep` and `find`
 - **Run `npm run cf-typegen`** after adding any Cloudflare binding
+- **Use the Cloudflare MCP server** for any Cloudflare documentation questions
 
 ## Documentation
 

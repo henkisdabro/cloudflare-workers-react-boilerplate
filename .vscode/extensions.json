@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    // Core tooling
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+
+    // Testing
+    "vitest.explorer",
+
+    // React/TypeScript DX
+    "usernamehw.errorlens",
+    "formulahendry.auto-rename-tag",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "mikestead.dotenv",
+
+    // AI
+    "anthropic.claude-code"
+  ]
+}

@@ -1692,6 +1692,21 @@ strong {
     margin-bottom: 0;
 }
 
+.feature-card-wide {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(84, 54, 218, 0.08) 0%, rgba(243, 128, 32, 0.06) 100%);
+    border-color: var(--colour-claude);
+    text-align: center;
+}
+
+.feature-card-wide:hover {
+    border-color: var(--colour-cloudflare);
+}
+
+.feature-card-wide .feature-icon {
+    font-size: 2.5rem;
+}
+
 /* ===================================
    Technology Stack Section
    =================================== */
@@ -2295,6 +2310,155 @@ strong {
     font-size: var(--font-size-xl);
     color: rgba(255, 255, 255, 0.6);
     font-weight: var(--font-weight-bold);
+}
+
+/* ===================================
+   Cloudflare Intelligence (MCP + Skills)
+   =================================== */
+
+.cloudflare-intelligence-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-xl);
+}
+
+.intelligence-section {
+    background: rgba(255, 255, 255, 0.08);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+}
+
+.intelligence-section h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--colour-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.intelligence-section > p {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--spacing-md);
+}
+
+.intelligence-section > p a {
+    color: var(--colour-white);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.claude-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.claude-feature-list li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--font-size-base);
+}
+
+.claude-feature-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.skills-category {
+    background: rgba(255, 255, 255, 0.08);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+}
+
+.skills-category strong {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.skills-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skills-category li {
+    padding: 0.2rem 0;
+}
+
+.skills-category code {
+    font-size: var(--font-size-sm);
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+}
+
+.skills-attribution-inline {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-normal);
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 0.5rem;
+}
+
+.skills-attribution-inline a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.skills-attribution-inline a:hover {
+    color: var(--colour-white);
+}
+
+.skills-pattern {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0;
+}
+
+.skills-pattern code {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 1024px) {
+    .cloudflare-intelligence-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intelligence-section {
+        padding: var(--spacing-md);
+    }
 }
 
 .commands-section-title {

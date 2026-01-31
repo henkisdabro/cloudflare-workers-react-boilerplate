@@ -6,14 +6,20 @@ This directory contains the promotional landing page for the Cloudflare Workers 
 
 ```
 /docs/
-├── index.html          # Main landing page
-├── 404.html            # Custom 404 error page
-├── .nojekyll           # Disables Jekyll processing on GitHub Pages
+├── index.html                    # Main landing page
+├── 404.html                      # Custom 404 error page
+├── .nojekyll                     # Disables Jekyll processing on GitHub Pages
+├── cloudflare-skills-plugin.md   # Cloudflare Skills Plugin documentation
+├── cloudflare-products-explained.md  # Cloudflare products guide
+├── choosing-deployment.md        # Deployment options guide
+├── glossary.md                   # Technical glossary
+├── CONVENTIONS.md                # Code conventions
+├── GITHUB_ACTIONS_CLAUDE.md      # GitHub Actions with Claude guide
 ├── css/
-│   └── main.css       # All styles (gradients, responsive, animations)
+│   └── main.css                  # All styles (gradients, responsive, animations)
 ├── js/
-│   └── main.js        # Smooth scrolling and animations
-└── README.md          # This file
+│   └── main.js                   # Smooth scrolling and animations
+└── README.md                     # This file
 ```
 
 ## 🌐 Live Website

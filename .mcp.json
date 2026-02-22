@@ -1,8 +1,8 @@
 {
-	"mcpServers": {
-		"cloudflare": {
-			"command": "npx",
-			"args": ["mcp-remote", "https://docs.mcp.cloudflare.com/mcp"]
-		}
-	}
+  "mcpServers": {
+    "cloudflare-api": {
+      "type": "http",
+      "url": "https://mcp.cloudflare.com/mcp"
+    }
+  }
 }

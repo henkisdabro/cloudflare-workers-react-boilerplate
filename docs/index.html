@@ -501,10 +501,10 @@
                         <p>GitHub Actions pipeline deploys automatically on every push to main branch.</p>
                     </div>
 
-                    <div class="feature-card">
-                        <div class="feature-icon">📚</div>
-                        <h3>Cloudflare Docs MCP Server</h3>
-                        <p>Claude Code has direct access to official Cloudflare documentation - just ask about Workers, D1, KV, R2, or any product.</p>
+                    <div class="feature-card feature-card-wide">
+                        <div class="feature-icon">☁️</div>
+                        <h3>Cloudflare Intelligence Built-in</h3>
+                        <p>MCP server for live documentation access plus 15 pre-installed skills covering D1, KV, R2, Queues, Durable Objects, and more.</p>
                     </div>
 
                 </div>
@@ -649,7 +649,7 @@
         <section class="section section-claude" id="claude-code">
             <div class="container">
                 <h2 class="section-title">Optimised for Claude Code</h2>
-                <p class="section-intro">This template includes interactive slash commands that accelerate your development workflow with AI assistance.</p>
+                <p class="section-intro">Slash commands, documentation access, and 15 Cloudflare skills - everything you need for AI-powered development.</p>
 
                 <!-- Featured /start Command -->
                 <div class="prp-spotlight">
@@ -719,26 +719,74 @@
                     </div>
                 </div>
 
-                <!-- MCP Server Feature -->
-                <div class="prp-spotlight" style="margin-bottom: 2rem;">
-                    <div class="prp-spotlight-badge">📚 Built-in Documentation</div>
+                <!-- Built-in Cloudflare Intelligence -->
+                <div class="prp-spotlight" id="cloudflare-skills">
+                    <div class="prp-spotlight-badge">☁️ Built-in Cloudflare Intelligence</div>
                     <div class="prp-spotlight-content">
                         <div class="prp-spotlight-header">
-                            <div class="prp-spotlight-icon">☁️</div>
+                            <div class="prp-spotlight-icon">🧠</div>
                             <div>
-                                <h3 class="prp-spotlight-title">Cloudflare Documentation MCP Server</h3>
-                                <p class="prp-spotlight-subtitle">Ask Claude Code about any Cloudflare product - it has direct access to official docs.</p>
+                                <h3 class="prp-spotlight-title">MCP Server + 16 Skills</h3>
+                                <p class="prp-spotlight-subtitle">Pre-configured and ready to use - Claude Code has direct access to Cloudflare docs and expert guidance for every product.</p>
                             </div>
                         </div>
                         <div class="prp-spotlight-description">
-                            <p>This template includes the official <strong>Cloudflare Documentation MCP Server</strong> pre-configured. Just ask Claude Code questions like:</p>
-                            <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--colour-grey-300);">
-                                <li>"How do I set up a D1 database?"</li>
-                                <li>"What are Workers KV limits?"</li>
-                                <li>"Show me R2 bucket examples"</li>
-                                <li>"How does Durable Objects pricing work?"</li>
-                            </ul>
-                            <p style="color: var(--colour-grey-400); font-size: 0.9rem;">Claude Code will search the official Cloudflare documentation and give you accurate, up-to-date answers.</p>
+                            <div class="cloudflare-intelligence-grid">
+                                <!-- MCP Server -->
+                                <div class="intelligence-section">
+                                    <h4>📚 Official Cloudflare Docs MCP</h4>
+                                    <p>Ask Claude Code about any Cloudflare product:</p>
+                                    <ul class="claude-feature-list">
+                                        <li>"How do I set up a D1 database?"</li>
+                                        <li>"What are Workers KV limits?"</li>
+                                        <li>"Show me R2 bucket examples"</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Skills Plugin -->
+                                <div class="intelligence-section">
+                                    <h4>🔌 Cloudflare Skills Plugin <span class="skills-attribution-inline">by <a href="https://github.com/jezweb" target="_blank" rel="noopener noreferrer">Jeremy Dawes</a></span></h4>
+                                    <p>15 skills - just describe what you want and Claude Code auto-invokes the right skill for code patterns, best practices, and product capabilities.</p>
+                                    <div class="skills-grid">
+                                        <div class="skills-category">
+                                            <strong>Core</strong>
+                                            <ul>
+                                                <li><code>d1</code></li>
+                                                <li><code>kv</code></li>
+                                                <li><code>r2</code></li>
+                                            </ul>
+                                        </div>
+                                        <div class="skills-category">
+                                            <strong>Advanced</strong>
+                                            <ul>
+                                                <li><code>workers-ai</code></li>
+                                                <li><code>queues</code></li>
+                                                <li><code>durable-objects</code></li>
+                                                <li><code>workflows</code></li>
+                                            </ul>
+                                        </div>
+                                        <div class="skills-category">
+                                            <strong>Specialised</strong>
+                                            <ul>
+                                                <li><code>agents</code></li>
+                                                <li><code>vectorize</code></li>
+                                                <li><code>hyperdrive</code></li>
+                                                <li><code>mcp-server</code></li>
+                                            </ul>
+                                        </div>
+                                        <div class="skills-category">
+                                            <strong>Media & Security</strong>
+                                            <ul>
+                                                <li><code>images</code></li>
+                                                <li><code>turnstile</code></li>
+                                                <li><code>browser-rendering</code></li>
+                                                <li><code>python-workers</code></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <p class="skills-pattern">Pattern: <code>/cloudflare:{name}</code></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -815,6 +863,7 @@
                     <ul class="footer-links">
                         <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate#readme" target="_blank" rel="noopener noreferrer">README</a></li>
                         <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/CLAUDE.md" target="_blank" rel="noopener noreferrer">CLAUDE.md</a></li>
+                        <li><a href="cloudflare-skills-plugin.md">Cloudflare Skills Plugin</a></li>
                         <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/AI_INTEGRATION.md" target="_blank" rel="noopener noreferrer">AI Integration Guide</a></li>
                         <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/docs/GITHUB_ACTIONS_CLAUDE.md" target="_blank" rel="noopener noreferrer">Claude GitHub Actions</a></li>
                         <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/blob/main/SANDBOX.md" target="_blank" rel="noopener noreferrer">Sandbox SDK Guide</a></li>
@@ -838,6 +887,15 @@
                         <li><a href="https://github.com/henkisdabro/cloudflare-workers-react-boilerplate/issues" target="_blank" rel="noopener noreferrer">Report Issues</a></li>
                         <li><a href="https://workers.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare Workers Docs</a></li>
                         <li><a href="https://claude.com/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-title">Acknowledgements</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/jezweb" target="_blank" rel="noopener noreferrer">Jeremy Dawes (jezweb)</a></li>
+                        <li><a href="https://github.com/jezweb/claude-skills" target="_blank" rel="noopener noreferrer">Cloudflare Skills Plugin</a></li>
+                        <li><a href="#cloudflare-skills">Skills in This Template</a></li>
                     </ul>
                 </div>
             </div>

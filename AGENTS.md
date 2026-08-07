@@ -1,175 +1,42 @@
-# AGENTS.md
+# cloudflare-workers-react-boilerplate
 
-This file provides guidance to AI coding assistants when working with this repository. This is a duplicate of CLAUDE.md for compatibility with other LLMs and AI tools.
+A GitHub template repository: Vite + React 19 + TypeScript served by a Cloudflare Worker that also
+handles `/api/*`. Working here means working on the template, not on an application.
 
-## Core Technology Stack
+**If you are reading this in a project generated from the template, you are in the wrong file.**
+Replace it with `docs/PROJECT-AGENTS-TEMPLATE.md`, which is written for a real project, and run
+`/start` if that has not happened yet.
 
-- **Framework:** Vite + React 19
-- **Language:** TypeScript
-- **Platform:** Cloudflare Workers (static assets + API)
-- **Version Control:** Git, hosted on GitHub
-- **CI/CD:** GitHub Actions
+## The template contract
 
-## Development Philosophy
+Every file in this repo is copied verbatim into every project spawned from it, so a wrong or generic
+line is paid for again in each one, in codebases where it may not even be true. That has already
+happened: this file's predecessor was byte-identical in a downstream project that shares none of its
+assumptions. Before adding anything here, ask whether it will still be true in a project you have
+never seen. If it is advice for the generated project rather than for the template, it belongs in
+`docs/PROJECT-AGENTS-TEMPLATE.md` or in the `/start` flow, not here.
 
-### KISS (Keep It Simple, Stupid)
-Choose straightforward solutions over complex ones. Simple solutions are easier to understand, maintain, and debug.
+`AGENTS.md` is the real file and `CLAUDE.md` is a symlink to it - `.gemini/settings.json` sets
+`contextFileName: AGENTS.md`, so that is the one every tool sees.
 
-### YAGNI (You Aren't Gonna Need It)
-Implement features only when needed, not when you anticipate they might be useful.
+## Working on the template
 
-## Language Conventions
+pnpm 11, pinned in `packageManager`; Node 24. Verify with `pnpm lint && pnpm test && pnpm build`.
+`pnpm lint` already fails at HEAD with two `react-hooks` errors in
+`examples/database/` (fetch-on-mount in `ContactForm.tsx` and `SessionProvider.tsx`, flagged by
+eslint-plugin-react-hooks 7). It is pre-existing, not yours, and CI runs lint - so a genuine fix
+needs those two examples rewritten, not just your own change to be clean.
 
-**ALL text content MUST use British English spelling and grammar.**
+Dependencies are pinned exact and `.npmrc` sets `minimum-release-age=4320`, so a just-published
+version refuses to install - that is the gate, not a registry outage.
 
-Quick reference: colour (not color), optimise (not optimize), analyse (not analyze), behaviour (not behavior).
+Run `pnpm cf-typegen` after adding or changing any Cloudflare binding. It regenerates
+`worker-configuration.d.ts` (400 KB, committed); skip it and the failure appears as a type error in
+unrelated code with nothing pointing back at the binding.
 
-**Use hyphens `-` with spaces, NOT em-dashes `—`.**
+`.mcp.json` connects the Cloudflare **API** MCP server (`https://mcp.cloudflare.com/mcp`, server key
+`cloudflare-api`). It manages Cloudflare resources; it is not a documentation search.
 
-For complete spelling/punctuation guidelines, see **[docs/CONVENTIONS.md](docs/CONVENTIONS.md)**.
-
-## Common Commands
-
-### Development
-- `npm run dev` - Start local development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run deploy` - Build and deploy to Cloudflare Workers
-
-### Testing
-- `npm run test` - Run tests once
-- `npm run test:watch` - Run tests in watch mode
-- `npm run test:coverage` - Run tests with coverage report
-
-### Cloudflare Bindings
-- `npm run cf-typegen` - Generate TypeScript types for bindings (run after adding any binding)
-- `npx wrangler d1 create <database-name>` - Create D1 database
-- `npx wrangler kv namespace create <namespace-name>` - Create KV namespace
-
-## Project Architecture
-
-### TypeScript Setup
-- `tsconfig.app.json` - Frontend React application
-- `tsconfig.worker.json` - Cloudflare Worker
-- `tsconfig.node.json` - Vite config and tooling
-- `tsconfig.json` - Root config referencing all three
-
-### Request Routing
-- `/api/*` routes → Handled by Worker (`worker/index.ts`)
-- All other routes → Static assets (React SPA)
-- Non-existent routes → Falls back to `index.html` (SPA mode)
-
-### Key Files
-- `src/main.tsx` - React entry point
-- `worker/index.ts` - Worker fetch handler (includes security headers and `/api/health` endpoint)
-- `wrangler.jsonc` - Cloudflare Worker configuration
-- `vite.config.ts` - Vite configuration
-- `.github/workflows/deploy.yml` - CI/CD pipeline
-
-## AI Assistant Configuration
-
-### Tool Permissions (Claude Code)
-`.claude/settings.json` includes pre-approved permissions for common operations (git, file editing, testing).
-
-### Slash Commands (Claude Code)
-- `/start` - Complete project setup (run first!) - config, credentials, domain, deployment
-- `/generate-prp` - Create Product Requirement Plans
-- `/execute-prp` - Implement features from PRPs
-- `/add-ai-feature` - Add AI capabilities (Claude API, Workers AI, AI Gateway)
-- `/setup-database` - Configure D1 or KV storage
-- `/setup-sandbox` - Configure Cloudflare Sandbox SDK for code execution
-- `/add-binding` - Add Cloudflare bindings (R2, Queues, etc.)
-
-See `.claude/README.md` for complete slash command documentation.
-
-## Data Storage
-
-### D1 (SQL Database)
-Use for: relational data, structured queries, transactions, ACID guarantees.
-
-```jsonc
-"d1_databases": [{
-  "binding": "DB",
-  "database_name": "my-database",
-  "database_id": "uuid-from-wrangler-create"
-}]
-```
-
-### KV (Key-Value)
-Use for: caching, sessions, config, high-read/low-write workloads.
-
-```jsonc
-"kv_namespaces": [{
-  "binding": "KV",
-  "id": "namespace-id-from-wrangler-create"
-}]
-```
-
-### Sandbox SDK (Beta)
-Use for: AI code execution, REPLs, data analysis, isolated environments.
-
-```jsonc
-"unsafe": {
-  "bindings": [{ "name": "Sandbox", "type": "sandbox" }]
-}
-```
-
-**Always run `npm run cf-typegen` after adding bindings.**
-
-For detailed patterns and examples:
-- **[CLOUDFLARE_WORKERS.md](CLOUDFLARE_WORKERS.md)** - Complete Cloudflare Workers guide
-- **[AI_INTEGRATION.md](AI_INTEGRATION.md)** - AI integration patterns
-- **[SANDBOX.md](SANDBOX.md)** - Sandbox SDK for code execution
-- **[examples/](examples/)** - Working code examples
-
-## AI Integration
-
-### Quick Reference
-- **Claude API** - Advanced reasoning, long conversations
-- **Workers AI** - Edge inference, cost-effective
-- **AI Gateway** - Caching and rate limiting for AI APIs
-- **Sandbox SDK** - Safe execution of AI-generated code
-
-See **[AI_INTEGRATION.md](AI_INTEGRATION.md)** for detailed integration guides.
-
-## Security Best Practices
-
-- Never commit secrets - use environment variables and `wrangler secret put`
-- Use parameterised queries for database operations
-- Implement rate limiting for APIs
-- Worker includes built-in security headers (CSP, X-Frame-Options, etc.)
-
-### Secrets Management
-- **Local:** `.dev.vars` file (gitignored)
-- **Production:** `npx wrangler secret put SECRET_NAME`
-- **GitHub Actions:** Repository secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`)
-
-## Deployment
-
-Automated on push to `main`:
-1. GitHub Actions workflow triggers
-2. Installs dependencies (`npm ci`)
-3. Runs linter (`npm run lint`)
-4. Runs tests (`npm run test`)
-5. Builds Vite app and Worker (`npm run build`)
-6. Deploys to Cloudflare's global edge network
-
-Run `/start` (Claude Code) to configure the required GitHub secrets and complete project setup.
-
-## Important Notes
-
-- **NEVER ASSUME OR GUESS** - Ask for clarification when uncertain
-- **Verify file paths and module names** before use
-- **Keep CLAUDE.md updated** when adding new patterns
-- **Test your code** - No feature is complete without tests
-- **Use `rg` (ripgrep)** instead of `grep` and `find`
-
-## Search Commands
-
-```bash
-# Use rg instead of grep
-rg "pattern"
-
-# Use rg instead of find
-rg --files -g "*.ts"
-```
+Read `CLOUDFLARE_WORKERS.md` before changing what bindings or Worker patterns the boilerplate ships
+with, and `.claude/README.md` before changing the slash commands, which are what a generated project
+actually runs.

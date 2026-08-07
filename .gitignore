@@ -88,3 +88,5 @@ wrangler.toml.bak
 # Temporary files
 *.tmp
 *.temp
+# Agent refactor working notes
+.agent-refactor/

@@ -43,11 +43,6 @@ export default function ContactForm() {
   const [isLoadingContacts, setIsLoadingContacts] = useState(false);
   const [contactsError, setContactsError] = useState<string | null>(null);
 
-  // Load contacts on component mount
-  useEffect(() => {
-    fetchContacts();
-  }, []);
-
   // Fetch all contacts
   const fetchContacts = async () => {
     setIsLoadingContacts(true);
@@ -78,6 +73,15 @@ export default function ContactForm() {
       setIsLoadingContacts(false);
     }
   };
+
+  // Load contacts on component mount.
+  // react-hooks 7 flags any fetch-on-mount that sets state; the sanctioned
+  // alternatives (a data framework, or `use()` with a suspending promise) are more
+  // machinery than this example is meant to show. Reach for one in a real app.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchContacts();
+  }, []);
 
   // Validate form
   const validateForm = (): boolean => {

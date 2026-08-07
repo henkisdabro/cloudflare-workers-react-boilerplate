@@ -44,11 +44,6 @@ export function SessionProvider({ children }: SessionProviderProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch current session on mount
-  useEffect(() => {
-    fetchSession();
-  }, []);
-
   const fetchSession = async () => {
     setIsLoading(true);
     setError(null);
@@ -89,6 +84,15 @@ export function SessionProvider({ children }: SessionProviderProps) {
       setIsLoading(false);
     }
   };
+
+  // Fetch current session on mount.
+  // react-hooks 7 flags any fetch-on-mount that sets state; the sanctioned
+  // alternatives (a data framework, or `use()` with a suspending promise) are more
+  // machinery than this example is meant to show. Reach for one in a real app.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchSession();
+  }, []);
 
   const login = async (email: string, password: string) => {
     setIsLoading(true);

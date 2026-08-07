@@ -22,10 +22,10 @@ never seen. If it is advice for the generated project rather than for the templa
 ## Working on the template
 
 pnpm 11, pinned in `packageManager`; Node 24. Verify with `pnpm lint && pnpm test && pnpm build`.
-`pnpm lint` already fails at HEAD with two `react-hooks` errors in
-`examples/database/` (fetch-on-mount in `ContactForm.tsx` and `SessionProvider.tsx`, flagged by
-eslint-plugin-react-hooks 7). It is pre-existing, not yours, and CI runs lint - so a genuine fix
-needs those two examples rewritten, not just your own change to be clean.
+CI runs lint, and the two `examples/database/` components carry a narrow
+`react-hooks/set-state-in-effect` disable at their fetch-on-mount effect: the rule's sanctioned
+alternatives need a data framework the examples deliberately do not pull in. Copy that pattern only
+into another teaching example, not into real application code.
 
 Dependencies are pinned exact and `.npmrc` sets `minimum-release-age=4320`, so a just-published
 version refuses to install - that is the gate, not a registry outage.

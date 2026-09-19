@@ -425,7 +425,7 @@ Enable `@claude` mentions in pull requests and issues to get AI-powered assistan
 - **Request reviews** - `@claude review this PR for security issues`
 - **Implement changes** - `@claude add input validation to the form`
 
-Claude reads your code, follows your `CLAUDE.md` guidelines, and commits changes directly to your branch.
+Claude reads your code, follows your `AGENTS.md` guidelines, and commits changes directly to your branch.
 
 **Quick setup:** Run `/start` and select "Yes" when asked about Claude GitHub Actions.
 
@@ -728,7 +728,7 @@ cloudflare-workers-react-boilerplate/
 ├── AI_INTEGRATION.md            # AI integration guide
 ├── CLOUDFLARE_WORKERS.md        # Cloudflare Workers guide
 ├── SANDBOX.md                   # Sandbox SDK guide
-├── CLAUDE.md                    # Claude Code instructions
+├── AGENTS.md                    # Claude Code instructions
 ├── AGENTS.md                    # AI instructions (for other LLMs)
 └── README.md                    # This file
 ```
@@ -773,8 +773,8 @@ npx wrangler secret put DATABASE_URL
 | Document | Description |
 |----------|-------------|
 | **[README.md](README.md)** | This file - Overview and quick start |
-| **[CLAUDE.md](CLAUDE.md)** | Developer guidelines and AI coding instructions |
-| **[AGENTS.md](AGENTS.md)** | AI guidelines for other LLMs (duplicate of CLAUDE.md) |
+| **[AGENTS.md](AGENTS.md)** | Developer guidelines and AI coding instructions |
+| **[AGENTS.md](AGENTS.md)** | Canonical agent guidelines (`CLAUDE.md` imports this file for compatibility) |
 | **[AI_INTEGRATION.md](AI_INTEGRATION.md)** | Complete AI integration guide |
 | **[docs/GITHUB_ACTIONS_CLAUDE.md](docs/GITHUB_ACTIONS_CLAUDE.md)** | Claude GitHub Actions for PR automation |
 | **[SANDBOX.md](SANDBOX.md)** | Cloudflare Sandbox SDK for code execution |
@@ -842,6 +842,6 @@ Built with amazing open-source technologies:
 
 **⚡ Built with Cloudflare Workers • 🤖 Optimized for Claude Code • 🚀 Production Ready**
 
-[Use This Template](https://github.com/your-username/your-repo/generate) • [View Examples](examples/) • [Read Docs](CLAUDE.md)
+[Use This Template](https://github.com/your-username/your-repo/generate) • [View Examples](examples/) • [Read Docs](AGENTS.md)
 
 </div>

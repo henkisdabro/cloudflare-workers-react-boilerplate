@@ -1,8 +1,8 @@
 # Starter AGENTS.md for a generated project
 
 This file is **not** loaded as instructions. It is the starter agent file for a project created from
-this template. Copy it to `AGENTS.md` at the project root, symlink `CLAUDE.md` to it
-(`rm CLAUDE.md && ln -s AGENTS.md CLAUDE.md`), then edit it down until every line is true of that
+this template. Copy it to `AGENTS.md` at the project root, then make `CLAUDE.md` a regular
+compatibility file containing exactly `@AGENTS.md`. Edit `AGENTS.md` down until every line is true of that
 project specifically.
 
 Keep it short. Everything in an agent file loads on every request, so it earns its place only by

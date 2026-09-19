@@ -368,7 +368,7 @@ If you run into issues:
 1. **Check the example's README** - Most common issues are covered
 2. **Review the PRP.md** for detailed implementation guidance
 3. **Review the main documentation**:
-   - [CLAUDE.md](../CLAUDE.md) - Project guidelines and patterns
+   - [AGENTS.md](../AGENTS.md) - Project guidelines and patterns
    - [AI_INTEGRATION.md](../AI_INTEGRATION.md) - AI integration details (coming soon)
    - [CLOUDFLARE_WORKERS.md](../CLOUDFLARE_WORKERS.md) - Workers documentation (coming soon)
 4. **Cloudflare Documentation**:

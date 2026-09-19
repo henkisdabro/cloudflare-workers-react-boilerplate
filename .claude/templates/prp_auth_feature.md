@@ -819,7 +819,7 @@ for i in {1..10}; do curl -X POST http://localhost:5173/api/auth/login ...; done
 ### Internal Documentation
 
 - `examples/database/kv-sessions/` - Session management example
-- `CLAUDE.md` - Project guidelines
+- `AGENTS.md` - Project guidelines
 
 ### External Resources
 

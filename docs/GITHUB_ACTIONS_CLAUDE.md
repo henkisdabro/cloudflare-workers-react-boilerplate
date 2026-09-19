@@ -121,7 +121,7 @@ Once configured, mention `@claude` in any PR comment or issue to interact with C
 ### How Claude Responds
 
 1. Claude reads your comment and the PR context
-2. Analyses the codebase using the repository's `CLAUDE.md` guidelines
+2. Analyses the codebase using the repository's canonical `AGENTS.md` guidelines, imported through `CLAUDE.md`
 3. Responds with an explanation, suggestion, or code changes
 4. If implementing changes, commits directly to the PR branch
 
@@ -185,9 +185,9 @@ claude_args: "--max-turns 5"
 claude_args: "--model claude-opus-4-5-20251101"
 ```
 
-### Using CLAUDE.md for Guidelines
+### Using AGENTS.md for Guidelines
 
-Claude automatically reads your repository's `CLAUDE.md` file to understand:
+Claude reads the repository's `CLAUDE.md` compatibility shim, which imports canonical instructions from `AGENTS.md`, to understand:
 
 - Project architecture and conventions
 - Code style guidelines

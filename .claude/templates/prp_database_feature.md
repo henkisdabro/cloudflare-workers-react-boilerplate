@@ -700,7 +700,7 @@ curl [production-endpoint]
 ### Internal Documentation
 
 - `examples/database/README.md` - Database example overview
-- `CLAUDE.md` - Project guidelines
+- `AGENTS.md` - Project guidelines
 
 ### External Resources
 

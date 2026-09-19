@@ -3,3 +3,7 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
+
+# Supply-chain hardening: refuse dependency versions younger than 3 days.
+# pnpm-only setting, so it lives here - npm warns on unknown keys in .npmrc.
+minimumReleaseAge: 4320

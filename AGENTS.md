@@ -16,7 +16,7 @@ assumptions. Before adding anything here, ask whether it will still be true in a
 never seen. If it is advice for the generated project rather than for the template, it belongs in
 `docs/PROJECT-AGENTS-TEMPLATE.md` or in the `/start` flow, not here.
 
-`AGENTS.md` is the real file and `CLAUDE.md` is a symlink to it - `.gemini/settings.json` sets
+`AGENTS.md` is the canonical file and the regular `CLAUDE.md` compatibility shim imports it - `.gemini/settings.json` sets
 `contextFileName: AGENTS.md`, so that is the one every tool sees.
 
 ## Working on the template

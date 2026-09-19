@@ -2114,4 +2114,4 @@ const contentType = request.headers.get("Content-Type");
 
 **Last Updated:** 2025-12-22
 
-For project-specific information, see `CLAUDE.md` and other documentation files in this repository.
+For project-specific information, see `AGENTS.md` and other documentation files in this repository.

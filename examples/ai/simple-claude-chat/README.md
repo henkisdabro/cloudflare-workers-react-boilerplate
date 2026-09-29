@@ -213,7 +213,7 @@ In `worker-endpoint.ts`, modify the model:
 
 ```typescript
 const message = await anthropic.messages.create({
-  model: 'claude-3-haiku-20240307', // Cheaper, faster
+  model: 'claude-haiku-4-5-20251001', // Cheaper, faster
   // or
   model: 'claude-sonnet-5-5', // Better quality
   // ...

@@ -987,7 +987,7 @@ Configure caching in AI Gateway to reduce costs and latency for repeated queries
 ```typescript
 // For simple tasks, use faster/cheaper models:
 const MODELS = {
-  simple: 'claude-haiku-3-5-20250929',      // Fast, cheap
+  simple: 'claude-haiku-4-5-20251001',      // Fast, cheap
   balanced: 'claude-sonnet-5-5',   // Good balance
   complex: 'claude-opus-5-5',      // Most capable
 };

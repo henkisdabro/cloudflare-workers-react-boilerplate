@@ -121,7 +121,7 @@ export const CLAUDE_MODELS = {
   /** Latest and most capable Claude model */
   SONNET_5_5: 'claude-sonnet-5-5',
   /** Fast and cost-effective Claude model */
-  HAIKU_3: 'claude-3-haiku-20240307',
+  HAIKU_4_5: 'claude-haiku-4-5-20251001',
 } as const;
 
 export type ClaudeModel = typeof CLAUDE_MODELS[keyof typeof CLAUDE_MODELS];

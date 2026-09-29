@@ -95,7 +95,7 @@ const anthropic = new Anthropic({
 
 // Use normally - all requests now go through gateway
 const message = await anthropic.messages.create({
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'claude-sonnet-5-5',
   max_tokens: 1024,
   messages: [{ role: 'user', content: 'Hello!' }],
 });
@@ -130,7 +130,7 @@ const response = await fetch(
       'anthropic-version': '2023-06-01',
     },
     body: JSON.stringify({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-sonnet-5-5',
       max_tokens: 1024,
       messages: [{ role: 'user', content: 'Hello' }],
     }),

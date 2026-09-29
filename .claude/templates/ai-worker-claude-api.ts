@@ -149,7 +149,7 @@ async function handleChatRequest(
 
     // Call Claude API
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-5-20250929', // Latest model
+      model: 'claude-sonnet-5-5', // Latest model
       max_tokens: 2048, // Adjust based on your needs
       messages,
       // Optional: Add system prompt

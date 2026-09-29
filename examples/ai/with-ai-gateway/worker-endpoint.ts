@@ -45,7 +45,7 @@ export async function handleChatWithGateway(
 
     // Use normally - requests automatically go through gateway
     const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-sonnet-5-5',
       max_tokens: 1024,
       messages: [{ role: 'user', content: message }],
     });
@@ -95,7 +95,7 @@ export async function handleStreamingWithGateway(
 
     // Streaming works through gateway!
     const stream = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-sonnet-5-5',
       max_tokens: 1024,
       messages: [{ role: 'user', content: message }],
       stream: true,
@@ -174,7 +174,7 @@ export async function handleChatWithFallback(
       });
 
       const response = await anthropic.messages.create({
-        model: 'claude-3-5-sonnet-20241022',
+        model: 'claude-sonnet-5-5',
         max_tokens: 1024,
         messages: [{ role: 'user', content: message }],
       });
@@ -268,7 +268,7 @@ export async function handleChatWithMetadata(
         }),
       },
       body: JSON.stringify({
-        model: 'claude-3-5-sonnet-20241022',
+        model: 'claude-sonnet-5-5',
         max_tokens: 1024,
         messages: [{ role: 'user', content: message }],
       }),
@@ -324,7 +324,7 @@ export async function handleChatWithCacheControl(
     });
 
     const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-sonnet-5-5',
       max_tokens: 1024,
       messages: [{ role: 'user', content: message }],
     });

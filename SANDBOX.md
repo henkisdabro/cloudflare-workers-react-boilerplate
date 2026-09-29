@@ -258,7 +258,7 @@ export default {
 
     // Get AI to generate code
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-5-20250929',
+      model: 'claude-sonnet-5-5',
       max_tokens: 2048,
       messages: [{
         role: 'user',

@@ -172,7 +172,7 @@ on:
     prompt: "Review this PR for security vulnerabilities"
     claude_args: |
       --max-turns 5
-      --model claude-sonnet-4-5-20250929
+      --model claude-sonnet-5-5
 ```
 
 **Limit iterations to control costs:**
@@ -182,7 +182,7 @@ claude_args: "--max-turns 5"
 
 **Use a specific model:**
 ```yaml
-claude_args: "--model claude-opus-4-5-20251101"
+claude_args: "--model claude-opus-5-5"
 ```
 
 ### Using AGENTS.md for Guidelines
@@ -206,7 +206,7 @@ For organisations using AWS Bedrock instead of the direct Anthropic API:
 - uses: anthropics/claude-code-action@v1
   with:
     use_bedrock: true
-    claude_args: '--model us.anthropic.claude-sonnet-4-5-20250929-v1:0'
+    claude_args: '--model us.anthropic.claude-sonnet-5-5:0'
   env:
     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

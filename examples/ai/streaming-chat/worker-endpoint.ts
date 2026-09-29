@@ -114,7 +114,7 @@ export async function handleStreamingChat(
       try {
         // Call Claude API with streaming enabled
         const stream = await anthropic.messages.create({
-          model: body.model || 'claude-3-5-sonnet-20241022',
+          model: body.model || 'claude-sonnet-5-5',
           max_tokens: body.maxTokens || 2048,
           temperature: body.temperature ?? 0.7,
           system: body.system,
@@ -289,7 +289,7 @@ function createErrorStream(
  * data: {"type":"content","text":"Hello"}
  *
  * Done event:
- * data: {"type":"done","model":"claude-3-5-sonnet-20241022","usage":{...}}
+ * data: {"type":"done","model":"claude-sonnet-5-5","usage":{...}}
  *
  * Error event:
  * data: {"type":"error","error":"Error message"}

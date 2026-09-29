@@ -170,7 +170,7 @@ data: {"type":"content","text":"Hello"}
 
 data: {"type":"content","text":" there"}
 
-data: {"type":"done","model":"claude-3-5-sonnet-20241022"}
+data: {"type":"done","model":"claude-sonnet-5-5"}
 ```
 
 ## How Streaming Works
@@ -221,7 +221,7 @@ Client                Worker                  Claude API
 ```typescript
 // In worker-endpoint.ts
 const stream = await anthropic.messages.create({
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'claude-sonnet-5-5',
   max_tokens: 2048, // Allow longer responses
   stream: true,     // Enable streaming
   // ...

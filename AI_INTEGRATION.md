@@ -9,7 +9,7 @@ Complete guide for integrating AI capabilities into your Cloudflare Workers + Re
 **Best for:**
 - Advanced reasoning and long-context tasks
 - Production applications requiring high-quality responses
-- When you need the latest Claude models (Sonnet 4.5, Opus, Haiku)
+- When you need the latest Claude models (Sonnet 5.5, Opus, Haiku)
 - Complex multi-turn conversations
 - Document analysis and code generation
 
@@ -149,7 +149,7 @@ export default {
         });
 
         const response = await anthropic.messages.create({
-          model: 'claude-sonnet-4-5-20250929',
+          model: 'claude-sonnet-5-5',
           max_tokens: 1024,
           messages: [{
             role: 'user',
@@ -256,7 +256,7 @@ export default {
         });
 
         const response = await anthropic.messages.create({
-          model: 'claude-sonnet-4-5-20250929',
+          model: 'claude-sonnet-5-5',
           max_tokens: 1024,
           messages: [{
             role: 'user',
@@ -354,7 +354,7 @@ export default {
         ];
 
         const response = await anthropic.messages.create({
-          model: 'claude-sonnet-4-5-20250929',
+          model: 'claude-sonnet-5-5',
           max_tokens: 2048,
           messages,
         });
@@ -574,7 +574,7 @@ export default {
 
             try {
               const stream = await anthropic.messages.stream({
-                model: 'claude-sonnet-4-5-20250929',
+                model: 'claude-sonnet-5-5',
                 max_tokens: 2048,
                 messages: [{ role: 'user', content: message }],
               });
@@ -768,7 +768,7 @@ async function handleAIRequest(
     });
 
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-5-20250929',
+      model: 'claude-sonnet-5-5',
       max_tokens: 2048,
       messages: [{ role: 'user', content: message }],
     });
@@ -951,7 +951,7 @@ const MAX_INPUT_LENGTH = 10000;  // Characters
 
 // In your API handler:
 const response = await anthropic.messages.create({
-  model: 'claude-sonnet-4-5-20250929',
+  model: 'claude-sonnet-5-5',
   max_tokens: MAX_TOKENS,  // Hard limit
   messages: [{ role: 'user', content: message }],
 });
@@ -988,8 +988,8 @@ Configure caching in AI Gateway to reduce costs and latency for repeated queries
 // For simple tasks, use faster/cheaper models:
 const MODELS = {
   simple: 'claude-haiku-3-5-20250929',      // Fast, cheap
-  balanced: 'claude-sonnet-4-5-20250929',   // Good balance
-  complex: 'claude-opus-4-5-20250929',      // Most capable
+  balanced: 'claude-sonnet-5-5',   // Good balance
+  complex: 'claude-opus-5-5',      // Most capable
 };
 
 // Select based on task complexity
@@ -1005,7 +1005,7 @@ Streaming provides immediate feedback and better perceived performance:
 ```typescript
 // Use streaming for long responses
 const stream = await anthropic.messages.stream({
-  model: 'claude-sonnet-4-5-20250929',
+  model: 'claude-sonnet-5-5',
   max_tokens: 2048,
   messages: [{ role: 'user', content: message }],
 });

@@ -59,7 +59,7 @@ This feature adds a basic chat interface to the Cloudflare Workers + React appli
 - **Resource**: Anthropic Claude API
   - **URL**: https://docs.anthropic.com/claude/reference/messages_post
   - **Key Sections**: Messages API, Non-streaming responses, Error handling
-  - **Version**: Latest (claude-3-5-sonnet-20241022)
+  - **Version**: Latest (claude-sonnet-5-5)
   - **Gotchas**: Requires alternating user/assistant messages, max 200k tokens context
 
 - **Resource**: Cloudflare Workers
@@ -570,7 +570,7 @@ const anthropic = new Anthropic({
 });
 
 const message = await anthropic.messages.create({
-  model: 'claude-3-5-sonnet-20241022',
+  model: 'claude-sonnet-5-5',
   max_tokens: 1024,
   messages: [{ role: 'user', content: 'Hello, Claude' }],
 });

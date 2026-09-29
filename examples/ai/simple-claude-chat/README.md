@@ -181,7 +181,7 @@ curl -X POST https://your-worker.workers.dev/api/chat \
 ```json
 {
   "message": "Claude's response",
-  "model": "claude-3-5-sonnet-20241022"
+  "model": "claude-sonnet-5-5"
 }
 ```
 
@@ -215,7 +215,7 @@ In `worker-endpoint.ts`, modify the model:
 const message = await anthropic.messages.create({
   model: 'claude-3-haiku-20240307', // Cheaper, faster
   // or
-  model: 'claude-3-5-sonnet-20241022', // Better quality
+  model: 'claude-sonnet-5-5', // Better quality
   // ...
 });
 ```

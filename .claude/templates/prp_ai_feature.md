@@ -31,7 +31,7 @@
 **Alternatives Considered**:
 | Model | Pros | Cons | Cost | Decision |
 |-------|------|------|------|----------|
-| claude-sonnet-4-5 | High quality, fast | Higher cost | $3/$15 per 1M tokens | ✅ Chosen |
+| claude-sonnet-5-5 | High quality, fast | Higher cost | $3/$15 per 1M tokens | ✅ Chosen |
 | claude-haiku-3-5 | Very fast, cheap | Lower quality | $0.80/$4 per 1M tokens | ❌ Too simple |
 | Workers AI Llama | Free tier, fast | Limited capability | Free/very cheap | ❌ Insufficient for task |
 
@@ -800,7 +800,7 @@ Optional: Add environment variable to enable/disable AI features:
 
 ```typescript
 const stream = await anthropic.messages.stream({
-  model: 'claude-sonnet-4-5-20250929',
+  model: 'claude-sonnet-5-5',
   max_tokens: 2048,
   messages: [{ role: 'user', content: 'Hello!' }],
 });

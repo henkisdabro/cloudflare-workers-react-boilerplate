@@ -103,7 +103,7 @@ export async function handleChat(
 
     // Call Claude API (non-streaming)
     const response = await anthropic.messages.create({
-      model: body.model || 'claude-3-5-sonnet-20241022',
+      model: body.model || 'claude-sonnet-5-5',
       max_tokens: body.maxTokens || 1024,
       temperature: body.temperature ?? 0.7,
       system: body.system,

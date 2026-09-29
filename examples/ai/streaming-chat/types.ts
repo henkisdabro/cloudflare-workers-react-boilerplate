@@ -32,7 +32,7 @@ export interface StreamingChatRequest {
     role: 'user' | 'assistant';
     content: string;
   }>;
-  /** Optional model to use (defaults to claude-3-5-sonnet) */
+  /** Optional model to use (defaults to claude-sonnet-5-5) */
   model?: string;
   /** Optional maximum tokens for response */
   maxTokens?: number;
@@ -119,11 +119,9 @@ export function isErrorEvent(event: StreamEvent): event is ErrorStreamEvent {
  */
 export const CLAUDE_MODELS = {
   /** Latest and most capable Claude model */
-  SONNET_3_5: 'claude-3-5-sonnet-20241022',
+  SONNET_5_5: 'claude-sonnet-5-5',
   /** Fast and cost-effective Claude model */
   HAIKU_3: 'claude-3-haiku-20240307',
-  /** Balanced Claude model */
-  SONNET_3: 'claude-3-sonnet-20240229',
 } as const;
 
 export type ClaudeModel = typeof CLAUDE_MODELS[keyof typeof CLAUDE_MODELS];
@@ -155,7 +153,7 @@ export interface StreamingChatConfig {
  */
 export const DEFAULT_STREAMING_CONFIG: StreamingChatConfig = {
   apiEndpoint: '/api/chat-stream',
-  model: CLAUDE_MODELS.SONNET_3_5,
+  model: CLAUDE_MODELS.SONNET_5_5,
   maxTokens: 2048,
   temperature: 0.7,
   includeHistory: true,

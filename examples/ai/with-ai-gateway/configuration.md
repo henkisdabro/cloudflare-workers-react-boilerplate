@@ -465,7 +465,7 @@ Dashboard → Gateway → Settings
   "timestamp": "2025-11-09T12:00:00Z",
   "gateway": "production-ai-gateway",
   "provider": "anthropic",
-  "model": "claude-3-5-sonnet-20241022",
+  "model": "claude-sonnet-5-5",
   "status": 200,
   "cache_status": "HIT",
   "latency_ms": 245,

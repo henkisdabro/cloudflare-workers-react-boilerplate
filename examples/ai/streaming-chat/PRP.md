@@ -441,7 +441,7 @@ data: {"type":"content","text":"Hello"}
 
 data: {"type":"content","text":" world"}
 
-data: {"type":"done","model":"claude-3-5-sonnet-20241022"}
+data: {"type":"done","model":"claude-sonnet-5-5"}
 
 ```
 
